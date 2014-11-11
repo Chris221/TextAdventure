@@ -1,6 +1,6 @@
 
 html {
-    font-family: cursive;
+    font-family: Arial, Helvetica, sans-serif;
     text-align: center;
 }
 
@@ -53,7 +53,7 @@ output {
 
 output, input {
     font-size: 250%;
-    font-family: cursive;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 main > section {
