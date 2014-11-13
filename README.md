@@ -3,8 +3,6 @@ other then
 "Chris's Text Adventure"
 ==================
 
-I have already written the game in Java so converting is the major "challenge." 
-
 The game starts with naming your character. The character then appears in the starting city with few instructions other then adventuring around. The back-story is more of a mystery that your character can’t remember it.
 
 The world has different environments that you engage as you travel. Cities, forests, towers, caves, mines and rivers are some of the different environments that you can engage in.
