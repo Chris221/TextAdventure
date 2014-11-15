@@ -23,13 +23,23 @@ function execute(cmd) {
 	}
 };
 
-var input = document.querySelector('input');
-input.addEventListener("keyup", function(event) {
-	if(event.keycode == 13) {
-		var cmd = interpret(this.value);
-		execute(cmd);
-		alert(player.items);
+function returner() {
+	var cmd;
+	var input = document.querySelector('input');
+	while (typeof cma != 'undefined') {
+		input.addEventListener("keyup", function(event) {
+			if(event.keycode == 13) {
+				cmd = interpret(this.value);
+			}
+		})
 	}
-});
+	return cmd;
+};
+
+function display(text) {
+	var output = document.getElementById('output')
+	output.innerHTML = '';
+	output.innerHTML = text;
+};
 
 
