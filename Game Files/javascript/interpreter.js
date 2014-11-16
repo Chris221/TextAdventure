@@ -1,3 +1,10 @@
+var player = {
+	items: ['backpack'],
+	pickup: function(item) {
+		this.items.push(item);
+	},
+};
+
 function interpret(input) {
 	var command = input.trim().split(' ');
 	var holder = command.slice(1).join(' ');
@@ -16,15 +23,13 @@ function execute(cmd) {
 	}
 };
 
-//modify
 function returner() {
 	var cmd;
 	var input = document.querySelector('input');
-	while (typeof cmd === 'undefined') {
+	while (typeof cma != 'undefined') {
 		input.addEventListener("keyup", function(event) {
 			if(event.keycode == 13) {
 				cmd = interpret(this.value);
-				execute(cmd);
 			}
 		})
 	}
@@ -32,9 +37,13 @@ function returner() {
 };
 
 function display(text) {
-	var output = document.getElementById('output')
+	var output = document.getElementById('output');
 	output.innerHTML = '';
 	output.innerHTML = text;
 };
 
+function tb_command_Function(){
+	var vtb_ommand = document.getElementById('tb_command');
+	display(vtb_ommand.value);
+};
 

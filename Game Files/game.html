@@ -26,11 +26,8 @@
 
 <!-- Turn off the Lights -->
 <script src="javascript/switchCSS.js" language="JavaScript" type="text/javascript"></script>
-<!-- Calculator -->
-<script src="javascript/game.js" language="JavaScript" type="text/javascript"></script>
-<script src="javascript/interpreter.js" language="JavaScript" type="text/javascript"></script>
 </head>
-<body class="body" onLoad="startUp(), start()">
+<body class="body" onLoad="startUp(), Game.start()">
 <div class="top">
 	<h1>ChrisSiena.com</h1>
 </div>
@@ -68,8 +65,12 @@
             <h2>Game Name</h2>
             <div class="text">
                 <span>
-                	<h2>Triangle Calculator</h2>
-                    <input type="text" placeholder="Enter a Command..." />
+                    <br />
+                    <br />
+                    <br />
+                	<center>
+                    	<input type="text" placeholder="Enter a Command..." onchange="run()" />
+                    </center>
                     <br />
                 </span>
                 <br />
@@ -83,5 +84,7 @@
 <div class="footer">
 	<div class="footerText">Copyright 2013-2014 by ChrisSiena.com. All Rights Reserved.</div>
 </div>
+<script src="javascript/game.js" language="JavaScript" type="text/javascript"></script>
+<script src="javascript/essentials.js" language="JavaScript" type="text/javascript"></script>
 </body>
 </html>
