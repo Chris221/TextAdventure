@@ -27,6 +27,7 @@ var player = {
 };
 var x = 0;
 
+//Needs editing
 function start() {
 			player.location = 1;
 			var text = '';
@@ -42,16 +43,13 @@ function start() {
 			display(text);
 			x = returner();
 			display(x);
-			console.log('this works');
-			/**
 			while (x < 1 || x > 7) {
 				text += ('You entered an invalid number.<br \>');
 				text += ('Please enter a valid number.<br \>');
 				display(text);
 				x = returner();
 			}
-			console.log('this works');
-			/**
+
 			if (x == 1) {
 				elden();
 			} else if (x == 2) {
@@ -67,5 +65,4 @@ function start() {
 			} else if (x == 7) {
 				shop();
 			}
-			*/
 };
