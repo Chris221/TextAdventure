@@ -491,13 +491,13 @@ var Game = {
 		this.player.goldIncome = paygold*this.player.gold;
 		this.player.coalIncome = paycoal*this.player.coal;
 		var text = '';
-		text += ('You have ' + iron + ' iron. The shop keeper will pay you ' + payiron + ' silver per iron.<br />');
-		text += ('You have ' + gold + ' gold. The shop keeper will pay you ' + paygold + ' silver per gold.<br />');
-		text += ('You have ' + coal + ' coal. The shop keeper will pay you ' + paycoal + ' silver per coal.<br />');
+		text += ('You have ' + this.player.iron + ' iron. The shop keeper will pay you ' + payiron + ' silver per iron.<br />');
+		text += ('You have ' + this.player.gold + ' gold. The shop keeper will pay you ' + paygold + ' silver per gold.<br />');
+		text += ('You have ' + this.player.coal + ' coal. The shop keeper will pay you ' + paycoal + ' silver per coal.<br />');
 		text += ('What would you like to do?<br />');
-		text += ('1) Sell ' + iron + ' iron for a total of ' + ironIncome + ' silver.<br />' );
-		text += ('2) Sell ' + gold + ' gold for a total of ' + goldIncome + ' silver.<br />' );
-		text += ('3) Sell ' + coal + ' coal for a total of ' + coalIncome + ' silver.<br />' );
+		text += ('1) Sell ' + this.player.iron + ' iron for a total of ' + this.player.ironIncome + ' silver.<br />' );
+		text += ('2) Sell ' + this.player.gold + ' gold for a total of ' + this.player.goldIncome + ' silver.<br />' );
+		text += ('3) Sell ' + this.player.coal + ' coal for a total of ' + this.player.coalIncome + ' silver.<br />' );
 		text += ('4) Return to the shop.<br />');
 		display(text);
 		  while (x < 1 || x > 4) {
