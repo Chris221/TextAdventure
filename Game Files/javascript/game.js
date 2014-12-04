@@ -75,9 +75,9 @@ var Game = {
 	},
 	  
 	cave: function() {
-		b = 300;
-		r = random(0, b-1);
-		x = '';
+		var b = 300;
+		var r = random(0, b-1);
+		var x = '';
 		if (r >= 0 && r < 20) {
 			x = 'soldier';
 		} else if (r >= 20 && r < 25) {
