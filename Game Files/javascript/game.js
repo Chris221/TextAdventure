@@ -26,20 +26,23 @@ var Game = {
 		ironIncome: 0,
 		goldIncome: 0,
 		coalIncome: 0,
+		location: 0,
+		globalLocation: 0,
+		shopLocation: 0,
 		swordname: '',
 	 	armourname: '',
 		name: '',
 	},
 	
 	start: function() {
-		this.player.location = 1;
-		this.armourName();
-		this.swordName();
+		Game.player.location = 1;
+		Game.armourName();
+		Game.swordName();
 		var text = '';
 		text += ('You find yourself in the Castle of Backleigh.<br />');
 		text += ('What would you like to do?<br />');
-		text += ('1) <b>Go north</b> to Elden Stronghold.<br />');
-		text += ('2) <b>Go west</b> to Draydon Keep.<br />');
+		text += ('1) <b>Go North</b> to Elden Stronghold.<br />');
+		text += ('2) <b>Go West</b> to Draydon Keep.<br />');
 		text += ('3) <b>Go East</b> to the Deserts of Grimtol.<br />');
 		text += ('4) <b>Enter the cave</b> under Backleigh Castle.<br />');
 		text += ('5) <b>Chop wood</b> in the lumber yard.<br />');
@@ -49,17 +52,17 @@ var Game = {
 	},
 	
 	backleigh: function() {
-		this.player.location = 1;
+		Game.player.location = 1;
 		var text = '';
 		text += ('You arrive in Backleigh Castle.<br />');
 		text += ('What would you like to do?<br />');
-		text += ('1) <b>Go north</b> to Elden Stronghold.<br />');
-		text += ('2) <b>Go west</b> to Draydon Keep.<br />');
+		text += ('1) <b>Go North</b> to Elden Stronghold.<br />');
+		text += ('2) <b>Go West</b> to Draydon Keep.<br />');
 		text += ('3) <b>Go East</b> to the Deserts of Grimtol.<br />');
 		text += ('4) <b>Enter the cave</b> under Backleigh Castle.<br />');
 		text += ('5) <b>Chop wood</b> in the lumber yard.<br />');
-		text += ('6) <b>Go to the mine</b>.<br />');
-		text += ('7) <b>Go to the shop</b>.<br />');
+		text += ('6) <b>Enter the mine</b>.<br />');
+		text += ('7) <b>Enter the shop</b>.<br />');
 		display(text);
 	},
 	
@@ -70,7 +73,7 @@ var Game = {
 		text += ('The sign reads: <br /><b>\"ONLY ENTER IF YOU DARE!\" <br />\"THE CAVE IS FILLED WITH MONSTERS!\"</b><br />');
 		text += ('What would you like to do?<br />');
 		text += ('1) <b>Enter the cave</b>.<br />');
-		text += ('3) <b>Head back</b> to Backleigh Castle.<br />');
+		text += ('3) <b>Return</b> to Backleigh Castle.<br />');
 		display(text);
 	},
 	  
@@ -103,7 +106,7 @@ var Game = {
 		} else if (r >= 260 && r < 300) {
 			x = 'spider';
 		}
-		this.player.name = x;
+		Game.player.name = x;
 		return;
 	},
 	
@@ -111,10 +114,10 @@ var Game = {
 		var text = '';
 		cave();
 		text += ('You have entered the cave.<br />');
-		text += ('You see a ' + this.player.name + '.<br />');
+		text += ('You see a ' + Game.player.name + '.<br />');
 		text += ('What would you like to do?<br />');
-		text += ('1) <b>Attack</b> the ' + this.player.name + '.<br />');
-		text += ('2) <b>Run</b> from the ' + this.player.name + '.<br />');
+		text += ('1) <b>Attack</b> the ' + Game.player.name + '.<br />');
+		text += ('2) <b>Run</b> from the ' + Game.player.name + '.<br />');
 		text += ('3) <b>Leave</b> the cave.<br />');
 		display(text);
 	},
@@ -123,24 +126,24 @@ var Game = {
 		var text = '';
 		cave();
 		text += ('You continue down the cave.<br />');
-		text += ('You see a ' + this.player.name + '.<br />');
+		text += ('You see a ' + Game.player.name + '.<br />');
 		text += ('What would you like to do?<br />');
 		text += ('What would you like to do?<br />');
-		text += ('1) <b>Attack</b> the ' + this.player.name + '.<br />');
-		text += ('2) <b>Run</b> from the ' + this.player.name + '.<br />');
+		text += ('1) <b>Attack</b> the ' + Game.player.name + '.<br />');
+		text += ('2) <b>Run</b> from the ' + Game.player.name + '.<br />');
 		text += ('3) <b>Leave</b> the cave.<br />');
 		display(text);
 	},
 	
 	 runCave: function() {
 		var text = '';
-		text += ('You have escaped from the ' + this.player.name + '.<br />');
+		text += ('You have escaped from the ' + Game.player.name + '.<br />');
 		display(text);
 	},
 	
 	caveReturn: function() {
 		var text = '';
-		text += ('Now that you have slain the ' + this.player.name + '.<br />');
+		text += ('Now that you have slain the ' + Game.player.name + '.<br />');
 		text += ('You continue to explore the cave.<br />');
 		display(text);
 	},
@@ -173,13 +176,13 @@ var Game = {
 	},
 	
 	draydon: function() {
-		this.player.location = 2;
+		Game.player.location = 2;
 		var text = '';
 		text += ('You arrive in Draydon Keep.<br />');
 		text += ('What would you like to do?<br />');
 		text += ('1) <b>Go East</b> to Backleigh Castle.<br />');
 		text += ('2) <b>Enter the Draydon port</b>.<br />');
-		text += ('3) <b>Go to the shop</b>.<br />');
+		text += ('3) <b>Enter the shop</b>.<br />');
 		display(text);
 	},
 	
@@ -187,7 +190,7 @@ var Game = {
 		var text = '';
 		text += ('You arrive at Draydon Port.<br />');
 		text += ('What would you like to do?<br />');
-		text += ('1) <b>Buy bait</b>.<br />');
+		text += ('1) <b>Buy</b> bait.<br />');
 		text += ('2) <b>Fish</b><br />');
 		text += ('3) <b>Return</b> to Draydon Keep.<br />');
 		display(text);
@@ -199,21 +202,21 @@ var Game = {
 		text += ('You have ' + silver + ' silver.<br />');
 		text += ('You have ' + bait + ' piece(s) of bait.<br />');
 		text += ('What would you like to do?<br />');
-		text += ('1) <b>Buy 20 bait</b>.<br />');
+		text += ('1) <b>Buy</b> 20 bait.<br />');
 		text += ('2) <b>Return</b> to the rest of the Port.<br />');
 		display(text);
 	},
 	
 	elden: function() {
-		this.player.location = 3;
+		Game.player.location = 3;
 		var text = '';
 		text += ('You arrive in Elden Stronghold.<br />');
 		text += ('What would you like to do?<br />');
 		text += ('1) <b>Go East</b> to Kirkoswald Fortress.<br />');
-		text += ('2) <b>Go south</b> to Backleigh Castle.<br />');
+		text += ('2) <b>Go South</b> to Backleigh Castle.<br />');
 		text += ('3) <b>Chop wood</b> in the lumber yard.<br />');
-		text += ('4) <b>Go to the mine</b>.<br />');
-		text += ('5) <b>Go to the shop</b>.<br />');
+		text += ('4) <b>Enter the mine</b>.<br />');
+		text += ('5) <b>Enter the shop</b>.<br />');
 		display(text);
 	},
 	
@@ -238,14 +241,14 @@ var Game = {
 	},
 
 	grimtol: function() {
-		this.player.location = 5;
+		Game.player.location = 5;
 		var text = '';
 		text += ('You arrive in the City of Grimtol.<br />');
 		text += ('What would you like to do?<br />');
 		text += ('1) <b>Go North</b> to Kirkoswald Fortress.<br />');
 		text += ('2) <b>Go West</b> to Backleigh Castle.<br />');
-		text += ('3) <b>Go to the mine</b>.<br />');
-		text += ('4) <b>Go to the shop</b>.<br />');
+		text += ('3) <b>Enter the mine</b>.<br />');
+		text += ('4) <b>Enter the shop</b>.<br />');
 		display(text);
 	},
 
@@ -253,16 +256,16 @@ var Game = {
 		var text = '';
 		text += ('You aproach the bridge that links Backleigh and Grimtol.<br />');
 		text += ('The bridge is armed with gaurds from Grimtol.<br /><br />');
-		if (this.player.location === 5) {
+		if (Game.player.location === 5) {
 			text += ('The gaurds let you pass by for free.<br />');
 			display(text);
 			setTimeout(function () {
-				this.backleigh();
+				Game.backleigh();
 			}, 6000);
-		} else if (this.player.location === 1) {
+		} else if (Game.player.location === 1) {
 			text += ('The gaurds will let you pass by for 50 silver.<br />');
-			text += ('You have ' + this.player.silver + ' Silver.<br /><br />');
-			if (this.player.silver >= 50) {
+			text += ('You have ' + Game.player.silver + ' Silver.<br /><br />');
+			if (Game.player.silver >= 50) {
 				text += ('What would you like to do?<br />');
 				text += ('1) <b>Pay</b> the gaurds 50 silver and pass.<br />');
 				text += ('2) <b>Return</b> to Backleigh Castle.<br />');
@@ -271,7 +274,7 @@ var Game = {
 				text += ('You don\'t have enough Silver and head back to Backleigh Castle.<br />');
 				display(text);
 				setTimeout(function () {
-					this.backleigh();
+					Game.backleigh();
 				}, 6000);
 			}
 		}
@@ -289,15 +292,15 @@ var Game = {
 	},
 	
 	kirkoswald: function() {
-		this.player.location = 4;
+		Game.player.location = 4;
 		var text = '';
 		text += ('You arrive in Kirkoswald Fortress.<br />');
 		text += ('What would you like to do?<br />');
-		text += ('1) <b>Go west</b> to Elden Stronghold.<br />');
-		text += ('2) <b>Go south</b> to the deserts of Grimtol.<br />');
+		text += ('1) <b>Go West</b> to Elden Stronghold.<br />');
+		text += ('2) <b>Go South</b> to the deserts of Grimtol.<br />');
 		text += ('3) <b>Explore</b> the Magical Forest.<br />');
-		text += ('4) <b>Go to the Magician Tower</b>.<br />');
-		text += ('5) <b>Go to the shop</b>.<br />');
+		text += ('4) <b>Enter the Magician Tower</b>.<br />');
+		text += ('5) <b>Enter the shop</b>.<br />');
 		display(text);
 	},
 
@@ -308,9 +311,9 @@ var Game = {
 		text += ('The sign reads: <b><br />\'ONLY ENTER IF YOU DARE!\' <br />\'THE FOREST IS FILLED WITH MONSTERS!\'<br /></b>');
 		text += ('The Magical Forest doesn\'t seem like a place you want to mess around in.<br />');
 		text += ('What would you like to do?<br />');
-		text += ('1) <b>Enter</b> the Magical Forest.<br />');
-		text += ('2) <b>Go to the Magician Tower</b>.<br />');
-		text += ('3) <b>Turn back</b> to Kirkoswald Fortress.<br />');
+		text += ('1) <b>Explore</b> the Magical Forest.<br />');
+		text += ('2) <b>Enter the Magician Tower</b>.<br />');
+		text += ('3) <b>Return</b> to Kirkoswald Fortress.<br />');
 		display(text);
 	},
 
@@ -336,39 +339,39 @@ var Game = {
 			b = 600;
 		}
 		var r = random(0, b-1);
-		this.name = '';
+		Game.name = '';
 		if (r >= 0 && r < 20) {
-			this.name = 'soldier';
+			Game.name = 'soldier';
 		} else if (r >= 20 && r < 25) {
-			this.name = 'dragon';
+			Game.name = 'dragon';
 		} else if (r >= 25 && r < 35) {
-			this.name = 'demon';
+			Game.name = 'demon';
 		} else if (r >= 35 && r < 50) {
-			this.name = 'baby dragon';
+			Game.name = 'baby dragon';
 		} else if (r >= 50 && r < 100) {
-			this.name = 'goblin';
+			Game.name = 'goblin';
 		} else if (r >= 100 && r < 150) {
-			this.name = 'goblin suprise';
-			this.goblinSuprise();
-			this.magicalForestReturn(x);
+			Game.name = 'goblin suprise';
+			Game.goblinSuprise();
+			Game.magicalForestReturn(x);
 		} else if (r >= 150 && r < 185) {
-			this.name = 'bear';
+			Game.name = 'bear';
 		} else if (r >= 185 && r < 210) {
-			this.name = 'ghoul';
+			Game.name = 'ghoul';
 		} else if (r >= 210 && r < 235) {
-			this.name = 'zombie';
+			Game.name = 'zombie';
 		} else if (r >= 235 && r < 260) {
-			this.name = 'troll';
+			Game.name = 'troll';
 		} else if (r >= 260 && r < 285) {
-			this.name = 'skeleton';
+			Game.name = 'skeleton';
 		} else if (r >= 260 && r < 300) {
-			this.name = 'spider';
+			Game.name = 'spider';
 		} else if (r >= 300 && r < 400) {
-			this.magicalForest();
+			Game.magicalForest();
 		} else if (r >= 400 && r < 600) {
-			this.magicalForestExit();
+			Game.magicalForestExit();
 		}
-		this.magicalForestFight();
+		Game.magicalForestFight();
 	},
 	  
 	magicalForestExit: function() {
@@ -377,43 +380,43 @@ var Game = {
 		text += ('You decide to head back to Kirkoswald Fortress.<br />');
 		display(text);
 		setTimeout(function () {
-			this.kirkoswald();
+			Game.kirkoswald();
 		}, 6000);
 	},
 
 	magicalForestFight: function() {
 		var text = '';
-		text += ('You stumle appon a ' + this.player.name + '.<br />');
+		text += ('You stumle appon a ' + Game.player.name + '.<br />');
 		text += ('What would you like to do?<br />');
-		text += ('1) <b>Attack</b> the ' + this.player.name);
-		text += ('2) <b>Run</b> from the ' + this.player.name);
+		text += ('1) <b>Attack</b> the ' + Game.player.name);
+		text += ('2) <b>Run</b> from the ' + Game.player.name);
 		text += ('3) <b>Attempt to leave</b> the forest.<br />');
 		display(text);
 	},
 	  
 	runForest: function() {
 		var text = '';
-		text += ('You have escaped from the ' + this.player.name + '.<br />');
+		text += ('You have escaped from the ' + Game.player.name + '.<br />');
 		text += ('You continue to walk around the Magical Forest.<br />');
 		display(text);
 		setTimeout(function () {
-			this.magicalForest();
+			Game.magicalForest();
 		}, 6000);
 	},
 	  
 	magicalForestReturn: function() {
 		var text = '';
-		text += ('Now that you have slain the ' + this.player.name + '.<br />');
+		text += ('Now that you have slain the ' + Game.player.name + '.<br />');
 		text += ('You continue to walk around the Magical Forest.<br />');
 		display(text);
 		setTimeout(function () {
-			this.magicalForest();
+			Game.magicalForest();
 		}, 6000);
 	},
 
 	magicianTowerEntrance: function() {
 		if (key > 0) {
-			this.magicianTower();
+			Game.magicianTower();
 		} else {
 			var text = '';
 			text += ('The tower is locked.<br />');
@@ -424,7 +427,7 @@ var Game = {
 			text += ('You decide you head into the Magical Forest.<br />');
 			display(text);
 			setTimeout(function () {
-				this.magicalForestEntrance();
+				Game.magicalForestEntrance();
 			}, 10000);
 		}
 	},
@@ -432,18 +435,18 @@ var Game = {
 	magicianTower: function() {
 		var text = '';
 		text += ('The door unlocks with the key.<br />');
-		this.swordName();
-		text += ('You walk in slowly with your ' + this.player.swordname + ' in hand ready for anything.<br />');
+		Game.swordName();
+		text += ('You walk in slowly with your ' + Game.player.swordname + ' in hand ready for anything.<br />');
 		text += ('The door slams behind you, locking itself, <br />the noise made by the slam alerts the guard.<br />');
 		text += ('The guard says \'How did you get the key to enter the tower?\'<br />');
-		this.guard();
+		Game.guard();
 		text += ('The tower seems to be filled with magical items.<br />');
 		display(text);
 	},
 
 	shop: function() {
-		this.armourName();
-		this.swordName();
+		Game.armourName();
+		Game.swordName();
 		var text = '';
 		text += ('You are in the general store.<br />');
 		text += ('What would you like to do?<br />');
@@ -462,28 +465,28 @@ var Game = {
 		if (r === 0) {
 			pay = 4;
 		}
-		this.player.woodIncome = pay*this.player.wood;
+		Game.player.woodIncome = pay*Game.player.wood;
 		var text = '';
-		text += ('You have ' + this.player.wood + ' wood. The shop keeper will pay you ' + pay + ' silver per wood.<br />');
+		text += ('You have ' + Game.player.wood + ' wood. The shop keeper will pay you ' + pay + ' silver per wood.<br />');
 		text += ('What would you like to do?<br />');
-		text += ('1) <b>Sell</b> ' + this.player.wood + ' wood for a total of ' + this.player.woodIncome + ' silver.<br />');
+		text += ('1) <b>Sell</b> ' + Game.player.wood + ' wood for a total of ' + Game.player.woodIncome + ' silver.<br />');
 		text += ('2) <b>Return</b> to the shop.<br />');
 		display(text);
 	},
 	
 	sellwoodcomplete: function() {
 		var text = '';
-		if (this.player.wood === 0) {
+		if (Game.player.wood === 0) {
 			text += ('You do not have any wood to sell.<br />');
 		} else {
-			this.player.silver += this.player.woodIncome;
-			text += ('You sold ' + this.player.wood + ' wood for ' + this.player.woodIncome + ' silver.<br />');
-			text += ('You have ' + this.player.silver + ' silver.<br />');
-			this.player.wood = 0;
+			Game.player.silver += Game.player.woodIncome;
+			text += ('You sold ' + Game.player.wood + ' wood for ' + Game.player.woodIncome + ' silver.<br />');
+			text += ('You have ' + Game.player.silver + ' silver.<br />');
+			Game.player.wood = 0;
 		}
 		display(text);
 		setTimeout(function () {
-			this.shop();
+			Game.shop();
 		}, 6000);
 	},
 	  
@@ -504,69 +507,69 @@ var Game = {
 		if (r3 === 0) {
 			paycoal = 30;
 		}
-		this.player.ironIncome = payiron*this.player.iron;
-		this.player.goldIncome = paygold*this.player.gold;
-		this.player.coalIncome = paycoal*this.player.coal;
+		Game.player.ironIncome = payiron*Game.player.iron;
+		Game.player.goldIncome = paygold*Game.player.gold;
+		Game.player.coalIncome = paycoal*Game.player.coal;
 		var text = '';
-		text += ('You have ' + this.player.iron + ' iron. The shop keeper will pay you ' + payiron + ' silver per iron.<br />');
-		text += ('You have ' + this.player.gold + ' gold. The shop keeper will pay you ' + paygold + ' silver per gold.<br />');
-		text += ('You have ' + this.player.coal + ' coal. The shop keeper will pay you ' + paycoal + ' silver per coal.<br />');
+		text += ('You have ' + Game.player.iron + ' iron. The shop keeper will pay you ' + payiron + ' silver per iron.<br />');
+		text += ('You have ' + Game.player.gold + ' gold. The shop keeper will pay you ' + paygold + ' silver per gold.<br />');
+		text += ('You have ' + Game.player.coal + ' coal. The shop keeper will pay you ' + paycoal + ' silver per coal.<br />');
 		text += ('What would you like to do?<br />');
-		text += ('1) <b>Sell</b> ' + this.player.iron + ' <b>iron</b> for a total of ' + this.player.ironIncome + ' silver.<br />');
-		text += ('2) <b>Sell</b> ' + this.player.gold + ' <b>gold</b> for a total of ' + this.player.goldIncome + ' silver.<br />');
-		text += ('3) <b>Sell</b> ' + this.player.coal + ' <b>coal</b> for a total of ' + this.player.coalIncome + ' silver.<br />');
+		text += ('1) <b>Sell</b> ' + Game.player.iron + ' <b>iron</b> for a total of ' + Game.player.ironIncome + ' silver.<br />');
+		text += ('2) <b>Sell</b> ' + Game.player.gold + ' <b>gold</b> for a total of ' + Game.player.goldIncome + ' silver.<br />');
+		text += ('3) <b>Sell</b> ' + Game.player.coal + ' <b>coal</b> for a total of ' + Game.player.coalIncome + ' silver.<br />');
 		text += ('4) <b>Return</b> to the shop.<br />');
 		display(text);
 	},
 	
 	selliron: function() {
 		var text = '';
-		if (this.player.iron === 0) {
+		if (Game.player.iron === 0) {
 			text += ('You do not have any iron to sell.<br />');
 			display(text);
 		} else {
-			this.player.silver += this.player.ironIncome;
-			text += ('You sold ' + this.player.iron + ' iron for ' + this.player.ironIncome + ' silver.<br />');
-			text += ('You have ' + this.player.silver + ' silver.<br />');
-			this.player.iron = 0;
+			Game.player.silver += Game.player.ironIncome;
+			text += ('You sold ' + Game.player.iron + ' iron for ' + Game.player.ironIncome + ' silver.<br />');
+			text += ('You have ' + Game.player.silver + ' silver.<br />');
+			Game.player.iron = 0;
 			display(text);
 		}
 		setTimeout(function () {
-			this.shop();
+			Game.shop();
 		}, 6000);
 	},
 	
 	sellgold: function() {
 		var text = '';
-		if (this.player.gold === 0) {
+		if (Game.player.gold === 0) {
 			text += ('You do not have any gold to sell.<br />');
 			display(text);
 		} else {
-			this.player.silver += this.player.goldIncome;
-			text += ('You sold ' + this.player.gold + ' gold for ' + this.player.goldIncome + ' silver.<br />');
-			text += ('You have ' + this.player.silver + ' silver.<br />');
-			this.player.gold = 0;
+			Game.player.silver += Game.player.goldIncome;
+			text += ('You sold ' + Game.player.gold + ' gold for ' + Game.player.goldIncome + ' silver.<br />');
+			text += ('You have ' + Game.player.silver + ' silver.<br />');
+			Game.player.gold = 0;
 			display(text);
 		}
 		setTimeout(function () {
-			this.shop();
+			Game.shop();
 		}, 6000);
 	},
 	
 	sellcoal: function() {
 		var text = '';
-		if (this.player.iron === 0) {
+		if (Game.player.iron === 0) {
 			text += ('You do not have any coal to sell.<br />');
 			display(text);
 		} else {
-			this.player.silver += this.player.coalIncome;
-			text += ('You sold ' + this.player.coal + ' coal for ' + this.player.coalIncome + ' silver.<br />');
-			text += ('You have ' + this.player.silver + ' silver.<br />');
-			this.player.coal = 0;
+			Game.player.silver += Game.player.coalIncome;
+			text += ('You sold ' + Game.player.coal + ' coal for ' + Game.player.coalIncome + ' silver.<br />');
+			text += ('You have ' + Game.player.silver + ' silver.<br />');
+			Game.player.coal = 0;
 			display(text);
 		}
 		setTimeout(function () {
-			this.shop();
+			Game.shop();
 		}, 6000);
 	},
 	  
@@ -582,28 +585,28 @@ var Game = {
 		text += ('6) <b>Tungsten Sword</b>: 100,000 silver<br />');
 		text += ('7) <b>Return</b> to the main area of the shop.<br />');
 		display(text);
-		this.swordName();
+		Game.swordName();
 	},
 	
 	bronzeSword: function() {
 		var text = '';
-		if (this.player.sword > 1) {
+		if (Game.player.sword > 1) {
 			text += ('You have a sword of higher value.<br />');
-			text += ('You have a(n) ' + this.player.swordname + '.<br />');
+			text += ('You have a(n) ' + Game.player.swordname + '.<br />');
 			display(text);
 			setTimeout(function () {
-				this.swordShop();
+				Game.swordShop();
 			}, 6000);
-		} else if (this.player.sword === 1) {
+		} else if (Game.player.sword === 1) {
 			text += ('You already have a Bronze Sword.<br />');
 			display(text);
 			setTimeout(function () {
-				this.swordShop();
+				Game.swordShop();
 			}, 6000);
 		} else {
-			if (this.player.silver >= 500 && this.player.attack >= 1) {
+			if (Game.player.silver >= 500 && Game.player.attack >= 1) {
 				text += ('The Bronze Sword costs 500 silver and requires attack level 1.<br />');
-				text += ('You have ' + this.player.silver + ' silver and your attack level is ' + this.player.attack + '.<br />');
+				text += ('You have ' + Game.player.silver + ' silver and your attack level is ' + Game.player.attack + '.<br />');
 				text += ('What would you like to do?<br />');
 				text += ('1) <b>Buy</b> the Bronze Sword.<br />');
 				text += ('2) <b>Browse</b> Swords<br />');
@@ -611,10 +614,10 @@ var Game = {
 			} else {
 				text += ('You do not meet the requirements to buy this sword.<br />');
 				text += ('The Bronze Sword costs 500 silver and requires attack level 1.<br />');
-				text += ('You have ' + this.player.silver + ' silver and your attack level is ' + this.player.attack + '.<br />');
+				text += ('You have ' + Game.player.silver + ' silver and your attack level is ' + Game.player.attack + '.<br />');
 				display(text);
 				setTimeout(function () {
-					this.swordShop();
+					Game.swordShop();
 				}, 6000);
 			}
 		}
@@ -622,34 +625,34 @@ var Game = {
 	
 	bronzeSwordBuy: function() {
 		var text = '';
-		this.player.silver -= 500;
+		Game.player.silver -= 500;
 		text += ('You purchased a Bronze Sword.<br />');
-		this.player.sword = 1;
-		text += ('You now have ' + this.player.silver + ' Silver.<br />');
+		Game.player.sword = 1;
+		text += ('You now have ' + Game.player.silver + ' Silver.<br />');
 		setTimeout(function () {
-			this.swordShop();
+			Game.swordShop();
 		}, 6000);
 	},
 	
 	goldSword: function() {
 		var text = '';
-		if (this.player.sword > 2) {
+		if (Game.player.sword > 2) {
 			text += ('You have a sword of higher value.<br />');
-			text += ('You have a(n) ' + this.player.swordname + '.<br />');
+			text += ('You have a(n) ' + Game.player.swordname + '.<br />');
 			display(text);
 			setTimeout(function () {
-				this.swordShop();
+				Game.swordShop();
 			}, 6000);
-		} else if (this.player.sword === 2) {
+		} else if (Game.player.sword === 2) {
 			text += ('You already have a Gold Sword.<br />');
 			display(text);
 			setTimeout(function () {
-				this.swordShop();
+				Game.swordShop();
 			}, 6000);
 		} else {
-			if (this.player.silver >= 2000 && this.player.attack >= 5) {
+			if (Game.player.silver >= 2000 && Game.player.attack >= 5) {
 				text += ('The Gold Sword costs 2,000 silver and requires attack level 5.<br />');
-				text += ('You have ' + this.player.silver + ' silver and your attack level is ' + this.player.attack + '.<br />');
+				text += ('You have ' + Game.player.silver + ' silver and your attack level is ' + Game.player.attack + '.<br />');
 				text += ('What would you like to do?<br />');
 				text += ('1) <b>Buy</b> the Gold Sword.<br />');
 				text += ('2) <b>Browse</b> Swords');
@@ -657,10 +660,10 @@ var Game = {
 			} else {
 				text += ('You do not meet the requirements to buy this sword.<br />');
 				text += ('The Gold Sword costs 2,000 silver and requires attack level 5.<br />');
-				text += ('You have ' + this.player.silver + ' silver and your attack level is ' + this.player.attack + '.<br />');
+				text += ('You have ' + Game.player.silver + ' silver and your attack level is ' + Game.player.attack + '.<br />');
 				display(text);
 				setTimeout(function () {
-					this.swordShop();
+					Game.swordShop();
 				}, 6000);
 			}
 		}
@@ -668,34 +671,34 @@ var Game = {
 	
 	goldSwordBuy: function() {
 		var text = '';
-		this.player.silver -= 2000;
+		Game.player.silver -= 2000;
 		text += ('You purchased a Gold Sword.<br />');
-		this.player.sword = 2;
-		text += ('You now have ' + this.player.silver + ' Silver.<br />');
+		Game.player.sword = 2;
+		text += ('You now have ' + Game.player.silver + ' Silver.<br />');
 		display(text);
 		setTimeout(function () {
-			this.swordShop();
+			Game.swordShop();
 		}, 6000);
 	},
 	
 	ironSword: function() {
 		var text = '';
-		if (this.player.sword > 3) {
+		if (Game.player.sword > 3) {
 			text += ('You have a sword of higher value.<br />');
-			text += ('You have a ' + this.player.swordname + '.<br />');
+			text += ('You have a ' + Game.player.swordname + '.<br />');
 			setTimeout(function () {
-				this.swordShop();
+				Game.swordShop();
 			}, 6000);
-		} else if (this.player.sword === 3) {
+		} else if (Game.player.sword === 3) {
 			text += ('You already have an Iron Sword.<br />');
 			display(text);
 			setTimeout(function () {
-				this.swordShop();
+				Game.swordShop();
 			}, 6000);
 		} else {
-			if (this.player.silver >= 8000 && this.player.attack >= 10) {
+			if (Game.player.silver >= 8000 && Game.player.attack >= 10) {
 				text += ('The Iron Sword costs 8,000 silver and requires attack level 10.<br />');
-				text += ('You have ' + this.player.silver + ' silver and your attack level is ' + this.player.attack + '.<br />');
+				text += ('You have ' + Game.player.silver + ' silver and your attack level is ' + Game.player.attack + '.<br />');
 				text += ('What would you like to do?<br />');
 				text += ('1) <b>Buy</b> the Iron Sword.<br />');
 				text += ('2) <b>Browse</b> Swords');
@@ -703,10 +706,10 @@ var Game = {
 			} else {
 				text += ('You do not meet the requirements to buy this sword.<br />');
 				text += ('The Iron Sword costs 8,000 silver and requires attack level 10.<br />');
-				text += ('You have ' + this.player.silver + ' silver and your attack level is ' + this.player.attack + '.<br />');
+				text += ('You have ' + Game.player.silver + ' silver and your attack level is ' + Game.player.attack + '.<br />');
 				display(text);
 				setTimeout(function () {
-					this.swordShop();
+					Game.swordShop();
 				}, 6000);
 			}
 		}
@@ -714,35 +717,35 @@ var Game = {
 	
 	ironSwordBuy: function() {
 		var text = '';
-		this.player.silver -= 8000;
+		Game.player.silver -= 8000;
 		text += ('You purchased an Iron Sword.<br />');
-		this.player.sword = 3;
-		text += ('You now have ' + this.player.silver + ' Silver.<br />');
+		Game.player.sword = 3;
+		text += ('You now have ' + Game.player.silver + ' Silver.<br />');
 		display(text);
 		setTimeout(function () {
-			this.swordShop();
+			Game.swordShop();
 		}, 6000);
 	},
 	
 	steelSword: function() {
 		var text = '';
-		if (this.player.sword > 4) {
+		if (Game.player.sword > 4) {
 			text += ('You have a sword of higher value.<br />');
-			text += ('You have a ' + this.player.swordname + '.<br />');
+			text += ('You have a ' + Game.player.swordname + '.<br />');
 			display(text);
 			setTimeout(function () {
-				this.swordShop();
+				Game.swordShop();
 			}, 6000);
-		} else if (this.player.sword === 4) {
+		} else if (Game.player.sword === 4) {
 			text += ('You already have a Steel Sword.<br />');
 			display(text);
 			setTimeout(function () {
-				this.swordShop();
+				Game.swordShop();
 			}, 6000);
 		} else {
-			if (this.player.silver >= 25000 && this.player.attack >= 20) {
+			if (Game.player.silver >= 25000 && Game.player.attack >= 20) {
 				text += ('The Steel Sword costs 25,000 silver and requires attack level 20.<br />');
-				text += ('You have ' + this.player.silver + ' silver and your attack level is ' + this.player.attack + '.<br />');
+				text += ('You have ' + Game.player.silver + ' silver and your attack level is ' + Game.player.attack + '.<br />');
 				text += ('What would you like to do?<br />');
 				text += ('1) <b>Buy</b> the Steel Sword.<br />');
 				text += ('2) <b>Browse</b> Swords');
@@ -750,7 +753,7 @@ var Game = {
 			} else {
 				text += ('You do not meet the requirements to buy this sword.<br />');
 				text += ('The Steel Sword costs 25,000 silver and requires attack level 20.<br />');
-				text += ('You have ' + this.player.silver + ' silver and your attack level is ' + this.player.attack + '.<br />');
+				text += ('You have ' + Game.player.silver + ' silver and your attack level is ' + Game.player.attack + '.<br />');
 				Game.swordShop();
 			}
 		}
@@ -758,35 +761,35 @@ var Game = {
 	
 	steelSwordBuy: function() {
 		var text = '';
-		this.player.silver -= 25000;
+		Game.player.silver -= 25000;
 		text += ('You purchased a Steel Sword.<br />');
-		this.player.sword = 4;
-		text += ('You now have ' + this.player.silver + ' Silver.<br />');
+		Game.player.sword = 4;
+		text += ('You now have ' + Game.player.silver + ' Silver.<br />');
 		display(text);
 		setTimeout(function () {
-			this.swordShop();
+			Game.swordShop();
 		}, 6000);
 	},
 	
 	titaniumSword: function() {
 		var text = '';
-		if (this.player.sword > 5) {
+		if (Game.player.sword > 5) {
 			text += ('You have a sword of higher value.<br />');
-			text += ('You have a ' + this.player.swordname + '.<br />');
+			text += ('You have a ' + Game.player.swordname + '.<br />');
 			display(text);
 			setTimeout(function () {
-				this.swordShop();
+				Game.swordShop();
 			}, 6000);
-		} else if (this.player.sword === 5) {
+		} else if (Game.player.sword === 5) {
 			text += ('You already have a Titanium Sword.<br />');
 			display(text);
 			setTimeout(function () {
-				this.swordShop();
+				Game.swordShop();
 			}, 6000);
 		} else {
-			if (this.player.silver >= 50000 && this.player.attack >= 30) {
+			if (Game.player.silver >= 50000 && Game.player.attack >= 30) {
 				text += ('The Titanium Sword costs 50,000 silver and requires attack level 30.<br />');
-				text += ('You have ' + this.player.silver + ' silver and your attack level is ' + this.player.attack + '.<br />');
+				text += ('You have ' + Game.player.silver + ' silver and your attack level is ' + Game.player.attack + '.<br />');
 				text += ('What would you like to do?<br />');
 				text += ('1) <b>Buy</b> the Titanium Sword.<br />');
 				text += ('2) <b>Browse</b> Swords');
@@ -794,10 +797,10 @@ var Game = {
 			} else {
 				text += ('You do not meet the requirements to buy this sword.<br />');
 				text += ('The Titanium Sword costs 50,000 silver and requires attack level 30.<br />');
-				text += ('You have ' + this.player.silver + ' silver and your attack level is ' + this.player.attack + '.<br />');
+				text += ('You have ' + Game.player.silver + ' silver and your attack level is ' + Game.player.attack + '.<br />');
 				display(text);
 				setTimeout(function () {
-					this.swordShop();
+					Game.swordShop();
 				}, 6000);
 			}
 		}
@@ -805,35 +808,35 @@ var Game = {
 	
 	titaniumSwordBuy: function() {
 		var text = '';
-		this.player.silver -= 50000;
+		Game.player.silver -= 50000;
 		text += ('You purchased a Titanium Sword.<br />');
-		this.player.sword = 5;
+		Game.player.sword = 5;
 		text += ('You now have ' + silver + ' Silver.<br />');
 		display(text);
 		setTimeout(function () {
-			this.swordShop();
+			Game.swordShop();
 		}, 6000);
 	},
 	
 	tungstenSword: function() {
 		var text = '';
-		if (this.player.sword > 6) {
+		if (Game.player.sword > 6) {
 			text += ('You have a sword of higher value.<br />');
-			text += ('You have a ' + this.player.swordname + '.<br />');
+			text += ('You have a ' + Game.player.swordname + '.<br />');
 			display(text);
 			setTimeout(function () {
-				this.swordShop();
+				Game.swordShop();
 			}, 6000);
-		} else if (this.player.sword === 6) {
+		} else if (Game.player.sword === 6) {
 			text += ('You already have a Tungsten Sword.<br />');
 			display(text);
 			setTimeout(function () {
-				this.swordShop();
+				Game.swordShop();
 			}, 6000);
 		} else {
-			if (this.player.silver >= 100000 && this.player.attack >= 40) {
+			if (Game.player.silver >= 100000 && Game.player.attack >= 40) {
 				text += ('The Tungsten Sword costs 100,000 silver and requires attack level 40.<br />');
-				text += ('You have ' + this.player.silver + ' silver and your attack level is ' + this.player.attack + '.<br />');
+				text += ('You have ' + Game.player.silver + ' silver and your attack level is ' + Game.player.attack + '.<br />');
 				text += ('What would you like to do?<br />');
 				text += ('1) <b>Buy</b> the Tungsten Sword.<br />');
 				text += ('2) <b>Browse</b> Swords');
@@ -841,10 +844,10 @@ var Game = {
 			} else {
 				text += ('You do not meet the requirements to buy this sword.<br />');
 				text += ('The Tungsten Sword costs 100,000 silver and requires attack level 40.<br />');
-				text += ('You have ' + this.player.silver + ' silver and your attack level is ' + this.player.attack + '.<br />');
+				text += ('You have ' + Game.player.silver + ' silver and your attack level is ' + Game.player.attack + '.<br />');
 				display(text);
 				setTimeout(function () {
-					this.swordShop();
+					Game.swordShop();
 				}, 6000);
 			}
 		}
@@ -852,31 +855,31 @@ var Game = {
 	
 	tungstenSwordBuy: function() {
 		var text = '';
-		this.player.silver -= 100000;
+		Game.player.silver -= 100000;
 		text += ('You purchased a Tungsten Sword.<br />');
-		this.player.sword = 6;
-		text += ('You now have ' + this.player.silver + ' Silver.<br />');
+		Game.player.sword = 6;
+		text += ('You now have ' + Game.player.silver + ' Silver.<br />');
 		display(text);
 		setTimeout(function () {
-			this.swordShop();
+			Game.swordShop();
 		}, 6000);
 	},
 	
 	swordName: function() {
-		if (this.player.sword === 0) {
-			this.player.swordname = 'Fists';
-		} else if (this.player.sword === 1) {
-			this.player.swordname = 'Bronze Sword';
-		} else if (this.player.sword === 2) {
-			this.player.swordname = 'Gold Sword';
-		} else if (this.player.sword === 3) {
-			this.player.swordname = 'Iron Sword';
-		} else if (this.player.sword === 4) {
-			this.player.swordname = 'Steel Sword';
-		} else if (this.player.sword === 5) {
-			this.player.swordname = 'Titanium Sword';
-		} else if (this.player.sword === 6) {
-			this.player.swordname = 'Tungsten Sword';
+		if (Game.player.sword === 0) {
+			Game.player.swordname = 'Fists';
+		} else if (Game.player.sword === 1) {
+			Game.player.swordname = 'Bronze Sword';
+		} else if (Game.player.sword === 2) {
+			Game.player.swordname = 'Gold Sword';
+		} else if (Game.player.sword === 3) {
+			Game.player.swordname = 'Iron Sword';
+		} else if (Game.player.sword === 4) {
+			Game.player.swordname = 'Steel Sword';
+		} else if (Game.player.sword === 5) {
+			Game.player.swordname = 'Titanium Sword';
+		} else if (Game.player.sword === 6) {
+			Game.player.swordname = 'Tungsten Sword';
 		}
 	},
 	
@@ -896,23 +899,23 @@ var Game = {
 	
 	bronzeArmour: function() {
 		var text = '';
-		if (this.player.armour > 1) {
+		if (Game.player.armour > 1) {
 			text += ('You have armour of higher value.<br />');
-			text += ('You have ' + this.player.armourname + '.<br />');
+			text += ('You have ' + Game.player.armourname + '.<br />');
 			display(text);
 			setTimeout(function () {
-				this.armourShop();
+				Game.armourShop();
 			}, 6000);
-		} else if (this.player.armour === 1) {
+		} else if (Game.player.armour === 1) {
 			text += ('You already have Bronze Armour.<br />');
 			display(text);
 			setTimeout(function () {
-				this.armourShop();
+				Game.armourShop();
 			}, 6000);
 		} else {
-			if (this.player.silver >= 500 && this.player.defence >= 1) {
+			if (Game.player.silver >= 500 && Game.player.defence >= 1) {
 				text += ('The Bronze Armour costs 500 silver and requires defence level 1.<br />');
-				text += ('You have ' + this.player.silver + ' silver and your defence level is ' + this.player.defence + '.<br />');
+				text += ('You have ' + Game.player.silver + ' silver and your defence level is ' + Game.player.defence + '.<br />');
 				text += ('What would you like to do?<br />');
 				text += ('1) <b>Buy</b> Bronze Armour.<br />');
 				text += ('2) <b>Browse</b> Armour<br />');
@@ -920,10 +923,10 @@ var Game = {
 			} else {
 				text += ('You do not meet the requirements to buy this armour.<br />');
 				text += ('The Bronze Armour costs 500 silver and requires defence level 1.<br />');
-				text += ('You have ' + this.player.silver + ' silver and your defence level is ' + this.player.defence + '.<br />');
+				text += ('You have ' + Game.player.silver + ' silver and your defence level is ' + Game.player.defence + '.<br />');
 				display(text);
 				setTimeout(function () {
-					this.armourShop();
+					Game.armourShop();
 				}, 6000);
 			}
 		}
@@ -931,37 +934,37 @@ var Game = {
 	
 	bronzeArmourBuy: function() {
 		var text = '';
-		this.player.silver -= 500;
+		Game.player.silver -= 500;
 		text += ('You purchased Bronze Armour.<br />');
-		this.player.armour = 1;
-		this.player.health = 20;
-		this.player.healthstatic = 20;
-		text += ('You now have ' + this.player.silver + ' Silver.<br />');
+		Game.player.armour = 1;
+		Game.player.health = 20;
+		Game.player.healthstatic = 20;
+		text += ('You now have ' + Game.player.silver + ' Silver.<br />');
 		display(text);
 		setTimeout(function () {
-			this.armourShop();
+			Game.armourShop();
 		}, 6000);
 	},
 	
 	goldArmour: function() {
 		var text = '';
-		if (this.player.armour > 2) {
+		if (Game.player.armour > 2) {
 			text += ('You have armour of higher value.<br />');
-			text += ('You have ' + this.player.armourname + '.<br />');
+			text += ('You have ' + Game.player.armourname + '.<br />');
 			display(text);
 			setTimeout(function () {
-				this.armourShop();
+				Game.armourShop();
 			}, 6000);
-		} else if (this.player.armour === 2) {
+		} else if (Game.player.armour === 2) {
 			text += ('You already have Gold Armour.<br />');
 			display(text);
 			setTimeout(function () {
-				this.armourShop();
+				Game.armourShop();
 			}, 6000);
 		} else {
-			if (this.player.silver >= 2000 && this.player.defence >= 5) {
+			if (Game.player.silver >= 2000 && Game.player.defence >= 5) {
 				text += ('The Gold Armour costs 2,000 silver and requires defence level 5.<br />');
-				text += ('You have ' + this.player.silver + ' silver and your defence level is ' + this.player.defence + '.<br />');
+				text += ('You have ' + Game.player.silver + ' silver and your defence level is ' + Game.player.defence + '.<br />');
 				text += ('What would you like to do?<br />');
 				text += ('1) <b>Buy</b> Gold Armour.<br />');
 				text += ('2) <b>Browse</b> Armour<br />');
@@ -969,10 +972,10 @@ var Game = {
 			} else {
 				text += ('You do not meet the requirements to buy this armour.<br />');
 				text += ('The Gold Armour costs 2,000 silver and requires defence level 5.<br />');
-				text += ('You have ' + this.player.silver + ' silver and your defence level is ' + this.player.defence + '.<br />');
+				text += ('You have ' + Game.player.silver + ' silver and your defence level is ' + Game.player.defence + '.<br />');
 				display(text);
 				setTimeout(function () {
-					this.armourShop();
+					Game.armourShop();
 				}, 6000);
 			}
 		}
@@ -980,37 +983,37 @@ var Game = {
 	
 	goldArmourBuy: function() {
 		var text = '';
-		this.player.silver -= 2000;
+		Game.player.silver -= 2000;
 		text += ('You purchased Gold Armour.<br />');
-		this.player.armour = 2;
-		this.player.health = 30;
-		this.player.healthstatic = 30;
-		text += ('You now have ' + this.player.silver + ' Silver.<br />');
+		Game.player.armour = 2;
+		Game.player.health = 30;
+		Game.player.healthstatic = 30;
+		text += ('You now have ' + Game.player.silver + ' Silver.<br />');
 		display(text);
 		setTimeout(function () {
-			this.armourShop();
+			Game.armourShop();
 		}, 6000);
 	},
 	
 	ironArmour: function() {
 		var text = '';
-		if (this.player.armour > 3) {
+		if (Game.player.armour > 3) {
 			text += ('You have armour of higher value.<br />');
-			text += ('You have ' + this.player.armourname + '.<br />');
+			text += ('You have ' + Game.player.armourname + '.<br />');
 			display(text);
 			setTimeout(function () {
-				this.armourShop();
+				Game.armourShop();
 			}, 6000);
-		} else if (this.player.armour === 3) {
+		} else if (Game.player.armour === 3) {
 			text += ('You already have Iron Armour.<br />');
 			display(text);
 			setTimeout(function () {
-				this.armourShop();
+				Game.armourShop();
 			}, 6000);
 		} else {
-			if (this.player.silver >= 8000 && this.player.defence >= 10) {
+			if (Game.player.silver >= 8000 && Game.player.defence >= 10) {
 				text += ('The Iron Armour costs 8,000 silver and requires defence level 10.<br />');
-				text += ('You have ' + this.player.silver + ' silver and your defence level is ' + this.player.defence + '.<br />');
+				text += ('You have ' + Game.player.silver + ' silver and your defence level is ' + Game.player.defence + '.<br />');
 				text += ('What would you like to do?<br />');
 				text += ('1) <b>Buy</b> Iron Armour.<br />');
 				text += ('2) <b>Browse</b> Armour<br />');
@@ -1018,10 +1021,10 @@ var Game = {
 			} else {
 				text += ('You do not meet the requirements to buy this armour.<br />');
 				text += ('The Iron Armour costs 8,000 silver and requires defence level 10.<br />');
-				text += ('You have ' + this.player.silver + ' silver and your defence level is ' + this.player.defence + '.<br />');
+				text += ('You have ' + Game.player.silver + ' silver and your defence level is ' + Game.player.defence + '.<br />');
 				display(text);
 				setTimeout(function () {
-					this.armourShop();
+					Game.armourShop();
 				}, 6000);
 			}
 		}
@@ -1029,37 +1032,37 @@ var Game = {
 	
 	ironArmourBuy: function() {
 		var text = '';
-		this.player.silver -= 8000;
+		Game.player.silver -= 8000;
 		text += ('You purchased Iron Armour.<br />');
-		this.player.armour = 3;
-		this.player.health = 40;
-		this.player.healthstatic = 40;
-		text += ('You now have ' + this.player.silver + ' Silver.<br />');
+		Game.player.armour = 3;
+		Game.player.health = 40;
+		Game.player.healthstatic = 40;
+		text += ('You now have ' + Game.player.silver + ' Silver.<br />');
 		display(text);
 		setTimeout(function () {
-			this.armourShop();
+			Game.armourShop();
 		}, 6000);
 	},
 	
 	steelArmour: function() {
 		var text = '';
-		if (this.player.armour > 4) {
+		if (Game.player.armour > 4) {
 			text += ('You have armour of higher value.<br />');
-			text += ('You have ' + this.player.armourname + '.<br />');
+			text += ('You have ' + Game.player.armourname + '.<br />');
 			display(text);
 			setTimeout(function () {
-				this.armourShop();
+				Game.armourShop();
 			}, 6000);
-		} else if (this.player.armour === 4) {
+		} else if (Game.player.armour === 4) {
 			text += ('You already have Steel Armour.<br />');
 			display(text);
 			setTimeout(function () {
-				this.armourShop();
+				Game.armourShop();
 			}, 6000);
 		} else {
-			if (this.player.silver >= 25000 && this.player.defence >= 20) {
+			if (Game.player.silver >= 25000 && Game.player.defence >= 20) {
 				text += ('The Steel Armour costs 25,000 silver and requires defence level 20.<br />');
-				text += ('You have ' + this.player.silver + ' silver and your defence level is ' + this.player.defence + '.<br />');
+				text += ('You have ' + Game.player.silver + ' silver and your defence level is ' + Game.player.defence + '.<br />');
 				text += ('What would you like to do?<br />');
 				text += ('1) <b>Buy</b> Steel Armour.<br />');
 				text += ('2) <b>Browse</b> Armour<br />');
@@ -1067,10 +1070,10 @@ var Game = {
 			} else {
 				text += ('You do not meet the requirements to buy this armour.<br />');
 				text += ('The Steel Armour costs 25,000 silver and requires defence level 20.<br />');
-				text += ('You have ' + this.player.silver + ' silver and your defence level is ' + this.player.defence + '.<br />');
+				text += ('You have ' + Game.player.silver + ' silver and your defence level is ' + Game.player.defence + '.<br />');
 				display(text);
 				setTimeout(function () {
-					this.armourShop();
+					Game.armourShop();
 				}, 6000);
 			}
 		}
@@ -1078,37 +1081,37 @@ var Game = {
 	
 	steelArmourBuy: function() {
 		var text = '';
-		this.player.silver -= 25000;
+		Game.player.silver -= 25000;
 		text += ('You purchased Steel Armour.<br />');
-		this.player.armour = 4;
-		this.player.health = 50;
-		this.player.healthstatic = 50;
-		text += ('You now have ' + this.player.silver + ' Silver.<br />');
+		Game.player.armour = 4;
+		Game.player.health = 50;
+		Game.player.healthstatic = 50;
+		text += ('You now have ' + Game.player.silver + ' Silver.<br />');
 		display(text);
 		setTimeout(function () {
-			this.armourShop();
+			Game.armourShop();
 		}, 6000);
 	},
 	
 	titaniumArmour: function() {
 		var text = '';
-		if (this.player.armour > 5) {
+		if (Game.player.armour > 5) {
 			text += ('You have armour of higher value.<br />');
-			text += ('You have ' + this.player.armourname + '.<br />');
+			text += ('You have ' + Game.player.armourname + '.<br />');
 			display(text);
 			setTimeout(function () {
-				this.armourShop();
+				Game.armourShop();
 			}, 6000);					
-		} else if (this.player.armour === 5) {
+		} else if (Game.player.armour === 5) {
 			text += ('You already have Titanium Armour.<br />');
 			display(text);
 			setTimeout(function () {
-				this.armourShop();
+				Game.armourShop();
 			}, 6000);
 		} else {
-			if (this.player.silver >= 50000 && this.player.defence >= 30) {
+			if (Game.player.silver >= 50000 && Game.player.defence >= 30) {
 				text += ('The Titanium Armour costs 50,000 silver and requires defence level 30.<br />');
-				text += ('You have ' + this.player.silver + ' silver and your defence level is ' + this.player.defence + '.<br />');
+				text += ('You have ' + Game.player.silver + ' silver and your defence level is ' + Game.player.defence + '.<br />');
 				text += ('What would you like to do?<br />');
 				text += ('1) <b>Buy</b> Titanium Armour.<br />');
 				text += ('2) <b>Browse</b> Armour<br />');
@@ -1116,10 +1119,10 @@ var Game = {
 			} else {
 				text += ('You do not meet the requirements to buy this armour.<br />');
 				text += ('The Titanium Armour costs 50,000 silver and requires defence level 30.<br />');
-				text += ('You have ' + this.player.silver + ' silver and your defence level is ' + this.player.defence + '.<br />');
+				text += ('You have ' + Game.player.silver + ' silver and your defence level is ' + Game.player.defence + '.<br />');
 				display(text);
 				setTimeout(function () {
-					this.armourShop();
+					Game.armourShop();
 				}, 6000);
 			}
 		}
@@ -1127,37 +1130,37 @@ var Game = {
 	
 	titaniumArmourBuy: function() {
 		var text = '';
-		this.player.silver -= 50000;
+		Game.player.silver -= 50000;
 		text += ('You purchased Titanium Armour.<br />');
-		this.player.armour = 5;
-		this.player.health = 60;
-		this.player.healthstatic = 60;
-		text += ('You now have ' + this.player.silver + ' Silver.<br />');
+		Game.player.armour = 5;
+		Game.player.health = 60;
+		Game.player.healthstatic = 60;
+		text += ('You now have ' + Game.player.silver + ' Silver.<br />');
 		display(text);
 		setTimeout(function () {
-			this.armourShop();
+			Game.armourShop();
 		}, 6000);
 	},
 	
 	tungstenArmour: function() {
 		var text = '';
-			if (this.player.armour > 6) {
+			if (Game.player.armour > 6) {
 			text += ('You have armour of higher value.<br />');
-			text += ('You have ' + this.player.armourname + '.<br />');
+			text += ('You have ' + Game.player.armourname + '.<br />');
 			display(text);
 			setTimeout(function () {
-				this.armourShop();
+				Game.armourShop();
 			}, 6000);
-		} else if (this.player.armour === 6){
+		} else if (Game.player.armour === 6){
 			text += ('You already have Tungsten Armour.<br />');
 			display(text);
 			setTimeout(function () {
-				this.armourShop();
+				Game.armourShop();
 			}, 6000);
 		} else {
-			if (this.player.silver >= 100000 && this.player.defence >= 40) {
+			if (Game.player.silver >= 100000 && Game.player.defence >= 40) {
 				text += ('The Tungsten Armour costs 100,000 silver and requires defence level 40.<br />');
-				text += ('You have ' + this.player.silver + ' silver and your defence level is ' + this.player.defence + '.<br />');
+				text += ('You have ' + Game.player.silver + ' silver and your defence level is ' + Game.player.defence + '.<br />');
 				text += ('What would you like to do?<br />');
 				text += ('1) <b>Buy</b> Tungsten Armour.<br />');
 				text += ('2) <b>Browse</b> Armour<br />');
@@ -1165,10 +1168,10 @@ var Game = {
 			} else {
 				text += ('You do not meet the requirements to buy this armour.<br />');
 				text += ('The Tungsten Armour costs 100,000 silver and requires defence level 40.<br />');
-				text += ('You have ' + this.player.silver + ' silver and your defence level is ' + this.player.defence + '.<br />');
+				text += ('You have ' + Game.player.silver + ' silver and your defence level is ' + Game.player.defence + '.<br />');
 				display(text);
 				setTimeout(function () {
-					this.armourShop();
+					Game.armourShop();
 				}, 6000);
 			}
 		}
@@ -1176,33 +1179,33 @@ var Game = {
 
 	tungstenArmourBuy: function() {
 		var text = '';
-		this.player.silver -= 100000;
+		Game.player.silver -= 100000;
 		text += ('You purchased Tungsten Armour.<br />');
-		this.player.armour = 6;
-		this.player.health = 70;
-		this.player.healthstatic = 70;
-		text += ('You now have ' + this.player.silver + ' Silver.<br />');
+		Game.player.armour = 6;
+		Game.player.health = 70;
+		Game.player.healthstatic = 70;
+		text += ('You now have ' + Game.player.silver + ' Silver.<br />');
 		display(text);
 		setTimeout(function () {
-			this.armourShop();
+			Game.armourShop();
 		}, 6000);
 	},
 	
 	armourName: function() {
-		if (this.player.armour === 0) {
-			this.player.armourname = 'none';
-		} else if (this.player.armour === 1) {
-			this.player.armourname = 'Bronze Armour';
-		} else if (this.player.armour === 2) {
-			this.player.armourname = 'Gold Armour';
-		} else if (this.player.armour === 3) {
-			this.player.armourname = 'Iron Armour';
+		if (Game.player.armour === 0) {
+			Game.player.armourname = 'none';
+		} else if (Game.player.armour === 1) {
+			Game.player.armourname = 'Bronze Armour';
+		} else if (Game.player.armour === 2) {
+			Game.player.armourname = 'Gold Armour';
+		} else if (Game.player.armour === 3) {
+			Game.player.armourname = 'Iron Armour';
 		} else if (armour === 4) {
-			this.player.armourname = 'Steel Armour';
-		} else if (this.player.armour === 5) {
-			this.player.armourname = 'Titanium Armour';
-		} else if (this.player.armour === 6) {
-			this.player.armourname = 'Tungsten Armour';
+			Game.player.armourname = 'Steel Armour';
+		} else if (Game.player.armour === 5) {
+			Game.player.armourname = 'Titanium Armour';
+		} else if (Game.player.armour === 6) {
+			Game.player.armourname = 'Tungsten Armour';
 		}
 	},
   
@@ -1211,16 +1214,16 @@ var Game = {
 		text += ('You leave the shop.<br />');
 		display(text);
 		setTimeout(function () {
-			if (this.player.location === 1) {
-				this.backleigh();
-			} else if (this.player.location === 2) {
-				this.draydon();
-			} else if (this.player.location === 3) {
-				this.elden();
-			} else if (this.player.location === 4) {
-				this.kirkoswald();
-			} else if (this.player.location === 5) {
-				this.grimtol();
+			if (Game.player.location === 1) {
+				Game.backleigh();
+			} else if (Game.player.location === 2) {
+				Game.draydon();
+			} else if (Game.player.location === 3) {
+				Game.elden();
+			} else if (Game.player.location === 4) {
+				Game.kirkoswald();
+			} else if (Game.player.location === 5) {
+				Game.grimtol();
 			}
 		}, 6000);
 	},
@@ -1228,68 +1231,68 @@ var Game = {
 	iron: function() {
 		var text = '';
 		var r = 1;
-		if (this.player.mining >= 25) {
+		if (Game.player.mining >= 25) {
 			r = 2;
 		}
-		this.player.iron += r;
-		this.player.miningxp++;
+		Game.player.iron += r;
+		Game.player.miningxp++;
 		text += ('You have recieved ' + r + ' iron.<br />');
-		text += ('You have ' + this.player.iron + ' iron.<br />');
-		if (this.player.miningxp === this.player.mining*21) {
+		text += ('You have ' + Game.player.iron + ' iron.<br />');
+		if (Game.player.miningxp === Game.player.mining*21) {
 			text += ('<br /><b>Congradulations, you have advanced a Mining level!</b><br />');
-			this.player.mining++;
-			text += ('<b>Mining level:</b> ' + this.player.mining + '<br />');
-			this.player.miningxp = 0;
+			Game.player.mining++;
+			text += ('<b>Mining level:</b> ' + Game.player.mining + '<br />');
+			Game.player.miningxp = 0;
 		}
 		display(text);
 	},
 	
 	coal: function() {
 		var text = '';
-		if (this.player.mining >= 25) {
+		if (Game.player.mining >= 25) {
 			r = 1;
-			if (this.player.mining >= 50) {
+			if (Game.player.mining >= 50) {
 				r = 2;
 			}
-			this.player.coal += r;
-			this.player.miningxp++;
+			Game.player.coal += r;
+			Game.player.miningxp++;
 			text += ('You have recieved ' + r + ' Coal.<br />');
-			text += ('You have ' + this.player.coal + ' Coal.<br />');
-			if (this.player.miningxp === mining*21) {
+			text += ('You have ' + Game.player.coal + ' Coal.<br />');
+			if (Game.player.miningxp === mining*21) {
 				text += ('<br /><b>Congradulations, you have advanced a Mining level!</b><br />');
-				this.player.mining++;
-				text += ('<b>Mining level:</b> ' + this.player.mining + '<br />');
-				this.player.miningxp = 0;
+				Game.player.mining++;
+				text += ('<b>Mining level:</b> ' + Game.player.mining + '<br />');
+				Game.player.miningxp = 0;
 			}
 			display(text);
 		} else {
 			text += ('To mine coal you need a mining level of 25.<br />');
-			text += ('Your mining level is ' + this.player.mining + '.<br />');
+			text += ('Your mining level is ' + Game.player.mining + '.<br />');
 			display(text);
 		}
 	},
   
 	gold: function() {
 		var text = '';
-		if (this.player.mining >= 50) {
+		if (Game.player.mining >= 50) {
 			r = 1;
-			if (this.player.mining >= 75) {
+			if (Game.player.mining >= 75) {
 				r = 2;
 			}
-			this.player.gold += r;
-			this.player.miningxp++;
+			Game.player.gold += r;
+			Game.player.miningxp++;
 			text += ('You have recieved ' + r + ' gold.<br />');
-			text += ('You have ' + this.player.gold + ' gold.<br />');
-			if (this.player.miningxp === this.player.mining*21) {
+			text += ('You have ' + Game.player.gold + ' gold.<br />');
+			if (Game.player.miningxp === Game.player.mining*21) {
 				text += ('<br /><b>Congradulations, you have advanced a Mining level!</b><br />');
-				this.player.mining++;
-				text += ('<b>Mining level:</b> ' + this.player.mining) + '<br />';
-				this.player.miningxp = 0;
+				Game.player.mining++;
+				text += ('<b>Mining level:</b> ' + Game.player.mining) + '<br />';
+				Game.player.miningxp = 0;
 			}
 			display(text);
 		} else {
 			text += ('To mine gold you need a mining level of 50.<br />');
-			text += ('Your mining level is ' + this.player.mining + '.<br />');	
+			text += ('Your mining level is ' + Game.player.mining + '.<br />');	
 			display(text);
 		}
 	},
@@ -1298,59 +1301,59 @@ var Game = {
 		var text = '';
 		var b = 6;
 		var r = random(0, b-1);
-		if (this.player.woodcutting < 25) {
+		if (Game.player.woodcutting < 25) {
 			if (r >= 2) {
-				this.player.wood += 2;
+				Game.player.wood += 2;
 				r = 2;
 			} else {
-				this.player.wood += r;
+				Game.player.wood += r;
 			}
 		} else {
-			this.player.wood += r;
+			Game.player.wood += r;
 		}
 		if (r > 0) {
-			this.player.woodcuttingxp++;
+			Game.player.woodcuttingxp++;
 		}
 		text += ('You have recieved ' + r + ' wood.<br />');
-		text += ('You have ' + this.player.wood + ' wood.<br />');
-		if (this.player.woodcuttingxp === this.player.woodcutting*21) {
+		text += ('You have ' + Game.player.wood + ' wood.<br />');
+		if (Game.player.woodcuttingxp === Game.player.woodcutting*21) {
 			text += ('<br /><b>Congradulations, you have advanced a Woodcutting level!</b><br />');
-			this.player.woodcutting++;
-			text += ('<b>Woodcutting level:</b> ' + this.player.woodcutting + '<br />');
-			this.player.woodcuttingxp = 0;
+			Game.player.woodcutting++;
+			text += ('<b>Woodcutting level:</b> ' + Game.player.woodcutting + '<br />');
+			Game.player.woodcuttingxp = 0;
 		}
 		display(text);
 	},
 	
 	fish: function() {
 		var text = '';
-		if (this.player.bait > 0) {
+		if (Game.player.bait > 0) {
 			var b = 2;
 			var r = random(0, b-1);
-			if (this.player.fishing >= 25) {
-				r = random(0, this.player.fishing);
-			} else if (this.player.fishing >= 20) {
+			if (Game.player.fishing >= 25) {
+				r = random(0, Game.player.fishing);
+			} else if (Game.player.fishing >= 20) {
 				r = random(0, 9-1);;
-			} else if (this.player.fishing >= 15) {
+			} else if (Game.player.fishing >= 15) {
 				r = random(0, 7-1);;
-			} else if (this.player.fishing >= 10) {
+			} else if (Game.player.fishing >= 10) {
 				r = random(0, 5-1);;
-			} else if (this.player.fishing >= 5) {
+			} else if (Game.player.fishing >= 5) {
 				r = random(0, 3-1);;
 			}
 			if (r > 0) {
-				this.player.fish++;
-				this.player.fishingxp++;
+				Game.player.fish++;
+				Game.player.fishingxp++;
 			}
-			this.player.bait--;
+			Game.player.bait--;
 			text += ('You have recieved ' + r + ' fish.<br />');
-			text += ('You have ' + this.player.fish + ' fish.<br />');
-			text += ('You have ' + this.player.bait + ' piece(s) of bait.<br />');
-			if (this.player.fishingxp === this.player.fishing*21) {
+			text += ('You have ' + Game.player.fish + ' fish.<br />');
+			text += ('You have ' + Game.player.bait + ' piece(s) of bait.<br />');
+			if (Game.player.fishingxp === Game.player.fishing*21) {
 				text += ('<br /><b>Congradulations, you have advanced a Fishing level!</b><br />');
-				this.player.fishing++;
-				text += ('<b>Fishing level:</b> ' + this.player.fishing + '<br />');
-				this.player.fishingxp = 0;
+				Game.player.fishing++;
+				text += ('<b>Fishing level:</b> ' + Game.player.fishing + '<br />');
+				Game.player.fishingxp = 0;
 			}
 			display(text);
 		} else {
@@ -1362,30 +1365,30 @@ var Game = {
 	},
 	
 	swing: function() {
-		var b = this.player.sword + 2;
+		var b = Game.player.sword + 2;
 		var r = random(0, b-1);
 		var damage = 0;
 		if (r > 0) {
-			damage = this.player.sword + 1;
+			damage = Game.player.sword + 1;
 		}
 		return damage;
 	},
 	
 	eat: function() {
 		var text = '';
-		if (this.player.fish > 0) {
+		if (Game.player.fish > 0) {
 			text += ('You eat a fish.<br />');
 			text += ('You gain 10 health.<br />');
 			health += 10;
-			if (this.player.health > this.player.healthstatic) {
-				this.player.health = this.player.healthstatic;
+			if (Game.player.health > Game.player.healthstatic) {
+				Game.player.health = Game.player.healthstatic;
 			}
-			text += ('You now have ' + this.player.health + ' health.<br />');
-			text += ('You have ' + this.player.fish + ' fish.<br />');
+			text += ('You now have ' + Game.player.health + ' health.<br />');
+			text += ('You have ' + Game.player.fish + ' fish.<br />');
 			display(text);
 		} else {
 			text += ('You don\'t have any fish.<br />');
-			text += ('You have ' + this.player.health + ' health.<br />');
+			text += ('You have ' + Game.player.health + ' health.<br />');
 			display(text);
 		}
 		setTimeout(function () {
@@ -1398,18 +1401,18 @@ var Game = {
 		text += ('Oh dear! You seemed to have died!<br />');
 		text += ('Luckily the Gods brought you back to life.<br />');
 		text += ('It seems they have retrieved all our goods, except you have lost some silver!<br />');
-		this.player.silver -= this.player.silver*.2;
-		text += ('You have ' + this.player.silver + ' silver.<br />');
+		Game.player.silver -= Game.player.silver*.2;
+		text += ('You have ' + Game.player.silver + ' silver.<br />');
 		text += ('At least you\'re alive.<br />');
-		this.heal();
+		Game.heal();
 		display(text);
 		setTimeout(function () {
-			this.start();
+			Game.start();
 		}, 10000);
 	},
   
 	heal: function() {
-		this.player.health = this.player.healthstatic;
+		Game.player.health = Game.player.healthstatic;
 		return;
 	},
 
