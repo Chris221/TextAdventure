@@ -170,7 +170,9 @@ function trans(input) {
 			break;
 		case 'stats':
 			break;
-		
+		default:
+			notValid();
+			break;
 	}
 	
 };
@@ -217,8 +219,11 @@ function godSword() {
 		} else {
 			Game.player.swordcheat = Game.player.sword;
 			Game.player.sword = 100;
+			var text = '';
+			text += ('You unequipped the <font color="black"><b>' + Game.player.swordname + '</b></font>.<br />');
 			Game.swordName();
-			rightdisplay('You equipped the <font color="black"><b>' + Game.player.swordname + '</b></font>.<br />');
+			text += ('You equipped the <font color="black"><b>' + Game.player.swordname + '</b></font>.<br />');
+			rightdisplay(text);
 		}
 	} else {
 		notValid();
@@ -239,11 +244,14 @@ function godArmour() {
 		} else {
 			Game.player.armourcheat = Game.player.armour;
 			Game.player.armour = 100;
-			Game.armourName();
 			Game.player.health = 100000;
 			Game.player.healthstaticcheat = Game.player.healthstatic;
 			Game.player.healthstatic = 100000;
-			rightdisplay('You equipped the <font color="black"><b>' + Game.player.armourname + '</b></font>.<br />');
+			var text = '';
+			text += ('You unequipped the <font color="black"><b>' + Game.player.armourname + '</b></font>.<br />');
+			Game.armourName();
+			text += ('You equipped the <font color="black"><b>' + Game.player.armourname + '</b></font>.<br />');
+			rightdisplay(text);
 		}
 	} else {
 		notValid();
@@ -268,15 +276,17 @@ function god() {
 		} else {
 			Game.player.swordcheat = Game.player.sword;
 			Game.player.sword = 100;
-			Game.swordName();
 			Game.player.armourcheat = Game.player.armour;
 			Game.player.armour = 100;
-			Game.armourName();
 			Game.player.healthstaticcheat = Game.player.healthstatic;
 			Game.player.healthstatic = 100000;
 			Game.player.health = Game.player.healthstatic;
 			var text = '';
+			text += ('You unequipped the <font color="black"><b>' + Game.player.swordname + '</b></font>.<br />');
+			Game.swordName();
 			text += ('You equipped the <font color="black"><b>' + Game.player.swordname + '</b></font>.<br />');
+			text += ('You unequipped the <font color="black"><b>' + Game.player.armourname + '</b></font>.<br />');
+			Game.armourName();
 			text += ('You equipped the <font color="black"><b>' + Game.player.armourname + '</b></font>.<br />');
 			rightdisplay(text);
 		}
