@@ -6,6 +6,7 @@ var Game = {
 		defencexp: 0,
 		health: 10,
 		healthstatic: 10,
+		healthstaticcheat: 0,
 		mining: 1,
 		miningxp: 0,
 		fish: 0,
@@ -20,6 +21,8 @@ var Game = {
 		wood: 0,
 		sword: 0,
 		armour: 0,
+		swordcheat: 0,
+		armourcheat: 0,
 		silver: 200,
 		key: 0,
 		woodIncome: 0,
@@ -29,6 +32,7 @@ var Game = {
 		location: 0,
 		globalLocation: 0,
 		shopLocation: 0,
+		cheat: false,
 		swordname: '',
 	 	armourname: '',
 		name: '',
@@ -880,6 +884,8 @@ var Game = {
 			Game.player.swordname = 'Titanium Sword';
 		} else if (Game.player.sword === 6) {
 			Game.player.swordname = 'Tungsten Sword';
+		} else if (Game.player.sword === 100) {
+			Game.player.swordname = 'God Sword';
 		}
 	},
 	
@@ -1200,13 +1206,15 @@ var Game = {
 			Game.player.armourname = 'Gold Armour';
 		} else if (Game.player.armour === 3) {
 			Game.player.armourname = 'Iron Armour';
-		} else if (armour === 4) {
+		} else if (Game.player.armour === 4) {
 			Game.player.armourname = 'Steel Armour';
 		} else if (Game.player.armour === 5) {
 			Game.player.armourname = 'Titanium Armour';
 		} else if (Game.player.armour === 6) {
 			Game.player.armourname = 'Tungsten Armour';
-		}
+		} else if (Game.player.armour === 100) {
+			Game.player.armourname = 'God Armour';
+		} 
 	},
   
 	backToCity: function() {
@@ -1370,6 +1378,9 @@ var Game = {
 		var damage = 0;
 		if (r > 0) {
 			damage = Game.player.sword + 1;
+		}
+		if (Game.player.sword === 7) {
+			damage = 100000;
 		}
 		return damage;
 	},

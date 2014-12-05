@@ -22,6 +22,8 @@ function display(text) {
 	output.innerHTML = text;
 	var nullOutput = document.getElementById('null_output');
 	nullOutput.innerHTML = '';
+	var rightOutput = document.getElementById('right_output');
+	rightOutput.innerHTML = '';
 };
 
 /*
@@ -42,9 +44,17 @@ function run() {
 };
 
 function notValid() {
+	var rightOutput = document.getElementById('right_output');
+	rightOutput.innerHTML = '';
 	var nullOutput = document.getElementById('null_output');
 	nullOutput.innerHTML = '';
 	nullOutput.innerHTML = 'That command is not a valid command at this location.';
+};
+
+function rightdisplay(text) {
+	var rightOutput = document.getElementById('right_output');
+	rightOutput.innerHTML = '';
+	rightOutput.innerHTML = text;
 };
 
 function trans(input) {
@@ -140,11 +150,139 @@ function trans(input) {
 			break;
 		case 'tungsten armour':
 			break;
-		default:
-			notValid();
+		case 'cheats':
+			cheat();
 			break;
+		case 'give silver':
+			giveSilver();
+			break;
+		case 'give fish':
+			giveFish();
+			break;
+		case 'god':
+			god();
+			break;
+		case 'god sword':
+			godSword();
+			break;
+		case 'god armour':
+			godArmour();
+			break;
+		case 'stats':
+			break;
+		
 	}
 	
+};
+
+function cheat() {
+	var text = '';
+	if (Game.player.cheat === false) {
+		Game.player.cheat = true;
+		text = '<b>Cheats:</b> <font color="black">ON</font><br />';
+	} else {
+		Game.player.cheat = false;
+		text = '<b>Cheats:</b> <font color="black">OFF</font><br />';
+	}
+	rightdisplay(text);
+};
+
+function giveSilver() {
+	if (Game.player.cheat === true) {
+		Game.player.silver += 100000;
+		rightdisplay('<font color="black"><b>+100,000 Silver</b></font><br />');
+	} else {
+		notValid();
+	}
+};
+
+function giveFish() {
+	if (Game.player.cheat === true) {
+		Game.player.fish += 100000;
+		rightdisplay('<font color="black"><b>+100,000 Fish</b></font><br />');
+	} else {
+		notValid();
+	}
+};
+
+function godSword() {
+	if (Game.player.cheat === true) {
+		if (Game.player.sword === 100) {
+			Game.player.sword = Game.player.swordcheat;
+			var text = '';
+			text += ('You unequipped the <font color="black"><b>' + Game.player.swordname + '</b></font>.<br />');
+			Game.swordName();
+			text += ('You equipped the <font color="black"><b>' + Game.player.swordname + '</b></font> from before.<br />');
+			rightdisplay(text);
+		} else {
+			Game.player.swordcheat = Game.player.sword;
+			Game.player.sword = 100;
+			Game.swordName();
+			rightdisplay('You equipped the <font color="black"><b>' + Game.player.swordname + '</b></font>.<br />');
+		}
+	} else {
+		notValid();
+	}
+};
+
+function godArmour() {
+	if (Game.player.cheat === true) {
+		if (Game.player.armour === 100) {
+			Game.player.armour = Game.player.armourcheat;
+			Game.player.healthstatic = Game.player.healthstaticcheat;
+			Game.player.health = Game.player.healthstatic;
+			var text = '';
+			text += ('You unequipped the <font color="black"><b>' + Game.player.armourname + '</b></font>.<br />');
+			Game.armourName();
+			text += ('You equipped the <font color="black"><b>' + Game.player.armourname + '</b></font> from before.<br />');
+			rightdisplay(text);
+		} else {
+			Game.player.armourcheat = Game.player.armour;
+			Game.player.armour = 100;
+			Game.armourName();
+			Game.player.health = 100000;
+			Game.player.healthstaticcheat = Game.player.healthstatic;
+			Game.player.healthstatic = 100000;
+			rightdisplay('You equipped the <font color="black"><b>' + Game.player.armourname + '</b></font>.<br />');
+		}
+	} else {
+		notValid();
+	}
+};
+
+function god() {
+	if (Game.player.cheat === true) {
+		if (Game.player.sword === 100 && Game.player.armour === 100) {
+			Game.player.sword = Game.player.swordcheat;
+			Game.player.armour = Game.player.armourcheat;
+			Game.player.healthstatic = Game.player.healthstaticcheat;
+			Game.player.health = Game.player.healthstatic;
+			var text = '';
+			text += ('You unequipped the <font color="black"><b>' + Game.player.swordname + '</b></font>.<br />');
+			Game.swordName();
+			text += ('You equipped the <font color="black"><b>' + Game.player.swordname + '</b></font> from before.<br />');
+			text += ('You unequipped the <font color="black"><b>' + Game.player.armourname + '</b></font>.<br />');
+			Game.armourName();
+			text += ('You equipped the <font color="black"><b>' + Game.player.armourname + '</b></font> from before.<br />');
+			rightdisplay(text);
+		} else {
+			Game.player.swordcheat = Game.player.sword;
+			Game.player.sword = 100;
+			Game.swordName();
+			Game.player.armourcheat = Game.player.armour;
+			Game.player.armour = 100;
+			Game.armourName();
+			Game.player.healthstaticcheat = Game.player.healthstatic;
+			Game.player.healthstatic = 100000;
+			Game.player.health = Game.player.healthstatic;
+			var text = '';
+			text += ('You equipped the <font color="black"><b>' + Game.player.swordname + '</b></font>.<br />');
+			text += ('You equipped the <font color="black"><b>' + Game.player.armourname + '</b></font>.<br />');
+			rightdisplay(text);
+		}
+	} else {
+		notValid();
+	}
 };
 
 function north() {
