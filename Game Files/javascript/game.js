@@ -73,6 +73,7 @@ var Game = {
 	},
 	
 	backleighCaveEntrance: function() {
+		Game.player.globalLocation = 2;
 		var text = '';
 		text += ('You are standing outside the cave in Backleigh.<br />');
 		text += ('You see a sign.<br />');
@@ -145,6 +146,9 @@ var Game = {
 		var text = '';
 		text += ('You have escaped from the ' + Game.player.name + '.<br />');
 		display(text);
+		setTimeout(function () {
+			Game.backleighCaveContinue();
+		}, 6000);
 	},
 	
 	caveReturn: function() {
@@ -152,6 +156,9 @@ var Game = {
 		text += ('Now that you have slain the ' + Game.player.name + '.<br />');
 		text += ('You continue to explore the cave.<br />');
 		display(text);
+		setTimeout(function () {
+			Game.backleighCaveContinue();
+		}, 6000);
 	},
 		
 	caveLeave: function() {
@@ -159,6 +166,9 @@ var Game = {
 		text += ('You leave the cave.<br />');
 		text += ('You head back to Backleigh Castle.<br />');
 		display(text);
+		setTimeout(function () {
+			Game.backleighCaveContinue();
+		}, 6000);
 	},
 		
 	backleighLumber: function() {

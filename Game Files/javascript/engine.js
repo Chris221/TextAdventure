@@ -78,8 +78,10 @@ function trans(input) {
 			chopwood();
 			break;
 		case 'enter the mine':
+			enterthemine();
 			break;
 		case 'enter the shop':
+			entertheshop();
 			break;
 		case 'return':
 			break;
@@ -371,6 +373,26 @@ function chopwood() {
 function enterthemine() {
 	if (Game.player.location === 5 && Game.player.globalLocation === 0) {
 		Game.grimtolMine();
+	} else if (Game.player.location === 1 && Game.player.globalLocation === 0) {
+		Game.backleighMine();
+	} else if (Game.player.location === 3 && Game.player.globalLocation === 0) {
+		Game.eldenMine();
+	} else {
+		notValid();
+	}
+};
+
+function entertheshop() {
+	if (Game.player.globalLocation === 0) {
+		Game.shop();
+	} else {
+		notValid();
+	}
+};
+
+function goback() {
+	if (Game.player.location === 1 && Game.player.globalLocation === 2) {
+		Game.caveLeave();
 	} else if (Game.player.location === 1 && Game.player.globalLocation === 0) {
 		Game.backleighMine();
 	} else if (Game.player.location === 3 && Game.player.globalLocation === 0) {
