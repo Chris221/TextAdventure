@@ -63,14 +63,19 @@ function trans(input) {
 			north();
 			break;
 		case 'go west':
+			west();
 			break;
 		case 'go east':
+			east();
 			break;
 		case 'go south':
+			south();
 			break;
 		case 'enter the cave':
+			enterthecave();
 			break;
 		case 'chop wood':
+			chopwood();
 			break;
 		case 'enter the mine':
 			break;
@@ -300,6 +305,76 @@ function north() {
 		Game.elden();
 	} else if (Game.player.location === 5) {
 		Game.kirkoswald();
+	} else {
+		notValid();
+	}
+};
+
+function south() {
+	if (Game.player.location === 3) {
+		Game.backleigh();
+	} else if (Game.player.location === 4) {
+		Game.grimtol();
+	} else {
+		notValid();
+	}
+};
+
+function west() {
+	if (Game.player.location === 1) {
+		Game.draydon();
+	} else if (Game.player.location === 4) {
+		Game.elden();
+	} else if (Game.player.location === 5) {
+		Game.grimtolBridge();
+	} else {
+		notValid();
+	}
+};
+
+function east() {
+	if (Game.player.location === 1) {
+		Game.grimtolBridge();
+	} else if (Game.player.location === 2) {
+		Game.backleigh();
+	} else if (Game.player.location === 3) {
+		Game.kirkoswald();
+	} else {
+		notValid();
+	}
+};
+
+function enterthecave() {
+	if (Game.player.location === 1) {
+		Game.backleighCaveEntrance();
+	} else {
+		notValid();
+	}
+};
+
+function chopwood() {
+	if (Game.player.location === 1 && Game.player.globalLocation === 0) {
+		Game.backleighLumber();
+	} else if (Game.player.location === 1 && Game.player.globalLocation === 1) {
+		Game.lumber();
+		Game.backleighLumber();
+	} else if (Game.player.location === 3 && Game.player.globalLocation === 0) {
+		Game.eldenLumber();
+	} else if (Game.player.location === 3 && Game.player.globalLocation === 1) {
+		Game.lumber();
+		Game.eldenLumber();
+	} else {
+		notValid();
+	}
+};
+
+function enterthemine() {
+	if (Game.player.location === 5 && Game.player.globalLocation === 0) {
+		Game.grimtolMine();
+	} else if (Game.player.location === 1 && Game.player.globalLocation === 0) {
+		Game.backleighMine();
+	} else if (Game.player.location === 3 && Game.player.globalLocation === 0) {
+		Game.eldenMine();
 	} else {
 		notValid();
 	}

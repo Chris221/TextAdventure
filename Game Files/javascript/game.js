@@ -39,6 +39,7 @@ var Game = {
 	},
 	
 	start: function() {
+		Game.player.globalLocation = 0;
 		Game.player.location = 1;
 		Game.armourName();
 		Game.swordName();
@@ -56,6 +57,7 @@ var Game = {
 	},
 	
 	backleigh: function() {
+		Game.player.globalLocation = 0;
 		Game.player.location = 1;
 		var text = '';
 		text += ('You arrive in Backleigh Castle.<br />');
@@ -160,6 +162,7 @@ var Game = {
 	},
 		
 	backleighLumber: function() {
+		Game.player.globalLocation = 1;
 		var text = '';
 		text += ('You are in the Backleigh Lumber yard.<br />');
 		text += ('What would you like to do?<br />');
@@ -180,6 +183,7 @@ var Game = {
 	},
 	
 	draydon: function() {
+		Game.player.globalLocation = 0;
 		Game.player.location = 2;
 		var text = '';
 		text += ('You arrive in Draydon Keep.<br />');
@@ -212,6 +216,7 @@ var Game = {
 	},
 	
 	elden: function() {
+		Game.player.globalLocation = 0;
 		Game.player.location = 3;
 		var text = '';
 		text += ('You arrive in Elden Stronghold.<br />');
@@ -225,6 +230,7 @@ var Game = {
 	},
 	
 	eldenLumber: function() {
+		Game.player.globalLocation = 1;
 		var text = '';
 		text += ('You are in the Elden Lumber yard.<br />');
 		text += ('What would you like to do?<br />');
@@ -245,6 +251,7 @@ var Game = {
 	},
 
 	grimtol: function() {
+		Game.player.globalLocation = 0;
 		Game.player.location = 5;
 		var text = '';
 		text += ('You arrive in the City of Grimtol.<br />');
@@ -296,6 +303,7 @@ var Game = {
 	},
 	
 	kirkoswald: function() {
+		Game.player.globalLocation = 0;
 		Game.player.location = 4;
 		var text = '';
 		text += ('You arrive in Kirkoswald Fortress.<br />');
