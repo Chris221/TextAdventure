@@ -40,6 +40,7 @@ input.addEventListener("keyup", function(event) {
 function run() {
 	var input = document.querySelector('input').value;
 	input = input.toLowerCase();
+	document.querySelector('input').value = '';
 	trans(input);
 };
 
@@ -84,6 +85,7 @@ function trans(input) {
 			entertheshop();
 			break;
 		case 'return':
+			goback();
 			break;
 		case 'attack':
 			break;
@@ -92,44 +94,61 @@ function trans(input) {
 		case 'leave':
 			break;
 		case 'mine iron':
+			mineiron();
 			break;
 		case 'mine coal':
+			minecoal();
 			break;
 		case 'mine gold':
+			minegold();
 			break;
 		case 'enter the draydon port':
+			enterport();
 			break;
 		case 'buy':
+			buy();
 			break;
 		case 'fish':
+			fish();
 			break;
 		case 'pay':
+			pay();
 			break;
 		case 'explore':
+			explore();
 			break;
 		case 'enter the magician tower':
+			entertower();
 			break;
 		case 'find your way':
+			findway();
 			break;
 		case 'search':
+			searchfor();
 			break;
 		case 'attempt to leave':
+			attempttoleave();
 			break;
 		case 'browse swords':
+			browseswords();
 			break;
 		case 'browse armour':
+			browsearmour();
 			break;
 		case 'sell wood':
+			sellwood();
 			break;
 		case 'sell ores':
-			break;
-		case 'sell':
+			sellores();
 			break;
 		case 'sell iron':
+			selliron();
 			break;
 		case 'sell gold':
+			sellgold();
 			break;
 		case 'sell coal':
+			sellcoal();
 			break;
 		case 'bronze sword':
 			break;
@@ -142,8 +161,6 @@ function trans(input) {
 		case 'titanium sword':
 			break;
 		case 'tungsten sword':
-			break;
-		case 'browse':
 			break;
 		case 'bronze armour':
 			break;
@@ -181,7 +198,6 @@ function trans(input) {
 			notValid();
 			break;
 	}
-	
 };
 
 function cheat() {
@@ -357,14 +373,12 @@ function enterthecave() {
 function chopwood() {
 	if (Game.player.location === 1 && Game.player.globalLocation === 0) {
 		Game.backleighLumber();
-	} else if (Game.player.location === 1 && Game.player.globalLocation === 1) {
+	} else if (Game.player.location === 1 && Game.player.globalLocation === 2) {
 		Game.lumber();
-		Game.backleighLumber();
 	} else if (Game.player.location === 3 && Game.player.globalLocation === 0) {
 		Game.eldenLumber();
 	} else if (Game.player.location === 3 && Game.player.globalLocation === 1) {
 		Game.lumber();
-		Game.eldenLumber();
 	} else {
 		notValid();
 	}
@@ -391,12 +405,245 @@ function entertheshop() {
 };
 
 function goback() {
-	if (Game.player.location === 1 && Game.player.globalLocation === 2) {
+	if (Game.player.location === 1 && Game.player.globalLocation === 3) {
 		Game.caveLeave();
-	} else if (Game.player.location === 1 && Game.player.globalLocation === 0) {
-		Game.backleighMine();
-	} else if (Game.player.location === 3 && Game.player.globalLocation === 0) {
-		Game.eldenMine();
+	} else if (Game.player.location === 1 && Game.player.globalLocation === 2) {
+		Game.backleigh();
+	} else if (Game.player.location === 2 && Game.player.globalLocation === 2) {
+		Game.draydon();
+	} else if (Game.player.location === 2 && Game.player.globalLocation === 3) {
+		Game.draydonPort();
+	} else if (Game.player.location === 3 && Game.player.globalLocation === 2) {
+		Game.elden();
+	} else if (Game.player.location === 3 && Game.player.globalLocation === 3) {
+		Game.eldon();
+	} else if (Game.player.location === 5 && Game.player.globalLocation === 2) {
+		Game.grimtol();
+	} else if (Game.player.location === 1 && Game.player.globalLocation === 2) {
+		Game.backleigh();
+	} else if (Game.player.location === 4 && Game.player.globalLocation === 2) {
+		Game.kirkoswald();
+	} else if (Game.player.shopLocation > 0) {
+		Game.shop();
+	} else {
+		notValid();
+	}
+};
+
+function mineiron() {
+	if (Game.player.location === 5 && Game.player.globalLocation === 2) {
+		Game.iron();
+	} else if (Game.player.location === 1 && Game.player.globalLocation === 2) {
+		Game.iron();
+	} else if (Game.player.location === 3 && Game.player.globalLocation === 2) {
+		Game.iron();
+	} else {
+		notValid();
+	}
+};
+
+function minecoal() {
+	if (Game.player.location === 5 && Game.player.globalLocation === 2) {
+		Game.coal();
+	} else if (Game.player.location === 1 && Game.player.globalLocation === 2) {
+		Game.coal();
+	} else if (Game.player.location === 3 && Game.player.globalLocation === 2) {
+		Game.coal();
+	} else {
+		notValid();
+	}
+};
+
+function minegold() {
+	if (Game.player.location === 5 && Game.player.globalLocation === 2) {
+		Game.gold();
+	} else if (Game.player.location === 1 && Game.player.globalLocation === 2) {
+		Game.gold();
+	} else if (Game.player.location === 3 && Game.player.globalLocation === 2) {
+		Game.gold();
+	} else {
+		notValid();
+	}
+};
+
+function enterport() {
+	if (Game.player.location === 2 && Game.player.globalLocation === 0) {
+		Game.draydonPort();
+	} else {
+		notValid();
+	}
+};
+
+function buy() {
+	if (Game.player.location === 2 && Game.player.globalLocation === 2) {
+		Game.baitStore();
+	} else if (Game.player.location === 2 && Game.player.globalLocation === 3) {
+		var text = '';
+		if (Game.player.silver >= 50) {
+			Game.player.silver -= 50;
+			Game.player.bait += 20;
+			text += ('You have ' + Game.player.silver + ' silver.<br />');
+			text += ('You have ' + Game.player.bait + ' pieces of bait.<br />');
+		} else {
+			text += ('Bait costs 50 silver.<br />');
+			text += ('You have ' + Game.player.silver + ' silver.<br />');
+		}
+		display(text);
+		setTimeout(function () {
+			Game.draydonPort();
+		}, 3000);
+	} else if (Game.player.shopLocation === 1 && Game.player.globalLocation === 1) {
+		Game.bronzeSwordBuy();
+	} else if (Game.player.shopLocation === 1 && Game.player.globalLocation === 2) {
+		Game.goldSwordBuy();
+	} else if (Game.player.shopLocation === 1 && Game.player.globalLocation === 3) {
+		Game.ironSwordBuy();
+	} else if (Game.player.shopLocation === 1 && Game.player.globalLocation === 4) {
+		Game.steelSwordBuy();
+	} else if (Game.player.shopLocation === 1 && Game.player.globalLocation === 5) {
+		Game.titaniumSwordBuy();
+	} else if (Game.player.shopLocation === 1 && Game.player.globalLocation === 6) {
+		Game.tungstenSwordBuy();
+	} else if (Game.player.shopLocation === 2 && Game.player.globalLocation === 1) {
+		Game.bronzeArmourBuy();
+	} else if (Game.player.shopLocation === 2 && Game.player.globalLocation === 2) {
+		Game.goldArmourBuy();
+	} else if (Game.player.shopLocation === 2 && Game.player.globalLocation === 3) {
+		Game.ironArmourBuy();
+	} else if (Game.player.shopLocation === 2 && Game.player.globalLocation === 4) {
+		Game.steelArmourBuy();
+	} else if (Game.player.shopLocation === 2 && Game.player.globalLocation === 5) {
+		Game.titaniumArmourBuy();
+	} else if (Game.player.shopLocation === 2 && Game.player.globalLocation === 6) {
+		Game.tungstenArmourBuy();
+	} else {
+		notValid();
+	}
+};
+
+function fish() {
+	if (Game.player.location === 2 && Game.player.globalLocation === 2) {
+		Game.draydonPort();
+	} else {
+		notValid();
+	}
+};
+
+function pay() {
+	if (Game.player.location === 1 && Game.player.globalLocation === 3) {
+		var text = '';
+		text += ('You pay the gaurds 50 silver.<br />');
+		text += ('They let you pass.<br />');
+		silver -= 50;
+		text += ('You now have ' + silver + ' Silver.<br />');
+		display(text);
+		setTimeout(function () {
+			Game.grimtol();
+		}, 3000);
+	} else {
+		notValid();
+	}
+};
+
+function explore() {
+	if (Game.player.location === 4 && Game.player.globalLocation === 0) {
+		Game.magicalForestEntrance();
+	} else if (Game.player.location === 4 && Game.player.globalLocation === 2) {
+		Game.magicalForest();
+	} else {
+		notValid();
+	}
+};
+
+function entertower() {
+	if (Game.player.location === 4 && Game.player.globalLocation === 0) {
+		Game.magicianTowerEntrance();
+	} else if (Game.player.location === 4 && Game.player.globalLocation === 2) {
+		Game.magicianTowerEntrance();
+	} else {
+		notValid();
+	}
+};
+
+function findway() {
+	if (Game.player.location === 4 && Game.player.globalLocation === 3) {
+		Game.findWayForest(0);
+	} else {
+		notValid();
+	}
+};
+
+function searchfor() {
+	if (Game.player.location === 4 && Game.player.globalLocation === 3) {
+		Game.findWayForest(1);
+	} else {
+		notValid();
+	}
+};
+
+function attempttoleave() {
+	if (Game.player.location === 4 && Game.player.globalLocation === 3) {
+		Game.findWayForest(2);
+	} else if (Game.player.location === 4 && Game.player.globalLocation === 4) {
+		Game.findWayForest(2);
+	} else {
+		notValid();
+	}
+};
+
+function browseswords() {
+	if (Game.player.shopLocation === 0 || Game.player.shopLocation === 1) {
+		Game.swordShop();
+	} else {
+		notValid();
+	}
+};
+
+function browsearmour() {
+	if (Game.player.shopLocation === 0 || Game.player.shopLocation === 2) {
+		Game.armourShop();
+	} else {
+		notValid();
+	}
+};
+
+function sellwood() {
+	if (Game.player.shopLocation === 0) {
+		Game.sellwood();
+	} else if (Game.player.shopLocation === 3) {
+		Game.sellwoodcomplete();
+	} else {
+		notValid();
+	}
+};
+
+function sellores() {
+	if (Game.player.shopLocation === 0) {
+		Game.sellore();
+	} else {
+		notValid();
+	}
+};
+
+function selliron() {
+	if (Game.player.shopLocation === 4) {
+		Game.selliron();
+	} else {
+		notValid();
+	}
+};
+
+function sellcoal() {
+	if (Game.player.shopLocation === 4) {
+		Game.sellcoal();
+	} else {
+		notValid();
+	}
+};
+
+function sellgold() {
+	if (Game.player.shopLocation === 4) {
+		Game.sellgold();
 	} else {
 		notValid();
 	}
