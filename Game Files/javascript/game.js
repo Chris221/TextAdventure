@@ -118,6 +118,7 @@ var Game = {
 	},
 	
 	backleighCaveEnter: function() {
+		Game.player.globalLocation = 4;
 		var text = '';
 		cave();
 		text += ('You have entered the cave.<br />');
@@ -130,6 +131,7 @@ var Game = {
 	},
 	
 	backleighCaveContinue: function() {
+		Game.player.globalLocation = 4;
 		var text = '';
 		cave();
 		text += ('You continue down the cave.<br />');

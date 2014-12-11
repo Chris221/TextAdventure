@@ -26,17 +26,6 @@ function display(text) {
 	rightOutput.innerHTML = '';
 };
 
-/*
-var input = document.querySelector('input');
-input.addEventListener("keyup", function(event) {
-	if(event.keycode == 13) {
-		var cmd = interpret(this.value);
-		display(cmd);
-		//execute(cmd);
-	}
-});
-*/
-
 function run() {
 	var input = document.querySelector('input').value;
 	input = input.toLowerCase();
@@ -90,8 +79,10 @@ function trans(input) {
 		case 'attack':
 			break;
 		case 'run':
+			runfrom();
 			break;
 		case 'leave':
+			leave();
 			break;
 		case 'mine iron':
 			mineiron();
@@ -151,28 +142,40 @@ function trans(input) {
 			sellcoal();
 			break;
 		case 'bronze sword':
+			bronzesword();
 			break;
 		case 'gold sword':
+			goldsword();
 			break;
 		case 'iron sword':
+			ironsword();
 			break;
 		case 'steel sword':
+			steelsword();
 			break;
 		case 'titanium sword':
+			titaniumsword();
 			break;
 		case 'tungsten sword':
+			tungstensword();
 			break;
 		case 'bronze armour':
+			bronzearmour();
 			break;
 		case 'gold armour':
+			goldarmour();
 			break;
 		case 'iron armour':
+			ironarmour();
 			break;
 		case 'steel armour':
+			steelarmour();
 			break;
 		case 'titanium armour':
+			titaniumarmour();
 			break;
 		case 'tungsten armour':
+			tungstenarmour();
 			break;
 		case 'cheats':
 			cheat();
@@ -648,3 +651,128 @@ function sellgold() {
 		notValid();
 	}
 };
+
+function bronzesword() {
+	if (Game.player.shopLocation === 1) {
+		Game.bronzeSword();
+	} else {
+		notValid();
+	}
+};
+
+function goldsword() {
+	if (Game.player.shopLocation === 1) {
+		Game.goldSword();
+	} else {
+		notValid();
+	}
+};
+
+function ironsword() {
+	if (Game.player.shopLocation === 1) {
+		Game.ironSword();
+	} else {
+		notValid();
+	}
+};
+
+function steelsword() {
+	if (Game.player.shopLocation === 1) {
+		Game.steelSword();
+	} else {
+		notValid();
+	}
+};
+
+function titaniumsword() {
+	if (Game.player.shopLocation === 1) {
+		Game.titaniumSword();
+	} else {
+		notValid();
+	}
+};
+
+function tungstensword() {
+	if (Game.player.shopLocation === 1) {
+		Game.tungstenSword();
+	} else {
+		notValid();
+	}
+};
+
+function bronzearmour() {
+	if (Game.player.shopLocation === 2) {
+		Game.bronzeArmour();
+	} else {
+		notValid();
+	}
+};
+
+function goldarmour() {
+	if (Game.player.shopLocation === 2) {
+		Game.goldArmour();
+	} else {
+		notValid();
+	}
+};
+
+function ironarmour() {
+	if (Game.player.shopLocation === 2) {
+		Game.ironArmour();
+	} else {
+		notValid();
+	}
+};
+
+function steelarmour() {
+	if (Game.player.shopLocation === 2) {
+		Game.steelArmour();
+	} else {
+		notValid();
+	}
+};
+
+function titaniumarmour() {
+	if (Game.player.shopLocation === 2) {
+		Game.titaniumArmour();
+	} else {
+		notValid();
+	}
+};
+
+function tungstenarmour() {
+	if (Game.player.shopLocation === 2) {
+		Game.tungstenArmour();
+	} else {
+		notValid();
+	}
+};
+
+function runfrom() {
+	if (Game.player.location === 1 && Game.player.globalLocation === 4) {
+		Game.runCave();
+	} else if (Game.player.location === 4 && Game.player.globalLocation === 4) {
+		Game.runForest();
+	} else {
+		notValid();
+	}
+};
+
+function leave() {
+	if (Game.player.shopLocation === 0 && Game.player.location === 1) {
+		Game.backleigh();
+	} else if (Game.player.shopLocation === 0 && Game.player.location === 2) {
+		Game.draydonPort();
+	} else if (Game.player.shopLocation === 0 && Game.player.location === 3) {
+		Game.elden();
+	} else if (Game.player.shopLocation === 0 && Game.player.location === 4) {
+		Game.kirkoswald();
+	} else if (Game.player.shopLocation === 0 && Game.player.location === 5) {
+		Game.grimtol();
+	} else if (Game.player.globalLocation === 4 && Game.player.location === 1) {
+		Game.caveLeave();
+	} else {
+		notValid();
+	}
+};
+
