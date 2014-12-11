@@ -39,6 +39,7 @@ var Game = {
 	},
 	
 	start: function() {
+		Game.player.shopLocation = -1;
 		Game.player.globalLocation = 0;
 		Game.player.location = 1;
 		Game.armourName();
@@ -57,6 +58,7 @@ var Game = {
 	},
 	
 	backleigh: function() {
+		Game.player.shopLocation = -1;
 		Game.player.globalLocation = 0;
 		Game.player.location = 1;
 		var text = '';
@@ -99,7 +101,7 @@ var Game = {
 		} else if (r >= 50 && r < 100) {
 			x = 'goblin';
 		} else if (r >= 100 && r < 150) {
-			x = 'goblin suprise';
+			x = 'goblin';
 		} else if (r >= 150 && r < 185) {
 			x = 'bear';
 		} else if (r >= 185 && r < 210) {
@@ -120,7 +122,7 @@ var Game = {
 	backleighCaveEnter: function() {
 		Game.player.globalLocation = 4;
 		var text = '';
-		cave();
+		Game.cave();
 		text += ('You have entered the cave.<br />');
 		text += ('You see a ' + Game.player.name + '.<br />');
 		text += ('What would you like to do?<br />');
@@ -133,7 +135,7 @@ var Game = {
 	backleighCaveContinue: function() {
 		Game.player.globalLocation = 4;
 		var text = '';
-		cave();
+		Game.cave();
 		text += ('You continue down the cave.<br />');
 		text += ('You see a ' + Game.player.name + '.<br />');
 		text += ('What would you like to do?<br />');
@@ -196,6 +198,7 @@ var Game = {
 	},
 	
 	draydon: function() {
+		Game.player.shopLocation = -1;
 		Game.player.globalLocation = 0;
 		Game.player.location = 2;
 		var text = '';
@@ -222,8 +225,8 @@ var Game = {
 		Game.player.globalLocation = 3;
 		var text = '';
 		text += ('20 pieces of bait costs 50 silver.<br />');
-		text += ('You have ' + silver + ' silver.<br />');
-		text += ('You have ' + bait + ' piece(s) of bait.<br />');
+		text += ('You have ' + Game.player.silver + ' silver.<br />');
+		text += ('You have ' + Game.player.bait + ' piece(s) of bait.<br />');
 		text += ('What would you like to do?<br />');
 		text += ('1) <b>Buy</b> 20 bait.<br />');
 		text += ('2) <b>Return</b> to the rest of the Port.<br />');
@@ -231,6 +234,7 @@ var Game = {
 	},
 	
 	elden: function() {
+		Game.player.shopLocation = -1;
 		Game.player.globalLocation = 0;
 		Game.player.location = 3;
 		var text = '';
@@ -267,6 +271,7 @@ var Game = {
 	},
 
 	grimtol: function() {
+		Game.player.shopLocation = -1;
 		Game.player.globalLocation = 0;
 		Game.player.location = 5;
 		var text = '';
@@ -322,6 +327,7 @@ var Game = {
 	},
 	
 	kirkoswald: function() {
+		Game.player.shopLocation = -1;
 		Game.player.globalLocation = 0;
 		Game.player.location = 4;
 		var text = '';
@@ -372,39 +378,50 @@ var Game = {
 			b = 600;
 		}
 		var r = Math.floor(Math.random() * (b-1 - 0));
-		Game.name = '';
+		Game.player.name = '';
 		if (r >= 0 && r < 20) {
-			Game.name = 'soldier';
+			Game.player.name = 'soldier';
+			Game.magicalForestFight();
 		} else if (r >= 20 && r < 25) {
-			Game.name = 'dragon';
+			Game.player.name = 'dragon';
+			Game.magicalForestFight();
 		} else if (r >= 25 && r < 35) {
-			Game.name = 'demon';
+			Game.player.name = 'demon';
+			Game.magicalForestFight();
 		} else if (r >= 35 && r < 50) {
-			Game.name = 'baby dragon';
+			Game.player.name = 'baby dragon';
+			Game.magicalForestFight();
 		} else if (r >= 50 && r < 100) {
-			Game.name = 'goblin';
+			Game.player.name = 'goblin';
+			Game.magicalForestFight();
 		} else if (r >= 100 && r < 150) {
-			Game.name = 'goblin suprise';
+			Game.player.name = 'goblin suprise';
 			Game.goblinSuprise();
 			Game.magicalForestReturn(x);
+			Game.magicalForestFight();
 		} else if (r >= 150 && r < 185) {
-			Game.name = 'bear';
+			Game.player.name = 'bear';
+			Game.magicalForestFight();
 		} else if (r >= 185 && r < 210) {
-			Game.name = 'ghoul';
+			Game.player.name = 'ghoul';
+			Game.magicalForestFight();
 		} else if (r >= 210 && r < 235) {
-			Game.name = 'zombie';
+			Game.player.name = 'zombie';
+			Game.magicalForestFight();
 		} else if (r >= 235 && r < 260) {
-			Game.name = 'troll';
+			Game.player.name = 'troll';
+			Game.magicalForestFight();
 		} else if (r >= 260 && r < 285) {
-			Game.name = 'skeleton';
+			Game.player.name = 'skeleton';
+			Game.magicalForestFight();
 		} else if (r >= 260 && r < 300) {
-			Game.name = 'spider';
+			Game.player.name = 'spider';
+			Game.magicalForestFight();
 		} else if (r >= 300 && r < 400) {
 			Game.magicalForest();
 		} else if (r >= 400 && r < 600) {
 			Game.magicalForestExit();
 		}
-		Game.magicalForestFight();
 	},
 	  
 	magicalForestExit: function() {
@@ -422,8 +439,8 @@ var Game = {
 		var text = '';
 		text += ('You stumle appon a ' + Game.player.name + '.<br />');
 		text += ('What would you like to do?<br />');
-		text += ('1) <b>Attack</b> the ' + Game.player.name);
-		text += ('2) <b>Run</b> from the ' + Game.player.name);
+		text += ('1) <b>Attack</b> the ' + Game.player.name + '.<br />');
+		text += ('2) <b>Run</b> from the ' + Game.player.name + '.<br />');
 		text += ('3) <b>Attempt to leave</b> the forest.<br />');
 		display(text);
 	},
@@ -854,7 +871,7 @@ var Game = {
 		Game.player.silver -= 50000;
 		text += ('You purchased a Titanium Sword.<br />');
 		Game.player.sword = 5;
-		text += ('You now have ' + silver + ' Silver.<br />');
+		text += ('You now have ' + Game.player.silver + ' Silver.<br />');
 		display(text);
 		setTimeout(function () {
 			Game.swordShop();
@@ -1285,12 +1302,12 @@ var Game = {
 	
 	iron: function() {
 		var text = '';
-		display('Minning.');
+		display('Mining.');
 		setTimeout(function () {
-			display('Minning..');
+			display('Mining..');
 		}, 1000);
 		setTimeout(function () {
-			display('Minning...');
+			display('Mining...');
 		}, 2000);
 		setTimeout(function () {
 			var r = 1;
@@ -1301,11 +1318,11 @@ var Game = {
 			Game.player.miningxp++;
 			text += ('You have recieved ' + r + ' iron.<br />');
 			text += ('You have ' + Game.player.iron + ' iron.<br />');
-			if (Game.player.miningxp === Game.player.mining*21) {
+			if (Game.player.miningxp >= Game.player.mining*21) {
 				text += ('<br /><b>Congradulations, you have advanced a Mining level!</b><br />');
 				Game.player.mining++;
 				text += ('<b>Mining level:</b> ' + Game.player.mining + '<br />');
-				Game.player.miningxp = 0;
+				Game.player.miningxp -= Game.player.mining*21;
 			}
 			display(text);
 			setTimeout(function () {
@@ -1322,12 +1339,12 @@ var Game = {
 	
 	coal: function() {
 		var text = '';
-		display('Minning.');
+		display('Mining.');
 		setTimeout(function () {
-			display('Minning..');
+			display('Mining..');
 		}, 1000);
 		setTimeout(function () {
-			display('Minning...');
+			display('Mining...');
 		}, 2000);
 		setTimeout(function () {
 			if (Game.player.mining >= 25) {
@@ -1339,11 +1356,11 @@ var Game = {
 				Game.player.miningxp++;
 				text += ('You have recieved ' + r + ' Coal.<br />');
 				text += ('You have ' + Game.player.coal + ' Coal.<br />');
-				if (Game.player.miningxp === mining*21) {
+				if (Game.player.miningxp >= Game.player.mining*21) {
 					text += ('<br /><b>Congradulations, you have advanced a Mining level!</b><br />');
 					Game.player.mining++;
 					text += ('<b>Mining level:</b> ' + Game.player.mining + '<br />');
-					Game.player.miningxp = 0;
+					Game.player.miningxp -= Game.player.mining*21;
 				}
 				display(text);
 			} else {
@@ -1365,12 +1382,12 @@ var Game = {
   
 	gold: function() {
 		var text = '';
-		display('Minning.');
+		display('Mining.');
 		setTimeout(function () {
-			display('Minning..');
+			display('Mining..');
 		}, 1000);
 		setTimeout(function () {
-			display('Minning...');
+			display('Mining...');
 		}, 2000);
 		setTimeout(function () {
 			if (Game.player.mining >= 50) {
@@ -1382,11 +1399,11 @@ var Game = {
 				Game.player.miningxp++;
 				text += ('You have recieved ' + r + ' gold.<br />');
 				text += ('You have ' + Game.player.gold + ' gold.<br />');
-				if (Game.player.miningxp === Game.player.mining*21) {
+				if (Game.player.miningxp >= Game.player.mining*21) {
 					text += ('<br /><b>Congradulations, you have advanced a Mining level!</b><br />');
 					Game.player.mining++;
 					text += ('<b>Mining level:</b> ' + Game.player.mining) + '<br />';
-					Game.player.miningxp = 0;
+					Game.player.miningxp -= Game.player.mining*21;
 				}
 				display(text);
 			} else {
@@ -1433,11 +1450,11 @@ var Game = {
 			}
 			text += ('You have recieved ' + r + ' wood.<br />');
 			text += ('You have ' + Game.player.wood + ' wood.<br />');
-			if (Game.player.woodcuttingxp === Game.player.woodcutting*21) {
+			if (Game.player.woodcuttingxp >= Game.player.woodcutting*21) {
 				text += ('<br /><b>Congradulations, you have advanced a Woodcutting level!</b><br />');
 				Game.player.woodcutting++;
 				text += ('<b>Woodcutting level:</b> ' + Game.player.woodcutting + '<br />');
-				Game.player.woodcuttingxp = 0;
+				Game.player.woodcuttingxp -= Game.player.woodcutting*21;
 			}
 			display(text);
 			setTimeout(function () {
@@ -1461,18 +1478,18 @@ var Game = {
 				display('Fishing...');
 			}, 2000);
 			setTimeout(function () {
-				var b = 2;
+				var b = 3;
 				var r = Math.floor(Math.random() * (b-1 - 0));
 				if (Game.player.fishing >= 25) {
 					r = Math.floor(Math.random() * (Game.player.fishing - 0));
 				} else if (Game.player.fishing >= 20) {
-					r = Math.floor(Math.random() * (9-1 - 0));
+					r = Math.floor(Math.random() * (11-1 - 0));
 				} else if (Game.player.fishing >= 15) {
-					r = Math.floor(Math.random() * (7-1 - 0));
+					r = Math.floor(Math.random() * (9-1 - 0));
 				} else if (Game.player.fishing >= 10) {
-					r = Math.floor(Math.random() * (5-1 - 0));
+					r = Math.floor(Math.random() * (7-1 - 0));
 				} else if (Game.player.fishing >= 5) {
-					r = Math.floor(Math.random() * (3-1 - 0));
+					r = Math.floor(Math.random() * (5-1 - 0));
 				}
 				if (r > 0) {
 					Game.player.fish++;
@@ -1482,11 +1499,11 @@ var Game = {
 				text += ('You have recieved ' + r + ' fish.<br />');
 				text += ('You have ' + Game.player.fish + ' fish.<br />');
 				text += ('You have ' + Game.player.bait + ' piece(s) of bait.<br />');
-				if (Game.player.fishingxp === Game.player.fishing*21) {
+				if (Game.player.fishingxp >= Game.player.fishing*21) {
 					text += ('<br /><b>Congradulations, you have advanced a Fishing level!</b><br />');
 					Game.player.fishing++;
 					text += ('<b>Fishing level:</b> ' + Game.player.fishing + '<br />');
-					Game.player.fishingxp = 0;
+					Game.player.fishingxp -= Game.player.fishing*21;
 				}
 				display(text);
 				setTimeout(function () {
@@ -1500,17 +1517,22 @@ var Game = {
 			text += ('You need at least 1 piece of bait to fish.<br />');
 			text += ('You buy bait at the Draydon Port.<br />');
 			display(text);
+			setTimeout(function () {
+				if (Game.player.location === 2 && Game.player.globalLocation === 2) {
+					Game.draydonPort();
+				}
+			}, 3000);
 		}
 	},
 	
 	swing: function() {
 		var b = Game.player.sword + 2;
-		var r = Math.floor(Math.random() * (b-1 - 0));
+		var r = Math.floor(Math.random() * (b - 0));
 		var damage = 0;
 		if (r > 0) {
 			damage = Game.player.sword + 1;
 		}
-		if (Game.player.sword === 7) {
+		if (Game.player.sword === 100) {
 			damage = 100000;
 		}
 		return damage;
@@ -1521,7 +1543,8 @@ var Game = {
 		if (Game.player.fish > 0) {
 			text += ('You eat a fish.<br />');
 			text += ('You gain 10 health.<br />');
-			health += 10;
+			Game.player.health += 10;
+			Game.player.fish -= 1;
 			if (Game.player.health > Game.player.healthstatic) {
 				Game.player.health = Game.player.healthstatic;
 			}
@@ -1534,11 +1557,12 @@ var Game = {
 			display(text);
 		}
 		setTimeout(function () {
-			RETURN
-		}, 10000);
+			Combat.monsterSwing();
+		}, 3000);
 	},
 	
 	dead: function() {
+		Combat.enemy.fighting = false;
 		var text = '';
 		text += ('Oh dear! You seemed to have died!<br />');
 		text += ('Luckily the Gods brought you back to life.<br />');
@@ -1546,16 +1570,15 @@ var Game = {
 		Game.player.silver -= Game.player.silver*.2;
 		text += ('You have ' + Game.player.silver + ' silver.<br />');
 		text += ('At least you\'re alive.<br />');
-		Game.heal();
 		display(text);
+		Game.player.health = Game.player.healthstatic;
 		setTimeout(function () {
 			Game.start();
-		}, 10000);
+		}, 3000);
 	},
   
 	heal: function() {
 		Game.player.health = Game.player.healthstatic;
-		return;
 	},
 
 };

@@ -42,6 +42,8 @@ function notValid() {
 };
 
 function rightdisplay(text) {
+	var nullOutput = document.getElementById('null_output');
+	nullOutput.innerHTML = '';
 	var rightOutput = document.getElementById('right_output');
 	rightOutput.innerHTML = '';
 	rightOutput.innerHTML = text;
@@ -77,6 +79,13 @@ function trans(input) {
 			goback();
 			break;
 		case 'attack':
+			attack();
+			break;
+		case 'swing':
+			swing();
+			break;
+		case 'eat':
+			eat();
 			break;
 		case 'run':
 			runfrom();
@@ -196,6 +205,7 @@ function trans(input) {
 			godArmour();
 			break;
 		case 'stats':
+			stats();
 			break;
 		default:
 			notValid();
@@ -366,8 +376,10 @@ function east() {
 };
 
 function enterthecave() {
-	if (Game.player.location === 1) {
+	if (Game.player.location === 1 && Game.player.globalLocation === 0) {
 		Game.backleighCaveEntrance();
+	} else if (Game.player.location === 1 && Game.player.globalLocation === 3) {
+		Game.backleighCaveEnter();
 	} else {
 		notValid();
 	}
@@ -526,7 +538,7 @@ function buy() {
 
 function fish() {
 	if (Game.player.location === 2 && Game.player.globalLocation === 2) {
-		Game.draydonPort();
+		Game.fish();
 	} else {
 		notValid();
 	}
@@ -537,8 +549,8 @@ function pay() {
 		var text = '';
 		text += ('You pay the gaurds 50 silver.<br />');
 		text += ('They let you pass.<br />');
-		silver -= 50;
-		text += ('You now have ' + silver + ' Silver.<br />');
+		Game.player.silver -= 50;
+		text += ('You now have ' + Game.player.silver + ' Silver.<br />');
 		display(text);
 		setTimeout(function () {
 			Game.grimtol();
@@ -776,3 +788,57 @@ function leave() {
 	}
 };
 
+function swing() {
+	if (Combat.enemy.fighting) {
+		Combat.monster2();
+	} else {
+		notValid();
+	}
+};
+
+function eat() {
+	if (Combat.enemy.fighting) {
+		Game.eat();
+	} else {
+		notValid();
+	}
+};
+
+function attack() {
+	if (Combat.enemy.fighting === false && (
+		(Game.player.location === 4 && Game.player.globalLocation === 4)
+		||
+		(Game.player.location === 1 && Game.player.globalLocation === 4)
+	)) {
+		Combat.attack();
+	} else {
+		notValid();
+	}
+};
+
+function stats() {
+	var text = '';
+	text += ('Attack: <font color="black">' + Game.player.attack + '</font><br />');
+	text += ('Attack: <font color="black">' + Game.player.attackxp / Game.player.attack*21*100 + '%</font><br />');
+	text += ('Defence: <font color="black">' + Game.player.defence + '</font><br />');
+	text += ('Defence: <font color="black">' + Game.player.defencexp / (Game.player.defence*21)*100 + '%</font><br />');
+	text += ('Health: <font color="black">' + Game.player.health + '</font><br />');
+	text += ('Health: <font color="black">' + Game.player.health /  Game.player.healthstatic*100 + '%</font><br />');
+	text += ('Max Health: <font color="black">' + Game.player.healthstatic + '</font><br />');
+	text += ('Mining: <font color="black">' + Game.player.mining + '</font><br />');
+	text += ('Mining: <font color="black">' + Game.player.miningxp / (Game.player.mining*21)*100 + '%</font><br />');
+	text += ('Fish: <font color="black">' + Game.player.fish + '</font><br />');
+	text += ('Bait: <font color="black">' + Game.player.bait + '</font><br />');
+	text += ('Fishing: <font color="black">' + Game.player.fishing + '</font><br />');
+	text += ('Fishing: <font color="black">' + Game.player.fishingxp / (Game.player.fishing*21)*100 + '%</font><br />');
+	text += ('Woodcutting: <font color="black">' + Game.player.woodcutting + '</font><br />');
+	text += ('Woodcutting: <font color="black">' + Game.player.woodcuttingxp / (Game.player.woodcutting*21)*100 + '%</font><br />');
+	text += ('Iron: <font color="black">' + Game.player.iron + '</font><br />');
+	text += ('Coal: <font color="black">' + Game.player.coal + '</font><br />');
+	text += ('Gold: <font color="black">' + Game.player.gold + '</font><br />');
+	text += ('Wood: <font color="black">' + Game.player.wood + '</font><br />');
+	text += ('Weapon: <font color="black">' + Game.player.swordname + '</font><br />');
+	text += ('Armour: <font color="black">' + Game.player.armourname + '</font><br />');
+	text += ('Silver: <font color="black">' + Game.player.silver + '</font><br />');
+	rightdisplay(text);
+};
