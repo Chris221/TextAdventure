@@ -51,6 +51,9 @@ function rightdisplay(text) {
 
 function trans(input) {
 	switch(input) {
+		case 'start':
+			start();
+			break;
 		case 'go north':
 			north();
 			break;
@@ -547,7 +550,7 @@ function fish() {
 function pay() {
 	if (Game.player.location === 1 && Game.player.globalLocation === 3) {
 		var text = '';
-		text += ('You pay the gaurds 50 silver.<br />');
+		text += ('You pay the guards 50 silver.<br />');
 		text += ('They let you pass.<br />');
 		Game.player.silver -= 50;
 		text += ('You now have ' + Game.player.silver + ' Silver.<br />');
@@ -816,12 +819,21 @@ function attack() {
 	}
 };
 
+function start() {
+	if (Game.player.start) {
+		Game.player.start = false;
+		Game.start();
+	} else {
+		notValid();
+	}
+};
+
 function stats() {
 	var text = '';
 	text += ('Attack: <font color="black">' + Game.player.attack + '</font><br />');
-	text += ('Attack: <font color="black">' + Game.player.attackxp / Game.player.attack*21*100 + '%</font><br />');
-	text += ('Defence: <font color="black">' + Game.player.defence + '</font><br />');
-	text += ('Defence: <font color="black">' + Game.player.defencexp / (Game.player.defence*21)*100 + '%</font><br />');
+	text += ('Attack: <font color="black">' + Game.player.attackxp / (Game.player.attack*21)*100 + '%</font><br />');
+	text += ('Defense: <font color="black">' + Game.player.defense + '</font><br />');
+	text += ('Defense: <font color="black">' + Game.player.defensexp / (Game.player.defense*21)*100 + '%</font><br />');
 	text += ('Health: <font color="black">' + Game.player.health + '</font><br />');
 	text += ('Health: <font color="black">' + Game.player.health /  Game.player.healthstatic*100 + '%</font><br />');
 	text += ('Max Health: <font color="black">' + Game.player.healthstatic + '</font><br />');

@@ -73,7 +73,7 @@ var Combat = {
 		mS = 150;
 		c = 5;
 		o = 1;
-		m = 'gaurd';
+		m = 'guard';
 		mW = 'sword';
 		setTimeout(function () {
 			Combat.monster(mH, mD, mS, c, o, m, mW);
@@ -365,7 +365,7 @@ var Combat = {
 			Combat.enemy.mHealth -= damage;
 			Game.player.attackxp += damage;
 			if (Game.player.attackxp >= Game.player.attack*21) {
-				text += ('<br /><b>Congradulations, you have advanced an Attack level!</b><br />');
+				text += ('<br /><b>Congratulations, you have advanced an Attack level!</b><br />');
 				Game.player.attack++;
 				text += ('<b>Attack level:</b> ' + Game.player.attack) + '<br />';
 				Game.player.attackxp -= Game.player.attack*21;
@@ -391,14 +391,14 @@ var Combat = {
 			if (r > Combat.enemy.out) {
 				text += ('The ' + Combat.enemy.monster + ' hits you for ' + Combat.enemy.mDamage + ' damage!<br />');
 				Game.player.health -= Combat.enemy.mDamage;
-				Game.player.defencexp += Combat.enemy.mDamage;
-				if (Game.player.defencexp >= Game.player.defence*21) {
-					text += ('<br /><b>Congradulations, you have advanced a Defence level!</b><br />');
-					Game.player.defence++;
-					text += ('<b>Defence level:</b> ' + Game.player.defence) + '<br />';
-					Game.player.defencexp -= Game.player.defence*21;
-					if (Game.player.defencexp < 0) {
-						Game.player.defencexp = 0;
+				Game.player.defensexp += Combat.enemy.mDamage;
+				if (Game.player.defensexp >= Game.player.defense*21) {
+					text += ('<br /><b>Congratulations, you have advanced a Defense level!</b><br />');
+					Game.player.defense++;
+					text += ('<b>Defense level:</b> ' + Game.player.defense) + '<br />';
+					Game.player.defensexp -= Game.player.defense*21;
+					if (Game.player.defensexp < 0) {
+						Game.player.defensexp = 0;
 					}
 				}
 			} else {
