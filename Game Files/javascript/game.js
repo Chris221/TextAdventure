@@ -31,6 +31,7 @@ var Game = {
 		coalIncome: 0,
 		location: 0,
 		globalLocation: 0,
+		towerLocation: 0,
 		shopLocation: 0,
 		cheat: false,
 		swordname: '',
@@ -39,6 +40,7 @@ var Game = {
 	},
 	
 	start: function() {
+		Game.player.towerLocation = 0;
 		Game.player.shopLocation = -1;
 		Game.player.globalLocation = 0;
 		Game.player.location = 1;
@@ -58,6 +60,7 @@ var Game = {
 	},
 	
 	backleigh: function() {
+		Game.player.towerLocation = 0;
 		Game.player.shopLocation = -1;
 		Game.player.globalLocation = 0;
 		Game.player.location = 1;
@@ -198,6 +201,7 @@ var Game = {
 	},
 	
 	draydon: function() {
+		Game.player.towerLocation = 0;
 		Game.player.shopLocation = -1;
 		Game.player.globalLocation = 0;
 		Game.player.location = 2;
@@ -234,6 +238,7 @@ var Game = {
 	},
 	
 	elden: function() {
+		Game.player.towerLocation = 0;
 		Game.player.shopLocation = -1;
 		Game.player.globalLocation = 0;
 		Game.player.location = 3;
@@ -271,6 +276,7 @@ var Game = {
 	},
 
 	grimtol: function() {
+		Game.player.towerLocation = 0;
 		Game.player.shopLocation = -1;
 		Game.player.globalLocation = 0;
 		Game.player.location = 5;
@@ -327,6 +333,7 @@ var Game = {
 	},
 	
 	kirkoswald: function() {
+		Game.player.towerLocation = 0;
 		Game.player.shopLocation = -1;
 		Game.player.globalLocation = 0;
 		Game.player.location = 4;
@@ -395,9 +402,7 @@ var Game = {
 			Game.player.name = 'goblin';
 			Game.magicalForestFight();
 		} else if (r >= 100 && r < 150) {
-			Game.player.name = 'goblin suprise';
-			Game.goblinSuprise();
-			Game.magicalForestReturn(x);
+			Game.player.name = 'goblin';
 			Game.magicalForestFight();
 		} else if (r >= 150 && r < 185) {
 			Game.player.name = 'bear';
@@ -479,20 +484,43 @@ var Game = {
 			display(text);
 			setTimeout(function () {
 				Game.magicalForestEntrance();
-			}, 10000);
+			}, 5000);
 		}
 	},
 
 	magicianTower: function() {
+		Game.player.towerLocation = 1;
 		var text = '';
 		text += ('The door unlocks with the key.<br />');
 		Game.swordName();
 		text += ('You walk in slowly with your ' + Game.player.swordname + ' in hand ready for anything.<br />');
 		text += ('The door slams behind you, locking itself, <br />the noise made by the slam alerts the guard.<br />');
 		text += ('The guard says \'How did you get the key to enter the tower?\'<br />');
-		Game.guard();
 		text += ('The tower seems to be filled with magical items.<br />');
 		display(text);
+		setTimeout(function () {
+			Combat.guard();
+		}, 5000);
+	},
+	
+	end: function() {
+		Game.player.towerLocation = 0;
+		var text = '';
+		text += ('<b>YOU WIN!</b><br />');
+		text += ('For now....<br />');
+		text += ('I will be adding more as I come up with more.<br />');
+		text += ('The game will continue and now you may know that there is a cheat function.<br />');
+		text += ('Cheats must be enabled for you to cheat.<br />');
+		text += ('<b>Cheats</b>: Turns on/off cheats<br />');
+		text += ('<b>God Sword</b>: Enables the God Sword<br />');
+		text += ('<b>God Armour</b>: Enables the God Armour<br />');
+		text += ('<b>God</b>: Enables the God Sword and God Armour<br />');
+		text += ('<b>Give Fish</b>: Gives you 100,000 Fish<br />');
+		text += ('<b>Give Silver</b>: Gives you 100,000 Silver<br />');
+		display(text);
+		setTimeout(function () {
+			Game.backleigh();
+		}, 10000);
 	},
 
 	shop: function() {
@@ -685,6 +713,7 @@ var Game = {
 		text += ('You purchased a Bronze Sword.<br />');
 		Game.player.sword = 1;
 		text += ('You now have ' + Game.player.silver + ' Silver.<br />');
+		display(text);
 		setTimeout(function () {
 			Game.swordShop();
 		}, 3000);
@@ -1315,7 +1344,7 @@ var Game = {
 				r = 2;
 			}
 			Game.player.iron += r;
-			Game.player.miningxp++;
+			Game.player.miningxp += 3;
 			text += ('You have recieved ' + r + ' iron.<br />');
 			text += ('You have ' + Game.player.iron + ' iron.<br />');
 			if (Game.player.miningxp >= Game.player.mining*21) {
@@ -1323,6 +1352,9 @@ var Game = {
 				Game.player.mining++;
 				text += ('<b>Mining level:</b> ' + Game.player.mining + '<br />');
 				Game.player.miningxp -= Game.player.mining*21;
+				if (Game.player.miningxp < 0) {
+					Game.player.miningxp = 0;
+				}
 			}
 			display(text);
 			setTimeout(function () {
@@ -1353,7 +1385,7 @@ var Game = {
 					r = 2;
 				}
 				Game.player.coal += r;
-				Game.player.miningxp++;
+				Game.player.miningxp += 5;
 				text += ('You have recieved ' + r + ' Coal.<br />');
 				text += ('You have ' + Game.player.coal + ' Coal.<br />');
 				if (Game.player.miningxp >= Game.player.mining*21) {
@@ -1361,6 +1393,9 @@ var Game = {
 					Game.player.mining++;
 					text += ('<b>Mining level:</b> ' + Game.player.mining + '<br />');
 					Game.player.miningxp -= Game.player.mining*21;
+					if (Game.player.miningxp < 0) {
+						Game.player.miningxp = 0;
+					}
 				}
 				display(text);
 			} else {
@@ -1396,7 +1431,7 @@ var Game = {
 					r = 2;
 				}
 				Game.player.gold += r;
-				Game.player.miningxp++;
+				Game.player.miningxp += 10;
 				text += ('You have recieved ' + r + ' gold.<br />');
 				text += ('You have ' + Game.player.gold + ' gold.<br />');
 				if (Game.player.miningxp >= Game.player.mining*21) {
@@ -1404,6 +1439,9 @@ var Game = {
 					Game.player.mining++;
 					text += ('<b>Mining level:</b> ' + Game.player.mining) + '<br />';
 					Game.player.miningxp -= Game.player.mining*21;
+					if (Game.player.miningxp < 0) {
+						Game.player.miningxp = 0;
+					}
 				}
 				display(text);
 			} else {
@@ -1446,7 +1484,13 @@ var Game = {
 				Game.player.wood += r;
 			}
 			if (r > 0) {
-				Game.player.woodcuttingxp++;
+				if (Game.player.woodcutting < 25) {
+					Game.player.woodcuttingxp += 5;
+				} else if (Game.player.woodcutting < 50) {
+					Game.player.woodcuttingxp += 10;
+				} else {
+					Game.player.woodcuttingxp += 3;
+				}
 			}
 			text += ('You have recieved ' + r + ' wood.<br />');
 			text += ('You have ' + Game.player.wood + ' wood.<br />');
@@ -1455,6 +1499,9 @@ var Game = {
 				Game.player.woodcutting++;
 				text += ('<b>Woodcutting level:</b> ' + Game.player.woodcutting + '<br />');
 				Game.player.woodcuttingxp -= Game.player.woodcutting*21;
+				if (Game.player.woodcuttingxp < 0) {
+					Game.player.woodcuttingxp = 0;
+				}
 			}
 			display(text);
 			setTimeout(function () {
@@ -1493,7 +1540,13 @@ var Game = {
 				}
 				if (r > 0) {
 					Game.player.fish++;
-					Game.player.fishingxp++;
+					if (Game.player.fishing < 25) {
+						Game.player.fishingxp += 5;
+					} else if (Game.player.fishing < 50) {
+						Game.player.fishingxp += 10;
+					} else {
+						Game.player.fishingxp += 3;
+					}
 				}
 				Game.player.bait--;
 				text += ('You have recieved ' + r + ' fish.<br />');
@@ -1504,6 +1557,9 @@ var Game = {
 					Game.player.fishing++;
 					text += ('<b>Fishing level:</b> ' + Game.player.fishing + '<br />');
 					Game.player.fishingxp -= Game.player.fishing*21;
+					if (Game.player.fishingxp < 0) {
+						Game.player.fishingxp = 0;
+					}
 				}
 				display(text);
 				setTimeout(function () {
@@ -1574,7 +1630,7 @@ var Game = {
 		Game.player.health = Game.player.healthstatic;
 		setTimeout(function () {
 			Game.start();
-		}, 3000);
+		}, 5000);
 	},
   
 	heal: function() {

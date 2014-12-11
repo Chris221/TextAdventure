@@ -353,9 +353,7 @@ var Combat = {
 		text += ('2) <b>Eat</b> a fish. You have ' + Game.player.fish + ' fish.<br />');
 		display(text);
 		if (Game.player.health <= 0) {
-			setTimeout(function () {
-				Game.dead();
-			}, 0001);
+			Game.dead();
 		}
 	},
 	
@@ -371,6 +369,9 @@ var Combat = {
 				Game.player.attack++;
 				text += ('<b>Attack level:</b> ' + Game.player.attack) + '<br />';
 				Game.player.attackxp -= Game.player.attack*21;
+				if (Game.player.attackxp < 0) {
+					Game.player.attackxp = 0;
+				}
 			}
 		} else {
 			text += ('Your swing misses!<br />');
@@ -386,7 +387,7 @@ var Combat = {
 		if (Combat.enemy.mHealth > 0) {
 			text += ('<br />The ' + Combat.enemy.monster + ' swings its ' + Combat.enemy.mWeapon + '.<br />');
 			var b = Combat.enemy.chance;
-			var r = Math.floor(Math.random() * (0 - b-1));
+			var r = Math.floor(Math.random() * (b-1 - 0));
 			if (r > Combat.enemy.out) {
 				text += ('The ' + Combat.enemy.monster + ' hits you for ' + Combat.enemy.mDamage + ' damage!<br />');
 				Game.player.health -= Combat.enemy.mDamage;
@@ -396,6 +397,9 @@ var Combat = {
 					Game.player.defence++;
 					text += ('<b>Defence level:</b> ' + Game.player.defence) + '<br />';
 					Game.player.defencexp -= Game.player.defence*21;
+					if (Game.player.defencexp < 0) {
+						Game.player.defencexp = 0;
+					}
 				}
 			} else {
 				text += ('The ' + Combat.enemy.monster + ' misses.<br />');
@@ -443,7 +447,7 @@ var Combat = {
 
 	randomWizard: function() {
 		b = 4;
-		r = Math.floor(Math.random() * (0 - b-1));
+		r = Math.floor(Math.random() * (b-1 - 0));
 		Game.player.name = '';
 		if (r == 0) {
 			Game.player.name = 'fire wizard';
@@ -458,9 +462,11 @@ var Combat = {
 	},
 	
 	comabatEnd: function() {
-		if (Game.player.location === 4 && Game.player.globalLocation === 4) {
+		if (Game.player.towerLocation === 1) {
+			Game.player.end();
+		} else if (Game.player.location === 4 && Game.player.globalLocation === 4 && Game.player.towerLocation === 0) {
 			Game.magicalForestReturn();
-		} else if (Game.player.location === 1 && Game.player.globalLocation === 4) {
+		} else if (Game.player.location === 1 && Game.player.globalLocation === 4 && Game.player.towerLocation === 0) {
 			Game.caveReturn();
 		}
 	},
