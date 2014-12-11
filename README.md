@@ -1,6 +1,5 @@
-TextAdventure-No name currently
-other then
-"Chris's Text Adventure"
+TextAdventure:
+“Tower Quest”
 ==================
 
 The game starts with naming your character. The character then appears in the starting city with few instructions other then adventuring around. The back-story is more of a mystery that your character can’t remember it.

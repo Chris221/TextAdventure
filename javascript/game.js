@@ -1636,5 +1636,19 @@ var Game = {
 	heal: function() {
 		Game.player.health = Game.player.healthstatic;
 	},
+	
+	help: function() {
+		var text = '';
+		text += ('To play type the <b>Bold text</b> into the text box.<br />');
+		text += ('EX: <em>1) <b>Swing</b> your Iron Sword.</em><br />');
+		text += ('All command words have a space inbetween them.<br />');
+		text += ('The game puases at times for you to read the screen if there is no commands to enter.<br />');
+		text += ('To see your player stats at any time type <b>stats</b><br />');
+		text += ('The game will begin shortly!<br />');
+		display(text);
+		setTimeout(function () {
+			Game.start();
+		}, 5000);
+	},
 
 };
