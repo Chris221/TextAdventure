@@ -777,7 +777,7 @@ function leave() {
 	if (Game.player.shopLocation === 0 && Game.player.location === 1) {
 		Game.backleigh();
 	} else if (Game.player.shopLocation === 0 && Game.player.location === 2) {
-		Game.draydonPort();
+		Game.draydon();
 	} else if (Game.player.shopLocation === 0 && Game.player.location === 3) {
 		Game.elden();
 	} else if (Game.player.shopLocation === 0 && Game.player.location === 4) {

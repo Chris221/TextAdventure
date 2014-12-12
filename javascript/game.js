@@ -1372,15 +1372,17 @@ var Game = {
 	
 	coal: function() {
 		var text = '';
-		display('Mining.');
-		setTimeout(function () {
-			display('Mining..');
-		}, 1000);
-		setTimeout(function () {
-			display('Mining...');
-		}, 2000);
-		setTimeout(function () {
-			if (Game.player.mining >= 25) {
+		var x = 3000;
+		if (Game.player.mining >= 25) {
+			x = 6000;
+			display('Mining.');
+			setTimeout(function () {
+				display('Mining..');
+			}, 1000);
+			setTimeout(function () {
+				display('Mining...');
+			}, 2000);
+			setTimeout(function () {
 				r = 1;
 				if (Game.player.mining >= 50) {
 					r = 2;
@@ -1399,34 +1401,36 @@ var Game = {
 					}
 				}
 				display(text);
-			} else {
-				text += ('To mine coal you need a mining level of 25.<br />');
-				text += ('Your mining level is ' + Game.player.mining + '.<br />');
-				display(text);
-			}
-			setTimeout(function () {
-				if (Game.player.location === 5) {
-					Game.grimtolMine();
-				} else if (Game.player.location === 1) {
-					Game.backleighMine();
-				} else if (Game.player.location === 3) {
-					Game.eldenMine();
-				}
 			}, 3000);
-		}, 3000);
+		} else {
+			text += ('To mine coal you need a mining level of 25.<br />');
+			text += ('Your mining level is ' + Game.player.mining + '.<br />');
+			display(text);
+		}
+		setTimeout(function () {
+			if (Game.player.location === 5) {
+				Game.grimtolMine();
+			} else if (Game.player.location === 1) {
+				Game.backleighMine();
+			} else if (Game.player.location === 3) {
+				Game.eldenMine();
+			}
+		}, x);
 	},
   
 	gold: function() {
 		var text = '';
-		display('Mining.');
-		setTimeout(function () {
-			display('Mining..');
-		}, 1000);
-		setTimeout(function () {
-			display('Mining...');
-		}, 2000);
-		setTimeout(function () {
-			if (Game.player.mining >= 50) {
+		var x = 3000;
+		if (Game.player.mining >= 50) {
+			x = 6000;
+			display('Mining.');
+			setTimeout(function () {
+				display('Mining..');
+			}, 1000);
+			setTimeout(function () {
+				display('Mining...');
+			}, 2000);
+			setTimeout(function () {
 				r = 1;
 				if (Game.player.mining >= 75) {
 					r = 2;
@@ -1445,21 +1449,21 @@ var Game = {
 					}
 				}
 				display(text);
-			} else {
-				text += ('To mine gold you need a mining level of 50.<br />');
-				text += ('Your mining level is ' + Game.player.mining + '.<br />');	
-				display(text);
-			}
-			setTimeout(function () {
-				if (Game.player.location === 5) {
-					Game.grimtolMine();
-				} else if (Game.player.location === 1) {
-					Game.backleighMine();
-				} else if (Game.player.location === 3) {
-					Game.eldenMine();
-				}
 			}, 3000);
-		}, 3000);
+		} else {
+			text += ('To mine gold you need a mining level of 50.<br />');
+			text += ('Your mining level is ' + Game.player.mining + '.<br />');	
+			display(text);
+		}
+		setTimeout(function () {
+			if (Game.player.location === 5) {
+				Game.grimtolMine();
+			} else if (Game.player.location === 1) {
+				Game.backleighMine();
+			} else if (Game.player.location === 3) {
+				Game.eldenMine();
+			}
+		}, x);
 	},
   
 	lumber: function() {
