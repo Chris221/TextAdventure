@@ -433,7 +433,7 @@ function goback() {
 		Game.draydonPort();
 	} else if (Game.player.location === 3 && Game.player.globalLocation === 2) {
 		Game.elden();
-	} else if (Game.player.location === 3 && Game.player.globalLocation === 3) {
+	} else if (Game.player.location === 3 && Game.player.globalLocation === 1) {
 		Game.eldon();
 	} else if (Game.player.location === 5 && Game.player.globalLocation === 2) {
 		Game.grimtol();
