@@ -12,57 +12,60 @@ var Combat = {
 	
 	attack: function() {
 		switch(Game.player.name) {
-		case 'guard':
-			Combat.guard();
-			break;
-		case 'soldier':
-			Combat.soldier();
-			break;
-		case 'dragon':
-			Combat.dragon();
-			break;
-		case 'demon':
-			Combat.demon();
-			break;
-		case 'baby dragon':
-			Combat.babyDragon();
-			break;
-		case 'goblin':
-			Combat.goblin();
-			break;
-		case 'goblin suprise':
-			Combat.goblinSuprise();
-			break;
-		case 'bear':
-			Combat.bear();
-			break;
-		case 'zombie':
-			Combat.zombie();
-			break;
-		case 'troll':
-			Combat.troll();
-			break;
-		case 'giant':
-			Combat.giant();
-			break;
-		case 'skeleton':
-			Combat.skeleton();
-			break;
-		case 'spider':
-			Combat.spider();
-			break;
-		case 'fire wizard':
-			Combat.fireWizard();
-			break;
-		case 'frost wizard':
-			Combat.frostWizard();
-			break;
-		case 'light wizard':
-			Combat.lightWizard();
-			break;
-		case 'psychic wizard':
-			Combat.psychicWizard();
-			break;
+			case 'guard':
+				Combat.guard();
+				break;
+			case 'soldier':
+				Combat.soldier();
+				break;
+			case 'dragon':
+				Combat.dragon();
+				break;
+			case 'demon':
+				Combat.demon();
+				break;
+			case 'baby dragon':
+				Combat.babyDragon();
+				break;
+			case 'goblin':
+				Combat.goblin();
+				break;
+			case 'goblin suprise':
+				Combat.goblinSuprise();
+				break;
+			case 'bear':
+				Combat.bear();
+				break;
+			case 'ghoul':
+				Combat.ghoul();
+				break;
+			case 'zombie':
+				Combat.zombie();
+				break;
+			case 'troll':
+				Combat.troll();
+				break;
+			case 'giant':
+				Combat.giant();
+				break;
+			case 'skeleton':
+				Combat.skeleton();
+				break;
+			case 'spider':
+				Combat.spider();
+				break;
+			case 'fire wizard':
+				Combat.fireWizard();
+				break;
+			case 'frost wizard':
+				Combat.frostWizard();
+				break;
+			case 'light wizard':
+				Combat.lightWizard();
+				break;
+			case 'psychic wizard':
+				Combat.psychicWizard();
+				break;
 		}
 	},
 	
@@ -184,7 +187,7 @@ var Combat = {
 	},
 
 	ghoul: function() {
-		display('The ghould slowly walks toward you!');
+		display('The ghoul slowly walks toward you!');
 		mH = 10;
 		mD = 3;
 		mS = 20;
@@ -417,6 +420,7 @@ var Combat = {
 		var text = '';
 		Combat.enemy.fighting = false;
 		text += ('The ' + Combat.enemy.monster + ' dies.<br />');
+		Game.player.kills += 1;
 		text += ('You got ' + Combat.enemy.mSilver + ' silver.<br />');
 		Game.player.silver += Combat.enemy.mSilver;
 		text += ('You have ' + Game.player.silver + ' silver.<br />');

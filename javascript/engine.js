@@ -830,21 +830,24 @@ function start() {
 
 function stats() {
 	var text = '';
+	text += ('Kills: <font color="black">' + Game.player.kills + '</font><br />');
+	text += ('Deaths: <font color="black">' + Game.player.deaths + '</font><br />');
+	text += ('K/D: <font color="black">' + Math.round(Game.player.kills / Game.player.deaths*100)/100 + '</font><br />');
 	text += ('Attack: <font color="black">' + Game.player.attack + '</font><br />');
-	text += ('Attack: <font color="black">' + Game.player.attackxp / (Game.player.attack*21)*100 + '%</font><br />');
+	text += ('Attack: <font color="black">' + Math.round(Game.player.attackxp / (Game.player.attack*21)*100) + '%</font><br />');
 	text += ('Defense: <font color="black">' + Game.player.defense + '</font><br />');
-	text += ('Defense: <font color="black">' + Game.player.defensexp / (Game.player.defense*21)*100 + '%</font><br />');
+	text += ('Defense: <font color="black">' + Math.round(Game.player.defensexp / (Game.player.defense*21)*100) + '%</font><br />');
 	text += ('Health: <font color="black">' + Game.player.health + '</font><br />');
-	text += ('Health: <font color="black">' + Game.player.health /  Game.player.healthstatic*100 + '%</font><br />');
+	text += ('Health: <font color="black">' + Math.round(Game.player.health /  Game.player.healthstatic*100) + '%</font><br />');
 	text += ('Max Health: <font color="black">' + Game.player.healthstatic + '</font><br />');
 	text += ('Mining: <font color="black">' + Game.player.mining + '</font><br />');
-	text += ('Mining: <font color="black">' + Game.player.miningxp / (Game.player.mining*21)*100 + '%</font><br />');
+	text += ('Mining: <font color="black">' + Math.round(Game.player.miningxp / (Game.player.mining*21)*100) + '%</font><br />');
 	text += ('Fish: <font color="black">' + Game.player.fish + '</font><br />');
 	text += ('Bait: <font color="black">' + Game.player.bait + '</font><br />');
 	text += ('Fishing: <font color="black">' + Game.player.fishing + '</font><br />');
-	text += ('Fishing: <font color="black">' + Game.player.fishingxp / (Game.player.fishing*21)*100 + '%</font><br />');
+	text += ('Fishing: <font color="black">' + Math.round(Game.player.fishingxp / (Game.player.fishing*21)*100) + '%</font><br />');
 	text += ('Woodcutting: <font color="black">' + Game.player.woodcutting + '</font><br />');
-	text += ('Woodcutting: <font color="black">' + Game.player.woodcuttingxp / (Game.player.woodcutting*21)*100 + '%</font><br />');
+	text += ('Woodcutting: <font color="black">' + Math.round(Game.player.woodcuttingxp / (Game.player.woodcutting*21)*100) + '%</font><br />');
 	text += ('Iron: <font color="black">' + Game.player.iron + '</font><br />');
 	text += ('Coal: <font color="black">' + Game.player.coal + '</font><br />');
 	text += ('Gold: <font color="black">' + Game.player.gold + '</font><br />');

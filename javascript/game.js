@@ -25,6 +25,8 @@ var Game = {
 		armourcheat: 0,
 		silver: 200,
 		key: 0,
+		kills: 0,
+		deaths: 0,
 		woodIncome: 0,
 		ironIncome: 0,
 		goldIncome: 0,
@@ -1625,6 +1627,7 @@ var Game = {
 	dead: function() {
 		Combat.enemy.fighting = false;
 		var text = '';
+		Game.player.deaths += 1;
 		text += ('Oh dear! You seemed to have died!<br />');
 		text += ('Luckily the Gods brought you back to life.<br />');
 		text += ('It seems they have retrieved all our goods, except you have lost some silver!<br />');
