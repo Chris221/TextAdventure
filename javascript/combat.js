@@ -348,18 +348,16 @@ var Combat = {
 		text += ('The ' + Combat.enemy.monster + ' has ' + Combat.enemy.mHealth + ' health.<br />');
 		text += ('You have ' + Game.player.health + ' health.<br />');
 		text += ('What would you like to do?<br />');
-		text += ('1) <span class="bold">Swing</span> your ' + Game.player.swordname + '.<br />');
-		text += ('2) <span class="bold">Eat</span> a fish. You have ' + Game.player.fish + ' fish.<br />');
 		Engine.display(text);
 		new Button.Button({
 			id: 'SwingButton',
-			text: _('Swing ' + Game.player.swordname),
+			text: _('Swing your ' + Game.player.swordname),
 			click: Combat.monster2,
 			width: Game.player.width,
 		}).appendTo('span#output');
 		new Button.Button({
 			id: 'EatButton',
-			text: _('Eat Fish'),
+			text: _('Eat a fish. You have ' + Game.player.fish),
 			click: Game.eat,
 			width: Game.player.width,
 		}).appendTo('span#output');
@@ -370,21 +368,19 @@ var Combat = {
 		text += ('The ' + Combat.enemy.monster + ' has ' + Combat.enemy.mHealth + ' health.<br />');
 		text += ('You have ' + Game.player.health + ' health.<br />');
 		text += ('What would you like to do?<br />');
-		text += ('1) <span class="bold">Swing</span> your ' + Game.player.swordname + '.<br />');
-		text += ('2) <span class="bold">Eat</span> a fish. You have ' + Game.player.fish + ' fish.<br />');
 		Engine.display(text);
 		if (Game.player.health <= 0) {
 			Game.dead();
 		}
 		new Button.Button({
 			id: 'SwingButton',
-			text: _('Swing ' + Game.player.swordname),
+			text: _('Swing your ' + Game.player.swordname),
 			click: Combat.monster2,
 			width: Game.player.width,
 		}).appendTo('span#output');
 		new Button.Button({
 			id: 'EatButton',
-			text: _('Eat Fish'),
+			text: _('Eat a fish. You have ' + Game.player.fish),
 			click: Game.eat,
 			width: Game.player.width,
 		}).appendTo('span#output');
