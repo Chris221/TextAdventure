@@ -5,6 +5,12 @@
 *
 **/
 var Engine = {
+	Engine: {
+		inputBox: false,
+		stats: false,
+		cheats: false,
+	},
+	
 	interpret: function(input) {
 		var command = input.trim().split(' ');
 		var holder = command.slice(1).join(' ');
@@ -218,6 +224,12 @@ var Engine = {
 			case 'stats':
 				Engine.stats();
 				break;
+			case 'kill':
+				Engine.dead();
+				break;
+			case 'suicide':
+				Game.dead();
+				break;
 			default:
 				Engine.notValid();
 				break;
@@ -225,18 +237,75 @@ var Engine = {
 	},
 	
 	cheat: function() {
+		Engine.Engine.stats = false;
+		Engine.showInput();
 		var text = '';
 		if (Game.player.cheat === false) {
 			Game.player.cheat = true;
-			text = '<b>Cheats:</b> <span class="stats bold">ON</span><br />';
+			text = '<span class="bold">Cheats:</span> <span class="stats bold">ON</span><br />';
+			if (!Engine.Engine.cheats) {
+				new Button.Button({
+					id: 'SliverButton',
+					text: _('Give 100,000 Silver'),
+					click: Engine.giveSilver,
+					width: Game.player.width,
+				}).appendTo('span#rightColButton');
+				new Button.Button({
+					id: 'FishButton',
+					text: _('Give 100,000 Fish'),
+					click: Engine.giveFish,
+					width: Game.player.width,
+				}).appendTo('span#rightColButton');
+				new Button.Button({
+					id: 'GodSwordButton',
+					text: _('God Sword'),
+					click: Engine.godSword,
+					width: Game.player.width,
+				}).appendTo('span#rightColButton');
+				new Button.Button({
+					id: 'GodArmourButton',
+					text: _('God Armour'),
+					click: Engine.godArmour,
+					width: Game.player.width,
+				}).appendTo('span#rightColButton');
+				new Button.Button({
+					id: 'GodButton',
+					text: _('God'),
+					click: Engine.god,
+					width: Game.player.width,
+				}).appendTo('span#rightColButton');
+				Engine.Engine.cheats = true;
+				new Button.Button({
+					id: 'CheatButton',
+					text: _('Cheats'),
+					click: Engine.cheat,
+					width: Game.player.width,
+				}).appendTo('span#rightColButton');
+				Engine.Engine.cheats = true;
+			} else {
+				$("div#SliverButton").show();
+				$("div#FishButton").show();
+				$("div#GodSwordButton").show();
+				$("div#GodArmourButton").show();
+				$("div#GodButton").show();
+				$("div#CheatButton").show();
+			}
 		} else {
 			Game.player.cheat = false;
-			text = '<b>Cheats:</b> <span class="stats bold">OFF</span><br />';
+			text = '<span class="bold">Cheats:</span> <span class="stats bold">OFF</span><br />';
+			$("div#SliverButton").hide();
+			$("div#FishButton").hide();
+			$("div#GodSwordButton").hide();
+			$("div#GodArmourButton").hide();
+			$("div#GodButton").hide();
+			$("div#CheatButton").hide();
 		}
 		Engine.rightdisplay(text);
 	},
 	
 	giveSilver: function() {
+		Engine.Engine.stats = false;
+		Engine.showInput();
 		if (Game.player.cheat === true) {
 			Game.player.silver += 100000;
 			Engine.rightdisplay('<span class="stats bold">+100,000 Silver</span><br />');
@@ -246,6 +315,8 @@ var Engine = {
 	},
 	
 	giveFish: function() {
+		Engine.Engine.stats = false;
+		Engine.showInput();
 		if (Game.player.cheat === true) {
 			Game.player.fish += 100000;
 			Engine.rightdisplay('<span class="stats bold">+100,000 Fish</span><br />');
@@ -255,6 +326,8 @@ var Engine = {
 	},
 	
 	godSword: function() {
+		Engine.Engine.stats = false;
+		Engine.showInput();
 		if (Game.player.cheat === true) {
 			if (Game.player.sword === 100) {
 				Game.player.sword = Game.player.swordcheat;
@@ -278,6 +351,8 @@ var Engine = {
 	},
 	
 	godArmour: function() {
+		Engine.Engine.stats = false;
+		Engine.showInput();
 		if (Game.player.cheat === true) {
 			if (Game.player.armour === 100) {
 				Game.player.armour = Game.player.armourcheat;
@@ -306,6 +381,8 @@ var Engine = {
 	},
 	
 	god: function() {
+		Engine.Engine.stats = false;
+		Engine.showInput();
 		if (Game.player.cheat === true) {
 			if (Game.player.sword === 100 && Game.player.armour === 100) {
 				Game.player.sword = Game.player.swordcheat;
@@ -817,42 +894,68 @@ var Engine = {
 		}
 	},
 	
-	stats: function() {
-		var kd = 0;
-		if (Game.player.deaths === 0 && Game.player.kills === 0) {
-			kd = 0;
-		} else if (Game.player.deaths === 0 && Game.player.kills != 0){
-			kd = Game.player.kills + '.00';
+	dead: function() {
+			Game.player.health = -1;
+	},
+	
+	showInput: function() {
+		if (!Engine.Engine.inputBox) {
+			Engine.Engine.inputBox = true;
+			$("input").show();
 		} else {
-			kd = Math.round(Game.player.kills / Game.player.deaths*100)/100;
+			Engine.Engine.inputBox = false;
+			$("input").hide();
 		}
+	},
+	
+	stats: function() {
 		var text = '';
-		text += ('Kills: <span class="stats">' + Game.player.kills + '</span><br />');
-		text += ('Deaths: <span class="stats">' + Game.player.deaths + '</span><br />');
-		text += ('K/D: <span class="stats">' + kd + '</span><br />');
-		text += ('Attack: <span class="stats">' + Game.player.attack + '</span><br />');
-		text += ('Attack: <span class="stats">' + Math.round(Game.player.attackxp / (Game.player.attack*21)*100) + '%</span><br />');
-		text += ('Defense: <span class="stats">' + Game.player.defense + '</span><br />');
-		text += ('Defense: <span class="stats">' + Math.round(Game.player.defensexp / (Game.player.defense*21)*100) + '%</span><br />');
-		text += ('Health: <span class="stats">' + Game.player.health + '</span><br />');
-		text += ('Health: <span class="stats">' + Math.round(Game.player.health /  Game.player.healthstatic*100) + '%</span><br />');
-		text += ('Max Health: <span class="stats">' + Game.player.healthstatic + '</span><br />');
-		text += ('Mining: <span class="stats">' + Game.player.mining + '</span><br />');
-		text += ('Mining: <span class="stats">' + Math.round(Game.player.miningxp / (Game.player.mining*21)*100) + '%</span><br />');
-		text += ('Fish: <span class="stats">' + Game.player.fish + '</span><br />');
-		text += ('Bait: <span class="stats">' + Game.player.bait + '</span><br />');
-		text += ('Fishing: <span class="stats">' + Game.player.fishing + '</span><br />');
-		text += ('Fishing: <span class="stats">' + Math.round(Game.player.fishingxp / (Game.player.fishing*21)*100) + '%</span><br />');
-		text += ('Woodcutting: <span class="stats">' + Game.player.woodcutting + '</span><br />');
-		text += ('Woodcutting: <span class="stats">' + Math.round(Game.player.woodcuttingxp / (Game.player.woodcutting*21)*100) + '%</span><br />');
-		text += ('Iron: <span class="stats">' + Game.player.iron + '</span><br />');
-		text += ('Coal: <span class="stats">' + Game.player.coal + '</span><br />');
-		text += ('Gold: <span class="stats">' + Game.player.gold + '</span><br />');
-		text += ('Wood: <span class="stats">' + Game.player.wood + '</span><br />');
-		text += ('Weapon: <span class="stats">' + Game.player.swordname + '</span><br />');
-		text += ('Armour: <span class="stats">' + Game.player.armourname + '</span><br />');
-		text += ('Silver: <span class="stats">' + Game.player.silver + '</span><br />');
+		if (!Engine.Engine.stats) {
+			Engine.Engine.stats = true;
+			var kd = 0;
+			if (Game.player.deaths === 0 && Game.player.kills === 0) {
+				kd = 0;
+			} else if (Game.player.deaths === 0 && Game.player.kills != 0){
+				kd = Game.player.kills + '.00';
+			} else {
+				kd = Math.round(Game.player.kills / Game.player.deaths*100)/100;
+			}
+			var attackP = Math.round(Game.player.attackxp / (Game.player.attack*21)*100);
+			var defenseP = Math.round(Game.player.defensexp / (Game.player.defense*21)*100);
+			var healthP = Math.round(Game.player.health /  Game.player.healthstatic*100);
+			var miningP = Math.round(Game.player.miningxp / (Game.player.mining*21)*100);
+			var fishingP = Math.round(Game.player.fishingxp / (Game.player.fishing*21)*100);
+			var woodCuttingP = Math.round(Game.player.woodcuttingxp / (Game.player.woodcutting*21)*100);
+			text += ('Kills: <span class="stats">' + Game.player.kills + '</span><br />');
+			text += ('Deaths: <span class="stats">' + Game.player.deaths + '</span><br />');
+			text += ('K/D: <span class="stats">' + kd + '</span><br />');
+			text += ('Attack: <span class="stats">' + Game.player.attack + '</span><br />');
+			text += ('Attack: <span class="stats">' + attackP + '%</span><br />');
+			text += ('Defense: <span class="stats">' + Game.player.defense + '</span><br />');
+			text += ('Defense: <span class="stats">' + defenseP + '%</span><br />');
+			text += ('Health: <span class="stats">' + Game.player.health + '</span><br />');
+			text += ('Health: <span class="stats">' + healthP + '%</span><br />');
+			text += ('Max Health: <span class="stats">' + Game.player.healthstatic + '</span><br />');
+			text += ('Mining: <span class="stats">' + Game.player.mining + '</span><br />');
+			text += ('Mining: <span class="stats">' + miningP + '%</span><br />');
+			text += ('Fish: <span class="stats">' + Game.player.fish + '</span><br />');
+			text += ('Bait: <span class="stats">' + Game.player.bait + '</span><br />');
+			text += ('Fishing: <span class="stats">' + Game.player.fishing + '</span><br />');
+			text += ('Fishing: <span class="stats">' + fishingP + '%</span><br />');
+			text += ('Woodcutting: <span class="stats">' + Game.player.woodcutting + '</span><br />');
+			text += ('Woodcutting: <span class="stats">' + woodCuttingP + '%</span><br />');
+			text += ('Iron: <span class="stats">' + Game.player.iron + '</span><br />');
+			text += ('Coal: <span class="stats">' + Game.player.coal + '</span><br />');
+			text += ('Gold: <span class="stats">' + Game.player.gold + '</span><br />');
+			text += ('Wood: <span class="stats">' + Game.player.wood + '</span><br />');
+			text += ('Weapon: <span class="stats">' + Game.player.swordname + '</span><br />');
+			text += ('Armour: <span class="stats">' + Game.player.armourname + '</span><br />');
+			text += ('Silver: <span class="stats">' + Game.player.silver + '</span><br />');
+		} else {
+			Engine.Engine.stats = false;
+			text += ('');
+		}
 		Engine.rightdisplay(text);
-		$("input").show();
+		Engine.showInput();
 	},
 };
