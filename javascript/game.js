@@ -2403,6 +2403,7 @@ var Game = {
 	help: function() {
 		var text = '';
 		text += ('To play type the <span class="bold">Bold text</span> into the text box.<br />');
+		text += ('Inorder to bring up the text box, click on the <span class="bold"><em>Your Stats</em></span> button on the right!<br />');
 		text += ('EX: <em>1) <span class="bold">Swing</span> your Iron Sword.</em><br />');
 		text += ('Or you can now click most commands!<br />');
 		text += ('All command words have a space inbetween them.<br />');
