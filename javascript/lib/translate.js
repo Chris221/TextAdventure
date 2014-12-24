@@ -1,3 +1,4 @@
+/* I got from http://adarkroom.doublespeakgames.com/ */
 (function() {
 
 	var translate = function(text)

@@ -1,4 +1,4 @@
-/* From http://adarkroom.doublespeakgames.com/ */
+/* I got from http://adarkroom.doublespeakgames.com/ */
 var Button = {
 	Button: function(options) {
 		if(typeof options.cooldown == 'number') {

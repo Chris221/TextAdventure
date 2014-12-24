@@ -1,3 +1,4 @@
+/* I got from http://adarkroom.doublespeakgames.com/ */
 (function() {
 
 	var dfs = {"am_pm":["AM","PM"],"day_name":["dimanche","lundi","mardi","mercredi","jeudi","vendredi","samedi"],"day_short":["dim.","lun.","mar.","mer.","jeu.","ven.","sam."],"era":["av. J.-C.","ap. J.-C."],"era_name":["avant Jésus-Christ","après Jésus-Christ"],"month_name":["janvier","février","mars","avril","mai","juin","juillet","août","septembre","octobre","novembre","décembre"],"month_short":["janv.","févr.","mars","avr.","mai","juin","juil.","août","sept.","oct.","nov.","déc."],"order_full":"DMY","order_long":"DMY","order_medium":"DMY","order_short":"DMY"};
