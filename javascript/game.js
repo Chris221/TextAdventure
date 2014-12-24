@@ -1,3 +1,9 @@
+/**
+*
+*  Game main file for Tower Quest
+*  http://ChrisSiena.com/
+*
+**/
 var Game = {
 	player: {
 		attack: 1,
@@ -62,37 +68,43 @@ var Game = {
 		text += ('7) <b>Enter the shop</b>.<br />');
 		Engine.display(text);
 		new Button.Button({
-			id: 'northButton',
+			id: 'NorthButton',
 			text: _('Go North'),
 			click: Game.elden,
 			width: Game.player.width,
 		}).appendTo('span#output');
 		new Button.Button({
-			id: 'westButton',
+			id: 'WestButton',
+			text: _('Go West'),
+			click: Game.draydon,
+			width: Game.player.width,
+		}).appendTo('span#output');
+		new Button.Button({
+			id: 'EastButton',
 			text: _('Go East'),
 			click: Game.grimtolBridge,
 			width: Game.player.width,
 		}).appendTo('span#output');
 		new Button.Button({
-			id: 'westButton',
+			id: 'CaveButton',
 			text: _('Enter the cave'),
 			click: Game.backleighCaveEntrance,
 			width: Game.player.width,
 		}).appendTo('span#output');
 		new Button.Button({
-			id: 'westButton',
+			id: 'WoodButton',
 			text: _('Chop wood'),
 			click: Game.backleighLumber,
 			width: Game.player.width,
 		}).appendTo('span#output');
 		new Button.Button({
-			id: 'westButton',
+			id: 'MineButton',
 			text: _('Enter the mine'),
 			click: Game.backleighMine,
 			width: Game.player.width,
 		}).appendTo('span#output');
 		new Button.Button({
-			id: 'westButton',
+			id: 'ShopButton',
 			text: _('Enter the shop'),
 			click: Game.shop,
 			width: Game.player.width,
@@ -116,37 +128,43 @@ var Game = {
 		text += ('7) <b>Enter the shop</b>.<br />');
 		Engine.display(text);
 		new Button.Button({
-			id: 'northButton',
+			id: 'NorthButton',
 			text: _('Go North'),
 			click: Game.elden,
 			width: Game.player.width,
 		}).appendTo('span#output');
 		new Button.Button({
-			id: 'westButton',
+			id: 'WestButton',
+			text: _('Go West'),
+			click: Game.draydon,
+			width: Game.player.width,
+		}).appendTo('span#output');
+		new Button.Button({
+			id: 'EastButton',
 			text: _('Go East'),
 			click: Game.grimtolBridge,
 			width: Game.player.width,
 		}).appendTo('span#output');
 		new Button.Button({
-			id: 'westButton',
+			id: 'CaveButton',
 			text: _('Enter the cave'),
 			click: Game.backleighCaveEntrance,
 			width: Game.player.width,
 		}).appendTo('span#output');
 		new Button.Button({
-			id: 'westButton',
+			id: 'WoodButton',
 			text: _('Chop wood'),
 			click: Game.backleighLumber,
 			width: Game.player.width,
 		}).appendTo('span#output');
 		new Button.Button({
-			id: 'westButton',
+			id: 'MineButton',
 			text: _('Enter the mine'),
 			click: Game.backleighMine,
 			width: Game.player.width,
 		}).appendTo('span#output');
 		new Button.Button({
-			id: 'westButton',
+			id: 'ShopButton',
 			text: _('Enter the shop'),
 			click: Game.shop,
 			width: Game.player.width,
@@ -164,14 +182,14 @@ var Game = {
 		text += ('2) <b>Return</b> to Backleigh Castle.<br />');
 		Engine.display(text);
 		new Button.Button({
-			id: 'westButton',
+			id: 'CaveButton',
 			text: _('Enter the cave'),
 			click: Game.backleighCaveEnter,
 			width: Game.player.width,
 		}).appendTo('span#output');
 		new Button.Button({
-			id: 'westButton',
-			text: _('return'),
+			id: 'ReturnButton',
+			text: _('Return'),
 			click: Game.caveLeave,
 			width: Game.player.width,
 		}).appendTo('span#output');
@@ -222,19 +240,19 @@ var Game = {
 		text += ('3) <b>Leave</b> the cave.<br />');
 		Engine.display(text);
 		new Button.Button({
-			id: 'westButton',
+			id: 'AttackButton',
 			text: _('Attack'),
 			click: Combat.attack,
 			width: Game.player.width,
 		}).appendTo('span#output');
 		new Button.Button({
-			id: 'westButton',
+			id: 'RunButton',
 			text: _('Run'),
 			click: Game.runCave,
 			width: Game.player.width,
 		}).appendTo('span#output');
 		new Button.Button({
-			id: 'westButton',
+			id: 'LeaveButton',
 			text: _('Leave'),
 			click: Game.caveLeave,
 			width: Game.player.width,
@@ -254,19 +272,19 @@ var Game = {
 		text += ('3) <b>Leave</b> the cave.<br />');
 		Engine.display(text);
 		new Button.Button({
-			id: 'westButton',
+			id: 'AttackButton',
 			text: _('Attack'),
 			click: Combat.attack,
 			width: Game.player.width,
 		}).appendTo('span#output');
 		new Button.Button({
-			id: 'westButton',
+			id: 'RunButton',
 			text: _('Run'),
 			click: Game.runCave,
 			width: Game.player.width,
 		}).appendTo('span#output');
 		new Button.Button({
-			id: 'westButton',
+			id: 'LeaveButton',
 			text: _('Leave'),
 			click: Game.caveLeave,
 			width: Game.player.width,
@@ -311,13 +329,13 @@ var Game = {
 		text += ('2) <b>Return</b> to Backleigh Castle.<br />');
 		Engine.display(text);
 		new Button.Button({
-			id: 'westButton',
+			id: 'WoodButton',
 			text: _('Chop wood'),
 			click: Game.lumber,
 			width: Game.player.width,
 		}).appendTo('span#output');
 		new Button.Button({
-			id: 'westButton',
+			id: 'ReturnButton',
 			text: _('Return'),
 			click: Game.backleigh,
 			width: Game.player.width,
@@ -335,25 +353,25 @@ var Game = {
 		text += ('4) <b>Return</b> to Backleigh.<br />');
 		Engine.display(text);
 		new Button.Button({
-			id: 'westButton',
+			id: 'IronButton',
 			text: _('Mine Iron'),
 			click: Game.iron,
 			width: Game.player.width,
 		}).appendTo('span#output');
 		new Button.Button({
-			id: 'westButton',
+			id: 'CoalButton',
 			text: _('Mine Coal'),
 			click: Game.coal,
 			width: Game.player.width,
 		}).appendTo('span#output');
 		new Button.Button({
-			id: 'westButton',
+			id: 'GoldButton',
 			text: _('Mine Gold'),
 			click: Game.gold,
 			width: Game.player.width,
 		}).appendTo('span#output');
 		new Button.Button({
-			id: 'westButton',
+			id: 'ReturnButton',
 			text: _('Return'),
 			click: Game.backleigh,
 			width: Game.player.width,
@@ -373,19 +391,19 @@ var Game = {
 		text += ('3) <b>Enter the shop</b>.<br />');
 		Engine.display(text);
 		new Button.Button({
-			id: 'northButton',
+			id: 'EastButton',
 			text: _('Go East'),
 			click: Game.backleigh,
 			width: Game.player.width,
 		}).appendTo('span#output');
 		new Button.Button({
-			id: 'westButton',
+			id: 'DraydonPortButton',
 			text: _('Enter the Draydon port'),
 			click: Game.draydonPort,
 			width: Game.player.width,
 		}).appendTo('span#output');
 		new Button.Button({
-			id: 'westButton',
+			id: 'ShopButton',
 			text: _('Enter the shop'),
 			click: Game.shop,
 			width: Game.player.width,
@@ -402,20 +420,20 @@ var Game = {
 		text += ('3) <b>Return</b> to Draydon Keep.<br />');
 		Engine.display(text);
 		new Button.Button({
-			id: 'northButton',
+			id: 'BaitButton',
 			text: _('Buy bait'),
 			click: Game.baitStore,
 			width: Game.player.width,
 		}).appendTo('span#output');
 		new Button.Button({
-			id: 'westButton',
+			id: 'FishButton',
 			text: _('Fish'),
 			click: Game.fish,
 			width: Game.player.width,
 		}).appendTo('span#output');
 		new Button.Button({
-			id: 'westButton',
-			text: _('return'),
+			id: 'ReturnButton',
+			text: _('Return'),
 			click: Game.draydon,
 			width: Game.player.width,
 		}).appendTo('span#output');
@@ -432,14 +450,14 @@ var Game = {
 		text += ('2) <b>Return</b> to the rest of the Port.<br />');
 		Engine.display(text);
 		new Button.Button({
-			id: 'westButton',
-			text: _('Buy bait'),
+			id: 'BaitButton',
+			text: _('Buy 20 bait'),
 			click: Game.baitBuy,
 			width: Game.player.width,
 		}).appendTo('span#output');
 		new Button.Button({
-			id: 'westButton',
-			text: _('return'),
+			id: 'ReturnButton',
+			text: _('Return'),
 			click: Game.draydonPort,
 			width: Game.player.width,
 		}).appendTo('span#output');
@@ -477,31 +495,31 @@ var Game = {
 		text += ('5) <b>Enter the shop</b>.<br />');
 		Engine.display(text);
 		new Button.Button({
-			id: 'westButton',
+			id: 'EastButton',
 			text: _('Go East'),
 			click: Game.kirkoswald,
 			width: Game.player.width,
 		}).appendTo('span#output');
 		new Button.Button({
-			id: 'westButton',
+			id: 'SouthButton',
 			text: _('Go South'),
 			click: Game.backleigh,
 			width: Game.player.width,
 		}).appendTo('span#output');
 		new Button.Button({
-			id: 'westButton',
+			id: 'WoodButton',
 			text: _('Chop wood'),
 			click: Game.eldenLumber,
 			width: Game.player.width,
 		}).appendTo('span#output');
 		new Button.Button({
-			id: 'westButton',
+			id: 'MineButton',
 			text: _('Enter the mine'),
 			click: Game.eldenMine,
 			width: Game.player.width,
 		}).appendTo('span#output');
 		new Button.Button({
-			id: 'westButton',
+			id: 'ShopButton',
 			text: _('Enter the shop'),
 			click: Game.shop,
 			width: Game.player.width,
@@ -517,13 +535,13 @@ var Game = {
 		text += ('2) <b>Return</b> to Elden.<br />');
 		Engine.display(text);
 		new Button.Button({
-			id: 'westButton',
+			id: 'WoodButton',
 			text: _('Chop wood'),
 			click: Game.lumber,
 			width: Game.player.width,
 		}).appendTo('span#output');
 		new Button.Button({
-			id: 'westButton',
+			id: 'ReturnButton',
 			text: _('Return'),
 			click: Game.elden,
 			width: Game.player.width,
@@ -541,25 +559,25 @@ var Game = {
 		text += ('4) <b>Return</b> to Elden.<br />');
 		Engine.display(text);
 		new Button.Button({
-			id: 'westButton',
+			id: 'IronButton',
 			text: _('Mine Iron'),
 			click: Game.iron,
 			width: Game.player.width,
 		}).appendTo('span#output');
 		new Button.Button({
-			id: 'westButton',
+			id: 'CoalButton',
 			text: _('Mine Coal'),
 			click: Game.coal,
 			width: Game.player.width,
 		}).appendTo('span#output');
 		new Button.Button({
-			id: 'westButton',
+			id: 'GoldButton',
 			text: _('Mine Gold'),
 			click: Game.gold,
 			width: Game.player.width,
 		}).appendTo('span#output');
 		new Button.Button({
-			id: 'westButton',
+			id: 'ReturnButton',
 			text: _('Return'),
 			click: Game.elden,
 			width: Game.player.width,
@@ -580,25 +598,25 @@ var Game = {
 		text += ('4) <b>Enter the shop</b>.<br />');
 		Engine.display(text);
 		new Button.Button({
-			id: 'westButton',
+			id: 'NorthButton',
 			text: _('Go North'),
 			click: Game.kirkoswald,
 			width: Game.player.width,
 		}).appendTo('span#output');
 		new Button.Button({
-			id: 'westButton',
+			id: 'WestButton',
 			text: _('Go West'),
 			click: Game.backleigh,
 			width: Game.player.width,
 		}).appendTo('span#output');
 		new Button.Button({
-			id: 'westButton',
+			id: 'MineButton',
 			text: _('Enter the mine'),
 			click: Game.grimtolMine,
 			width: Game.player.width,
 		}).appendTo('span#output');
 		new Button.Button({
-			id: 'westButton',
+			id: 'ShopButton',
 			text: _('Enter the shop'),
 			click: Game.shop,
 			width: Game.player.width,
@@ -626,13 +644,13 @@ var Game = {
 				text += ('2) <b>Return</b> to Backleigh Castle.<br />');
 				Engine.display(text);
 				new Button.Button({
-					id: 'westButton',
+					id: 'PayButton',
 					text: _('Pay guards'),
 					click: Game.grimtolBridgePay,
 					width: Game.player.width,
 				}).appendTo('span#output');
 				new Button.Button({
-					id: 'westButton',
+					id: 'ReturnButton',
 					text: _('Return'),
 					click: Game.backleigh,
 					width: Game.player.width,
@@ -669,25 +687,25 @@ var Game = {
 		text += ('4) <b>Return</b> to Grimtol.<br />');
 		Engine.display(text);
 		new Button.Button({
-			id: 'westButton',
+			id: 'IronButton',
 			text: _('Mine Iron'),
 			click: Game.iron,
 			width: Game.player.width,
 		}).appendTo('span#output');
 		new Button.Button({
-			id: 'westButton',
+			id: 'CoalButton',
 			text: _('Mine Coal'),
 			click: Game.coal,
 			width: Game.player.width,
 		}).appendTo('span#output');
 		new Button.Button({
-			id: 'westButton',
+			id: 'GoldButton',
 			text: _('Mine Gold'),
 			click: Game.gold,
 			width: Game.player.width,
 		}).appendTo('span#output');
 		new Button.Button({
-			id: 'westButton',
+			id: 'ReturnButton',
 			text: _('Return'),
 			click: Game.elden,
 			width: Game.player.width,
@@ -709,31 +727,31 @@ var Game = {
 		text += ('5) <b>Enter the shop</b>.<br />');
 		Engine.display(text);
 		new Button.Button({
-			id: 'westButton',
+			id: 'WestButton',
 			text: _('Go West'),
 			click: Game.elden,
 			width: Game.player.width,
 		}).appendTo('span#output');
 		new Button.Button({
-			id: 'westButton',
+			id: 'SouthButton',
 			text: _('Go South'),
 			click: Game.grimtol,
 			width: Game.player.width,
 		}).appendTo('span#output');
 		new Button.Button({
-			id: 'westButton',
+			id: 'ExploreButton',
 			text: _('Explore'),
 			click: Game.magicalForestEntrance,
 			width: Game.player.width,
 		}).appendTo('span#output');
 		new Button.Button({
-			id: 'westButton',
+			id: 'EnterTowerButton',
 			text: _('Enter the Magician Tower'),
 			click: Game.magicianTowerEntrance,
 			width: Game.player.width,
 		}).appendTo('span#output');
 		new Button.Button({
-			id: 'westButton',
+			id: 'ShopButton',
 			text: _('Enter the shop'),
 			click: Game.shop,
 			width: Game.player.width,
@@ -753,19 +771,19 @@ var Game = {
 		text += ('3) <b>Return</b> to Kirkoswald Fortress.<br />');
 		Engine.display(text);
 		new Button.Button({
-			id: 'westButton',
+			id: 'ExploreButton',
 			text: _('Explore'),
 			click: Game.magicalForest,
 			width: Game.player.width,
 		}).appendTo('span#output');
 		new Button.Button({
-			id: 'westButton',
+			id: 'EnterTowerButton',
 			text: _('Enter the Magician Tower'),
 			click: Game.magicianTowerEntrance,
 			width: Game.player.width,
 		}).appendTo('span#output');
 		new Button.Button({
-			id: 'westButton',
+			id: 'ReturnButton',
 			text: _('Return'),
 			click: Game.kirkoswald,
 			width: Game.player.width,
@@ -784,19 +802,19 @@ var Game = {
 		text += ('3) <b>Attempt to leave</b> the forest.<br />');
 		Engine.display(text);
 		new Button.Button({
-			id: 'westButton',
+			id: 'FindWayButton',
 			text: _('Find your way'),
 			click: Engine.findway,
 			width: Game.player.width,
 		}).appendTo('span#output');
 		new Button.Button({
-			id: 'westButton',
+			id: 'SearchButton',
 			text: _('Search'),
 			click: Engine.searchfor,
 			width: Game.player.width,
 		}).appendTo('span#output');
 		new Button.Button({
-			id: 'westButton',
+			id: 'AttemptLeaveButton',
 			text: _('Attempt to leave'),
 			click: Engine.attempttoleave,
 			width: Game.player.width,
@@ -877,19 +895,19 @@ var Game = {
 		text += ('3) <b>Attempt to leave</b> the forest.<br />');
 		Engine.display(text);
 		new Button.Button({
-			id: 'westButton',
+			id: 'AttackButton',
 			text: _('Attack'),
 			click: Combat.attack,
 			width: Game.player.width,
 		}).appendTo('span#output');
 		new Button.Button({
-			id: 'westButton',
+			id: 'RunButton',
 			text: _('Run'),
 			click: Game.runForest,
 			width: Game.player.width,
 		}).appendTo('span#output');
 		new Button.Button({
-			id: 'westButton',
+			id: 'AttemptLeaveButton',
 			text: _('Attempt to leave'),
 			click: Engine.attempttoleave,
 			width: Game.player.width,
@@ -983,31 +1001,31 @@ var Game = {
 		text += ('5) <b>Leave</b> the shop.<br />');
 		Engine.display(text);
 		new Button.Button({
-			id: 'westButton',
+			id: 'SwordButton',
 			text: _('Browse Swords'),
 			click: Game.swordShop,
 			width: Game.player.width,
 		}).appendTo('span#output');
 		new Button.Button({
-			id: 'westButton',
+			id: 'ArmourButton',
 			text: _('Browse Armour'),
 			click: Game.armourShop,
 			width: Game.player.width,
 		}).appendTo('span#output');
 		new Button.Button({
-			id: 'westButton',
+			id: 'WoodButton',
 			text: _('Sell wood'),
 			click: Game.sellwood,
 			width: Game.player.width,
 		}).appendTo('span#output');
 		new Button.Button({
-			id: 'westButton',
+			id: 'OreButton',
 			text: _('Sell ores'),
 			click: Game.sellore,
 			width: Game.player.width,
 		}).appendTo('span#output');
 		new Button.Button({
-			id: 'westButton',
+			id: 'LeaveButton',
 			text: _('Leave'),
 			click: Game.backToCity,
 			width: Game.player.width,
@@ -1030,13 +1048,13 @@ var Game = {
 		text += ('2) <b>Return</b> to the shop.<br />');
 		Engine.display(text);
 		new Button.Button({
-			id: 'westButton',
+			id: 'WoodButton',
 			text: _('Sell ' + Game.player.wood + ' wood'),
 			click: Game.sellwoodcomplete,
 			width: Game.player.width,
 		}).appendTo('span#output');
 		new Button.Button({
-			id: 'westButton',
+			id: 'ReturnButton',
 			text: _('Return'),
 			click: Game.shop,
 			width: Game.player.width,
@@ -1091,25 +1109,25 @@ var Game = {
 		text += ('4) <b>Return</b> to the shop.<br />');
 		Engine.display(text);
 		new Button.Button({
-			id: 'westButton',
+			id: 'IronButton',
 			text: _('Sell ' + Game.player.iron + ' iron'),
 			click: Game.selliron,
 			width: Game.player.width,
 		}).appendTo('span#output');
 		new Button.Button({
-			id: 'westButton',
+			id: 'GoldButton',
 			text: _('Sell ' + Game.player.gold + ' gold'),
 			click: Game.sellgold,
 			width: Game.player.width,
 		}).appendTo('span#output');
 		new Button.Button({
-			id: 'westButton',
+			id: 'CoalButton',
 			text: _('Sell ' + Game.player.coal + ' coal'),
 			click: Game.sellcoal,
 			width: Game.player.width,
 		}).appendTo('span#output');
 		new Button.Button({
-			id: 'westButton',
+			id: 'ReturnButton',
 			text: _('Return'),
 			click: Game.shop,
 			width: Game.player.width,
@@ -1182,43 +1200,43 @@ var Game = {
 		Engine.display(text);
 		Game.swordName();
 		new Button.Button({
-			id: 'westButton',
+			id: 'BronzeSwordButton',
 			text: _('Bronze Sword'),
 			click: Game.bronzeSword,
 			width: Game.player.width,
 		}).appendTo('span#output');
 		new Button.Button({
-			id: 'westButton',
+			id: 'GoldSwordButton',
 			text: _('Gold Sword'),
 			click: Game.goldSword,
 			width: Game.player.width,
 		}).appendTo('span#output');
 		new Button.Button({
-			id: 'westButton',
+			id: 'IronSwordButton',
 			text: _('Iron Sword'),
 			click: Game.ironSword,
 			width: Game.player.width,
 		}).appendTo('span#output');
 		new Button.Button({
-			id: 'westButton',
+			id: 'SteelSwordButton',
 			text: _('Steel Sword'),
 			click: Game.steelSword,
 			width: Game.player.width,
 		}).appendTo('span#output');
 		new Button.Button({
-			id: 'westButton',
+			id: 'TitaniumSwordButton',
 			text: _('Titanium Sword'),
 			click: Game.titaniumSword,
 			width: Game.player.width,
 		}).appendTo('span#output');
 		new Button.Button({
-			id: 'westButton',
+			id: 'TungstenSwordButton',
 			text: _('Tungsten Sword'),
 			click: Game.tungstenSword,
 			width: Game.player.width,
 		}).appendTo('span#output');
 		new Button.Button({
-			id: 'westButton',
+			id: 'ReturnButton',
 			text: _('Return'),
 			click: Game.shop,
 			width: Game.player.width,
@@ -1615,43 +1633,43 @@ var Game = {
 		text += ('7) <b>Return</b> to the main area of the shop.<br />');
 		Engine.display(text);
 		new Button.Button({
-			id: 'westButton',
+			id: 'BronzeArmourButton',
 			text: _('Bronze Armour'),
 			click: Game.bronzeArmour,
 			width: Game.player.width,
 		}).appendTo('span#output');
 		new Button.Button({
-			id: 'westButton',
+			id: 'GoldArmourButton',
 			text: _('Gold Armour'),
 			click: Game.goldArmour,
 			width: Game.player.width,
 		}).appendTo('span#output');
 		new Button.Button({
-			id: 'westButton',
+			id: 'IronArmourButton',
 			text: _('Iron Armour'),
 			click: Game.ironArmour,
 			width: Game.player.width,
 		}).appendTo('span#output');
 		new Button.Button({
-			id: 'westButton',
+			id: 'SteelArmourButton',
 			text: _('Steel Armour'),
 			click: Game.steelArmour,
 			width: Game.player.width,
 		}).appendTo('span#output');
 		new Button.Button({
-			id: 'westButton',
+			id: 'TitaniumArmourButton',
 			text: _('Titanium Armour'),
 			click: Game.titaniumArmour,
 			width: Game.player.width,
 		}).appendTo('span#output');
 		new Button.Button({
-			id: 'westButton',
+			id: 'TungstenArmourButton',
 			text: _('Tungsten Armour'),
 			click: Game.tungstenArmour,
 			width: Game.player.width,
 		}).appendTo('span#output');
 		new Button.Button({
-			id: 'westButton',
+			id: 'ReturnButton',
 			text: _('Return'),
 			click: Game.shop,
 			width: Game.player.width,

@@ -1,3 +1,9 @@
+/**
+*
+*  Combat file for Tower Quest
+*  http://ChrisSiena.com/
+*
+**/
 var Combat = {
 	enemy: {
 		mHealth: 0,

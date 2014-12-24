@@ -1,3 +1,9 @@
+/**
+*
+*  Engine file for Tower Quest
+*  http://ChrisSiena.com/
+*
+**/
 var Engine = {
 	interpret: function(input) {
 		var command = input.trim().split(' ');

@@ -1,3 +1,9 @@
+/**
+*
+*  CSS Switcher for the site
+*  http://ChrisSiena.com/
+*
+**/
 var cName = "_style";
 var exdays = 30;
 var checkCssFile = '../CSS/Style.css';
