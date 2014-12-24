@@ -31,6 +31,7 @@ var Engine = {
 		nullOutput.innerHTML = '';
 		var rightOutput = document.getElementById('right_output');
 		rightOutput.innerHTML = '';
+		$("input").hide();
 	},
 	
 	run: function() {
@@ -227,10 +228,10 @@ var Engine = {
 		var text = '';
 		if (Game.player.cheat === false) {
 			Game.player.cheat = true;
-			text = '<b>Cheats:</b> <font color="black">ON</font><br />';
+			text = '<b>Cheats:</b> <span class="stats bold">ON</span><br />';
 		} else {
 			Game.player.cheat = false;
-			text = '<b>Cheats:</b> <font color="black">OFF</font><br />';
+			text = '<b>Cheats:</b> <span class="stats bold">OFF</span><br />';
 		}
 		Engine.rightdisplay(text);
 	},
@@ -238,7 +239,7 @@ var Engine = {
 	giveSilver: function() {
 		if (Game.player.cheat === true) {
 			Game.player.silver += 100000;
-			Engine.rightdisplay('<font color="black"><b>+100,000 Silver</b></font><br />');
+			Engine.rightdisplay('<span class="stats bold">+100,000 Silver</span><br />');
 		} else {
 			Engine.notValid();
 		}
@@ -247,7 +248,7 @@ var Engine = {
 	giveFish: function() {
 		if (Game.player.cheat === true) {
 			Game.player.fish += 100000;
-			Engine.rightdisplay('<font color="black"><b>+100,000 Fish</b></font><br />');
+			Engine.rightdisplay('<span class="stats bold">+100,000 Fish</span><br />');
 		} else {
 			Engine.notValid();
 		}
@@ -258,17 +259,17 @@ var Engine = {
 			if (Game.player.sword === 100) {
 				Game.player.sword = Game.player.swordcheat;
 				var text = '';
-				text += ('You unequipped the <font color="black"><b>' + Game.player.swordname + '</b></font>.<br />');
+				text += ('You unequipped the <span class="stats bold">' + Game.player.swordname + '</span>.<br />');
 				Game.swordName();
-				text += ('You equipped the <font color="black"><b>' + Game.player.swordname + '</b></font> from before.<br />');
+				text += ('You equipped the <span class="stats bold">' + Game.player.swordname + '</span> from before.<br />');
 				Engine.rightdisplay(text);
 			} else {
 				Game.player.swordcheat = Game.player.sword;
 				Game.player.sword = 100;
 				var text = '';
-				text += ('You unequipped the <font color="black"><b>' + Game.player.swordname + '</b></font>.<br />');
+				text += ('You unequipped the <span class="stats bold">' + Game.player.swordname + '</span>.<br />');
 				Game.swordName();
-				text += ('You equipped the <font color="black"><b>' + Game.player.swordname + '</b></font>.<br />');
+				text += ('You equipped the <span class="stats bold">' + Game.player.swordname + '</span>.<br />');
 				Engine.rightdisplay(text);
 			}
 		} else {
@@ -283,9 +284,9 @@ var Engine = {
 				Game.player.healthstatic = Game.player.healthstaticcheat;
 				Game.player.health = Game.player.healthstatic;
 				var text = '';
-				text += ('You unequipped the <font color="black"><b>' + Game.player.armourname + '</b></font>.<br />');
+				text += ('You unequipped the <span class="stats bold">' + Game.player.armourname + '</span>.<br />');
 				Game.armourName();
-				text += ('You equipped the <font color="black"><b>' + Game.player.armourname + '</b></font> from before.<br />');
+				text += ('You equipped the <span class="stats bold">' + Game.player.armourname + '</span> from before.<br />');
 				Engine.rightdisplay(text);
 			} else {
 				Game.player.armourcheat = Game.player.armour;
@@ -294,9 +295,9 @@ var Engine = {
 				Game.player.healthstaticcheat = Game.player.healthstatic;
 				Game.player.healthstatic = 100000;
 				var text = '';
-				text += ('You unequipped the <font color="black"><b>' + Game.player.armourname + '</b></font>.<br />');
+				text += ('You unequipped the <span class="stats bold">' + Game.player.armourname + '</span>.<br />');
 				Game.armourName();
-				text += ('You equipped the <font color="black"><b>' + Game.player.armourname + '</b></font>.<br />');
+				text += ('You equipped the <span class="stats bold">' + Game.player.armourname + '</span>.<br />');
 				Engine.rightdisplay(text);
 			}
 		} else {
@@ -312,12 +313,12 @@ var Engine = {
 				Game.player.healthstatic = Game.player.healthstaticcheat;
 				Game.player.health = Game.player.healthstatic;
 				var text = '';
-				text += ('You unequipped the <font color="black"><b>' + Game.player.swordname + '</b></font>.<br />');
+				text += ('You unequipped the <span class="stats bold">' + Game.player.swordname + '</span>.<br />');
 				Game.swordName();
-				text += ('You equipped the <font color="black"><b>' + Game.player.swordname + '</b></font> from before.<br />');
-				text += ('You unequipped the <font color="black"><b>' + Game.player.armourname + '</b></font>.<br />');
+				text += ('You equipped the <span class="stats bold">' + Game.player.swordname + '</span> from before.<br />');
+				text += ('You unequipped the <span class="stats bold">' + Game.player.armourname + '</span>.<br />');
 				Game.armourName();
-				text += ('You equipped the <font color="black"><b>' + Game.player.armourname + '</b></font> from before.<br />');
+				text += ('You equipped the <span class="stats bold">' + Game.player.armourname + '</span> from before.<br />');
 				Engine.rightdisplay(text);
 			} else {
 				Game.player.swordcheat = Game.player.sword;
@@ -328,12 +329,12 @@ var Engine = {
 				Game.player.healthstatic = 100000;
 				Game.player.health = Game.player.healthstatic;
 				var text = '';
-				text += ('You unequipped the <font color="black"><b>' + Game.player.swordname + '</b></font>.<br />');
+				text += ('You unequipped the <span class="stats bold">' + Game.player.swordname + '</span>.<br />');
 				Game.swordName();
-				text += ('You equipped the <font color="black"><b>' + Game.player.swordname + '</b></font>.<br />');
-				text += ('You unequipped the <font color="black"><b>' + Game.player.armourname + '</b></font>.<br />');
+				text += ('You equipped the <span class="stats bold">' + Game.player.swordname + '</span>.<br />');
+				text += ('You unequipped the <span class="stats bold">' + Game.player.armourname + '</span>.<br />');
 				Game.armourName();
-				text += ('You equipped the <font color="black"><b>' + Game.player.armourname + '</b></font>.<br />');
+				text += ('You equipped the <span class="stats bold">' + Game.player.armourname + '</span>.<br />');
 				Engine.rightdisplay(text);
 			}
 		} else {
@@ -817,32 +818,41 @@ var Engine = {
 	},
 	
 	stats: function() {
+		var kd = 0;
+		if (Game.player.deaths === 0 && Game.player.kills === 0) {
+			kd = 0;
+		} else if (Game.player.deaths === 0 && Game.player.kills != 0){
+			kd = Game.player.kills + '.00';
+		} else {
+			kd = Math.round(Game.player.kills / Game.player.deaths*100)/100;
+		}
 		var text = '';
-		text += ('Kills: <font color="black">' + Game.player.kills + '</font><br />');
-		text += ('Deaths: <font color="black">' + Game.player.deaths + '</font><br />');
-		text += ('K/D: <font color="black">' + Math.round(Game.player.kills / Game.player.deaths*100)/100 + '</font><br />');
-		text += ('Attack: <font color="black">' + Game.player.attack + '</font><br />');
-		text += ('Attack: <font color="black">' + Math.round(Game.player.attackxp / (Game.player.attack*21)*100) + '%</font><br />');
-		text += ('Defense: <font color="black">' + Game.player.defense + '</font><br />');
-		text += ('Defense: <font color="black">' + Math.round(Game.player.defensexp / (Game.player.defense*21)*100) + '%</font><br />');
-		text += ('Health: <font color="black">' + Game.player.health + '</font><br />');
-		text += ('Health: <font color="black">' + Math.round(Game.player.health /  Game.player.healthstatic*100) + '%</font><br />');
-		text += ('Max Health: <font color="black">' + Game.player.healthstatic + '</font><br />');
-		text += ('Mining: <font color="black">' + Game.player.mining + '</font><br />');
-		text += ('Mining: <font color="black">' + Math.round(Game.player.miningxp / (Game.player.mining*21)*100) + '%</font><br />');
-		text += ('Fish: <font color="black">' + Game.player.fish + '</font><br />');
-		text += ('Bait: <font color="black">' + Game.player.bait + '</font><br />');
-		text += ('Fishing: <font color="black">' + Game.player.fishing + '</font><br />');
-		text += ('Fishing: <font color="black">' + Math.round(Game.player.fishingxp / (Game.player.fishing*21)*100) + '%</font><br />');
-		text += ('Woodcutting: <font color="black">' + Game.player.woodcutting + '</font><br />');
-		text += ('Woodcutting: <font color="black">' + Math.round(Game.player.woodcuttingxp / (Game.player.woodcutting*21)*100) + '%</font><br />');
-		text += ('Iron: <font color="black">' + Game.player.iron + '</font><br />');
-		text += ('Coal: <font color="black">' + Game.player.coal + '</font><br />');
-		text += ('Gold: <font color="black">' + Game.player.gold + '</font><br />');
-		text += ('Wood: <font color="black">' + Game.player.wood + '</font><br />');
-		text += ('Weapon: <font color="black">' + Game.player.swordname + '</font><br />');
-		text += ('Armour: <font color="black">' + Game.player.armourname + '</font><br />');
-		text += ('Silver: <font color="black">' + Game.player.silver + '</font><br />');
+		text += ('Kills: <span class="stats">' + Game.player.kills + '</span><br />');
+		text += ('Deaths: <span class="stats">' + Game.player.deaths + '</span><br />');
+		text += ('K/D: <span class="stats">' + kd + '</span><br />');
+		text += ('Attack: <span class="stats">' + Game.player.attack + '</span><br />');
+		text += ('Attack: <span class="stats">' + Math.round(Game.player.attackxp / (Game.player.attack*21)*100) + '%</span><br />');
+		text += ('Defense: <span class="stats">' + Game.player.defense + '</span><br />');
+		text += ('Defense: <span class="stats">' + Math.round(Game.player.defensexp / (Game.player.defense*21)*100) + '%</span><br />');
+		text += ('Health: <span class="stats">' + Game.player.health + '</span><br />');
+		text += ('Health: <span class="stats">' + Math.round(Game.player.health /  Game.player.healthstatic*100) + '%</span><br />');
+		text += ('Max Health: <span class="stats">' + Game.player.healthstatic + '</span><br />');
+		text += ('Mining: <span class="stats">' + Game.player.mining + '</span><br />');
+		text += ('Mining: <span class="stats">' + Math.round(Game.player.miningxp / (Game.player.mining*21)*100) + '%</span><br />');
+		text += ('Fish: <span class="stats">' + Game.player.fish + '</span><br />');
+		text += ('Bait: <span class="stats">' + Game.player.bait + '</span><br />');
+		text += ('Fishing: <span class="stats">' + Game.player.fishing + '</span><br />');
+		text += ('Fishing: <span class="stats">' + Math.round(Game.player.fishingxp / (Game.player.fishing*21)*100) + '%</span><br />');
+		text += ('Woodcutting: <span class="stats">' + Game.player.woodcutting + '</span><br />');
+		text += ('Woodcutting: <span class="stats">' + Math.round(Game.player.woodcuttingxp / (Game.player.woodcutting*21)*100) + '%</span><br />');
+		text += ('Iron: <span class="stats">' + Game.player.iron + '</span><br />');
+		text += ('Coal: <span class="stats">' + Game.player.coal + '</span><br />');
+		text += ('Gold: <span class="stats">' + Game.player.gold + '</span><br />');
+		text += ('Wood: <span class="stats">' + Game.player.wood + '</span><br />');
+		text += ('Weapon: <span class="stats">' + Game.player.swordname + '</span><br />');
+		text += ('Armour: <span class="stats">' + Game.player.armourname + '</span><br />');
+		text += ('Silver: <span class="stats">' + Game.player.silver + '</span><br />');
 		Engine.rightdisplay(text);
+		$("input").show();
 	},
 };

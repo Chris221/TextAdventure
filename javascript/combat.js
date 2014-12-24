@@ -348,8 +348,8 @@ var Combat = {
 		text += ('The ' + Combat.enemy.monster + ' has ' + Combat.enemy.mHealth + ' health.<br />');
 		text += ('You have ' + Game.player.health + ' health.<br />');
 		text += ('What would you like to do?<br />');
-		text += ('1) <b>Swing</b> your ' + Game.player.swordname + '.<br />');
-		text += ('2) <b>Eat</b> a fish. You have ' + Game.player.fish + ' fish.<br />');
+		text += ('1) <span class="bold">Swing</span> your ' + Game.player.swordname + '.<br />');
+		text += ('2) <span class="bold">Eat</span> a fish. You have ' + Game.player.fish + ' fish.<br />');
 		Engine.display(text);
 		new Button.Button({
 			id: 'SwingButton',
@@ -373,8 +373,8 @@ var Combat = {
 		text += ('The ' + Combat.enemy.monster + ' has ' + Combat.enemy.mHealth + ' health.<br />');
 		text += ('You have ' + Game.player.health + ' health.<br />');
 		text += ('What would you like to do?<br />');
-		text += ('1) <b>Swing</b> your ' + Game.player.swordname + '.<br />');
-		text += ('2) <b>Eat</b> a fish. You have ' + Game.player.fish + ' fish.<br />');
+		text += ('1) <span class="bold">Swing</span> your ' + Game.player.swordname + '.<br />');
+		text += ('2) <span class="bold">Eat</span> a fish. You have ' + Game.player.fish + ' fish.<br />');
 		Engine.display(text);
 		new Button.Button({
 			id: 'SwingButton',
@@ -398,10 +398,10 @@ var Combat = {
 			Combat.enemy.mHealth -= damage;
 			Game.player.attackxp += damage;
 			for ( ; Game.player.attackxp >= Game.player.attack*21; ) {
-				text += ('<br /><b>Congratulations, you have advanced an Attack level!</b><br />');
+				text += ('<br /><span class="bold">Congratulations, you have advanced an Attack level!</span><br />');
 				Game.player.attackxp -= Game.player.attack*21;
 				Game.player.attack++;
-				text += ('<b>Attack level:</b> ' + Game.player.attack) + '<br />';
+				text += ('<span class="bold">Attack level:</span> ' + Game.player.attack) + '<br />';
 				if (Game.player.attackxp < 0) {
 					Game.player.attackxp = 0;
 				}
@@ -426,10 +426,10 @@ var Combat = {
 				Game.player.health -= Combat.enemy.mDamage;
 				Game.player.defensexp += Combat.enemy.mDamage;
 				for ( ;Game.player.defensexp >= Game.player.defense*21; ) {
-					text += ('<br /><b>Congratulations, you have advanced a Defense level!</b><br />');
+					text += ('<br /><span class="bold">Congratulations, you have advanced a Defense level!</span><br />');
 					Game.player.defensexp -= Game.player.defense*21;
 					Game.player.defense++;
-					text += ('<b>Defense level:</b> ' + Game.player.defense) + '<br />';
+					text += ('<span class="bold">Defense level:</span> ' + Game.player.defense) + '<br />';
 					if (Game.player.defensexp < 0) {
 						Game.player.defensexp = 0;
 					}

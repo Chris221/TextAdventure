@@ -59,13 +59,13 @@ var Game = {
 		var text = '';
 		text += ('You find yourself in the Castle of Backleigh.<br />');
 		text += ('What would you like to do?<br />');
-		text += ('1) <b>Go North</b> to Elden Stronghold.<br />');
-		text += ('2) <b>Go West</b> to Draydon Keep.<br />');
-		text += ('3) <b>Go East</b> to the Deserts of Grimtol.<br />');
-		text += ('4) <b>Enter the cave</b> under Backleigh Castle.<br />');
-		text += ('5) <b>Chop wood</b> in the lumber yard.<br />');
-		text += ('6) <b>Enter the mine</b>.<br />');
-		text += ('7) <b>Enter the shop</b>.<br />');
+		text += ('1) <span class="bold">Go North</span> to Elden Stronghold.<br />');
+		text += ('2) <span class="bold">Go West</span> to Draydon Keep.<br />');
+		text += ('3) <span class="bold">Go East</span> to the Deserts of Grimtol.<br />');
+		text += ('4) <span class="bold">Enter the cave</span> under Backleigh Castle.<br />');
+		text += ('5) <span class="bold">Chop wood</span> in the lumber yard.<br />');
+		text += ('6) <span class="bold">Enter the mine</span>.<br />');
+		text += ('7) <span class="bold">Enter the shop</span>.<br />');
 		Engine.display(text);
 		new Button.Button({
 			id: 'NorthButton',
@@ -119,13 +119,13 @@ var Game = {
 		var text = '';
 		text += ('You arrive in Backleigh Castle.<br />');
 		text += ('What would you like to do?<br />');
-		text += ('1) <b>Go North</b> to Elden Stronghold.<br />');
-		text += ('2) <b>Go West</b> to Draydon Keep.<br />');
-		text += ('3) <b>Go East</b> to the Deserts of Grimtol.<br />');
-		text += ('4) <b>Enter the cave</b> under Backleigh Castle.<br />');
-		text += ('5) <b>Chop wood</b> in the lumber yard.<br />');
-		text += ('6) <b>Enter the mine</b>.<br />');
-		text += ('7) <b>Enter the shop</b>.<br />');
+		text += ('1) <span class="bold">Go North</span> to Elden Stronghold.<br />');
+		text += ('2) <span class="bold">Go West</span> to Draydon Keep.<br />');
+		text += ('3) <span class="bold">Go East</span> to the Deserts of Grimtol.<br />');
+		text += ('4) <span class="bold">Enter the cave</span> under Backleigh Castle.<br />');
+		text += ('5) <span class="bold">Chop wood</span> in the lumber yard.<br />');
+		text += ('6) <span class="bold">Enter the mine</span>.<br />');
+		text += ('7) <span class="bold">Enter the shop</span>.<br />');
 		Engine.display(text);
 		new Button.Button({
 			id: 'NorthButton',
@@ -176,10 +176,10 @@ var Game = {
 		var text = '';
 		text += ('You are standing outside the cave in Backleigh.<br />');
 		text += ('You see a sign.<br />');
-		text += ('The sign reads: <br /><b>\"ONLY ENTER IF YOU DARE!\" <br />\"THE CAVE IS FILLED WITH MONSTERS!\"</b><br />');
+		text += ('The sign reads: <br /><span class="bold">\"ONLY ENTER IF YOU DARE!\" <br />\"THE CAVE IS FILLED WITH MONSTERS!\"</span><br />');
 		text += ('What would you like to do?<br />');
-		text += ('1) <b>Enter the cave</b>.<br />');
-		text += ('2) <b>Return</b> to Backleigh Castle.<br />');
+		text += ('1) <span class="bold">Enter the cave</span>.<br />');
+		text += ('2) <span class="bold">Return</span> to Backleigh Castle.<br />');
 		Engine.display(text);
 		new Button.Button({
 			id: 'CaveButton',
@@ -235,9 +235,9 @@ var Game = {
 		text += ('You have entered the cave.<br />');
 		text += ('You see a ' + Game.player.name + '.<br />');
 		text += ('What would you like to do?<br />');
-		text += ('1) <b>Attack</b> the ' + Game.player.name + '.<br />');
-		text += ('2) <b>Run</b> from the ' + Game.player.name + '.<br />');
-		text += ('3) <b>Leave</b> the cave.<br />');
+		text += ('1) <span class="bold">Attack</span> the ' + Game.player.name + '.<br />');
+		text += ('2) <span class="bold">Run</span> from the ' + Game.player.name + '.<br />');
+		text += ('3) <span class="bold">Leave</span> the cave.<br />');
 		Engine.display(text);
 		new Button.Button({
 			id: 'AttackButton',
@@ -267,9 +267,9 @@ var Game = {
 		text += ('You see a ' + Game.player.name + '.<br />');
 		text += ('What would you like to do?<br />');
 		text += ('What would you like to do?<br />');
-		text += ('1) <b>Attack</b> the ' + Game.player.name + '.<br />');
-		text += ('2) <b>Run</b> from the ' + Game.player.name + '.<br />');
-		text += ('3) <b>Leave</b> the cave.<br />');
+		text += ('1) <span class="bold">Attack</span> the ' + Game.player.name + '.<br />');
+		text += ('2) <span class="bold">Run</span> from the ' + Game.player.name + '.<br />');
+		text += ('3) <span class="bold">Leave</span> the cave.<br />');
 		Engine.display(text);
 		new Button.Button({
 			id: 'AttackButton',
@@ -325,8 +325,8 @@ var Game = {
 		var text = '';
 		text += ('You are in the Backleigh Lumber yard.<br />');
 		text += ('What would you like to do?<br />');
-		text += ('1) <b>Chop wood</b><br />');
-		text += ('2) <b>Return</b> to Backleigh Castle.<br />');
+		text += ('1) <span class="bold">Chop wood</span><br />');
+		text += ('2) <span class="bold">Return</span> to Backleigh Castle.<br />');
 		Engine.display(text);
 		new Button.Button({
 			id: 'WoodButton',
@@ -347,10 +347,10 @@ var Game = {
 		var text = '';
 		text += ('You are in the Backleigh Mine.<br />');
 		text += ('What would you like to do?<br />');
-		text += ('1) <b>Mine Iron</b><br />');
-		text += ('2) <b>Mine Coal</b><br />');
-		text += ('3) <b>Mine Gold</b><br />');
-		text += ('4) <b>Return</b> to Backleigh.<br />');
+		text += ('1) <span class="bold">Mine Iron</span><br />');
+		text += ('2) <span class="bold">Mine Coal</span><br />');
+		text += ('3) <span class="bold">Mine Gold</span><br />');
+		text += ('4) <span class="bold">Return</span> to Backleigh.<br />');
 		Engine.display(text);
 		new Button.Button({
 			id: 'IronButton',
@@ -386,9 +386,9 @@ var Game = {
 		var text = '';
 		text += ('You arrive in Draydon Keep.<br />');
 		text += ('What would you like to do?<br />');
-		text += ('1) <b>Go East</b> to Backleigh Castle.<br />');
-		text += ('2) <b>Enter the Draydon port</b>.<br />');
-		text += ('3) <b>Enter the shop</b>.<br />');
+		text += ('1) <span class="bold">Go East</span> to Backleigh Castle.<br />');
+		text += ('2) <span class="bold">Enter the Draydon port</span>.<br />');
+		text += ('3) <span class="bold">Enter the shop</span>.<br />');
 		Engine.display(text);
 		new Button.Button({
 			id: 'EastButton',
@@ -415,9 +415,9 @@ var Game = {
 		var text = '';
 		text += ('You arrive at Draydon Port.<br />');
 		text += ('What would you like to do?<br />');
-		text += ('1) <b>Buy</b> bait.<br />');
-		text += ('2) <b>Fish</b><br />');
-		text += ('3) <b>Return</b> to Draydon Keep.<br />');
+		text += ('1) <span class="bold">Buy</span> bait.<br />');
+		text += ('2) <span class="bold">Fish</span><br />');
+		text += ('3) <span class="bold">Return</span> to Draydon Keep.<br />');
 		Engine.display(text);
 		new Button.Button({
 			id: 'BaitButton',
@@ -446,8 +446,8 @@ var Game = {
 		text += ('You have ' + Game.player.silver + ' silver.<br />');
 		text += ('You have ' + Game.player.bait + ' piece(s) of bait.<br />');
 		text += ('What would you like to do?<br />');
-		text += ('1) <b>Buy</b> 20 bait.<br />');
-		text += ('2) <b>Return</b> to the rest of the Port.<br />');
+		text += ('1) <span class="bold">Buy</span> 20 bait.<br />');
+		text += ('2) <span class="bold">Return</span> to the rest of the Port.<br />');
 		Engine.display(text);
 		new Button.Button({
 			id: 'BaitButton',
@@ -488,11 +488,11 @@ var Game = {
 		var text = '';
 		text += ('You arrive in Elden Stronghold.<br />');
 		text += ('What would you like to do?<br />');
-		text += ('1) <b>Go East</b> to Kirkoswald Fortress.<br />');
-		text += ('2) <b>Go South</b> to Backleigh Castle.<br />');
-		text += ('3) <b>Chop wood</b> in the lumber yard.<br />');
-		text += ('4) <b>Enter the mine</b>.<br />');
-		text += ('5) <b>Enter the shop</b>.<br />');
+		text += ('1) <span class="bold">Go East</span> to Kirkoswald Fortress.<br />');
+		text += ('2) <span class="bold">Go South</span> to Backleigh Castle.<br />');
+		text += ('3) <span class="bold">Chop wood</span> in the lumber yard.<br />');
+		text += ('4) <span class="bold">Enter the mine</span>.<br />');
+		text += ('5) <span class="bold">Enter the shop</span>.<br />');
 		Engine.display(text);
 		new Button.Button({
 			id: 'EastButton',
@@ -531,8 +531,8 @@ var Game = {
 		var text = '';
 		text += ('You are in the Elden Lumber yard.<br />');
 		text += ('What would you like to do?<br />');
-		text += ('1) <b>Chop wood</b><br />');
-		text += ('2) <b>Return</b> to Elden.<br />');
+		text += ('1) <span class="bold">Chop wood</span><br />');
+		text += ('2) <span class="bold">Return</span> to Elden.<br />');
 		Engine.display(text);
 		new Button.Button({
 			id: 'WoodButton',
@@ -553,10 +553,10 @@ var Game = {
 		var text = '';
 		text += ('You are in the Elden Mine.<br />');
 		text += ('What would you like to do?<br />');
-		text += ('1) <b>Mine Iron</b><br />');
-		text += ('2) <b>Mine Coal</b><br />');
-		text += ('3) <b>Mine Gold</b><br />');
-		text += ('4) <b>Return</b> to Elden.<br />');
+		text += ('1) <span class="bold">Mine Iron</span><br />');
+		text += ('2) <span class="bold">Mine Coal</span><br />');
+		text += ('3) <span class="bold">Mine Gold</span><br />');
+		text += ('4) <span class="bold">Return</span> to Elden.<br />');
 		Engine.display(text);
 		new Button.Button({
 			id: 'IronButton',
@@ -592,10 +592,10 @@ var Game = {
 		var text = '';
 		text += ('You arrive in the City of Grimtol.<br />');
 		text += ('What would you like to do?<br />');
-		text += ('1) <b>Go North</b> to Kirkoswald Fortress.<br />');
-		text += ('2) <b>Go West</b> to Backleigh Castle.<br />');
-		text += ('3) <b>Enter the mine</b>.<br />');
-		text += ('4) <b>Enter the shop</b>.<br />');
+		text += ('1) <span class="bold">Go North</span> to Kirkoswald Fortress.<br />');
+		text += ('2) <span class="bold">Go West</span> to Backleigh Castle.<br />');
+		text += ('3) <span class="bold">Enter the mine</span>.<br />');
+		text += ('4) <span class="bold">Enter the shop</span>.<br />');
 		Engine.display(text);
 		new Button.Button({
 			id: 'NorthButton',
@@ -640,8 +640,8 @@ var Game = {
 			if (Game.player.silver >= 50) {
 				Game.player.globalLocation = 2;
 				text += ('What would you like to do?<br />');
-				text += ('1) <b>Pay</b> the guards 50 silver and pass.<br />');
-				text += ('2) <b>Return</b> to Backleigh Castle.<br />');
+				text += ('1) <span class="bold">Pay</span> the guards 50 silver and pass.<br />');
+				text += ('2) <span class="bold">Return</span> to Backleigh Castle.<br />');
 				Engine.display(text);
 				new Button.Button({
 					id: 'PayButton',
@@ -681,10 +681,10 @@ var Game = {
 		var text = '';
 		text += ('You are in the Grimtol Mine.<br />');
 		text += ('What would you like to do?<br />');
-		text += ('1) <b>Mine Iron</b><br />');
-		text += ('2) <b>Mine Coal</b><br />');
-		text += ('3) <b>Mine Gold</b><br />');
-		text += ('4) <b>Return</b> to Grimtol.<br />');
+		text += ('1) <span class="bold">Mine Iron</span><br />');
+		text += ('2) <span class="bold">Mine Coal</span><br />');
+		text += ('3) <span class="bold">Mine Gold</span><br />');
+		text += ('4) <span class="bold">Return</span> to Grimtol.<br />');
 		Engine.display(text);
 		new Button.Button({
 			id: 'IronButton',
@@ -720,11 +720,11 @@ var Game = {
 		var text = '';
 		text += ('You arrive in Kirkoswald Fortress.<br />');
 		text += ('What would you like to do?<br />');
-		text += ('1) <b>Go West</b> to Elden Stronghold.<br />');
-		text += ('2) <b>Go South</b> to the deserts of Grimtol.<br />');
-		text += ('3) <b>Explore</b> the Magical Forest.<br />');
-		text += ('4) <b>Enter the Magician Tower</b>.<br />');
-		text += ('5) <b>Enter the shop</b>.<br />');
+		text += ('1) <span class="bold">Go West</span> to Elden Stronghold.<br />');
+		text += ('2) <span class="bold">Go South</span> to the deserts of Grimtol.<br />');
+		text += ('3) <span class="bold">Explore</span> the Magical Forest.<br />');
+		text += ('4) <span class="bold">Enter the Magician Tower</span>.<br />');
+		text += ('5) <span class="bold">Enter the shop</span>.<br />');
 		Engine.display(text);
 		new Button.Button({
 			id: 'WestButton',
@@ -763,12 +763,12 @@ var Game = {
 		var text = '';
 		text += ('You are standing outside the Magical Forest.<br />');
 		text += ('You see a sign.<br />');
-		text += ('The sign reads: <b><br />\'ONLY ENTER IF YOU DARE!\' <br />\'THE FOREST IS FILLED WITH MONSTERS!\'<br /></b>');
+		text += ('The sign reads: <span class="bold"><br />\'ONLY ENTER IF YOU DARE!\' <br />\'THE FOREST IS FILLED WITH MONSTERS!\'<br /></span>');
 		text += ('The Magical Forest doesn\'t seem like a place you want to mess around in.<br />');
 		text += ('What would you like to do?<br />');
-		text += ('1) <b>Explore</b> the Magical Forest.<br />');
-		text += ('2) <b>Enter the Magician Tower</b>.<br />');
-		text += ('3) <b>Return</b> to Kirkoswald Fortress.<br />');
+		text += ('1) <span class="bold">Explore</span> the Magical Forest.<br />');
+		text += ('2) <span class="bold">Enter the Magician Tower</span>.<br />');
+		text += ('3) <span class="bold">Return</span> to Kirkoswald Fortress.<br />');
 		Engine.display(text);
 		new Button.Button({
 			id: 'ExploreButton',
@@ -797,9 +797,9 @@ var Game = {
 		text += ('Everything in the Magical Forest looks the same.<br />');
 		text += ('You hear sounds of monsters all over.<br />');
 		text += ('What would you like to do?<br />');
-		text += ('1) Try to <b>find your way</b>.<br />');
-		text += ('2) <b>Search</b> for these monsters you hear.<br />');
-		text += ('3) <b>Attempt to leave</b> the forest.<br />');
+		text += ('1) Try to <span class="bold">find your way</span>.<br />');
+		text += ('2) <span class="bold">Search</span> for these monsters you hear.<br />');
+		text += ('3) <span class="bold">Attempt to leave</span> the forest.<br />');
 		Engine.display(text);
 		new Button.Button({
 			id: 'FindWayButton',
@@ -890,9 +890,9 @@ var Game = {
 		var text = '';
 		text += ('You stumble upon a ' + Game.player.name + '.<br />');
 		text += ('What would you like to do?<br />');
-		text += ('1) <b>Attack</b> the ' + Game.player.name + '.<br />');
-		text += ('2) <b>Run</b> from the ' + Game.player.name + '.<br />');
-		text += ('3) <b>Attempt to leave</b> the forest.<br />');
+		text += ('1) <span class="bold">Attack</span> the ' + Game.player.name + '.<br />');
+		text += ('2) <span class="bold">Run</span> from the ' + Game.player.name + '.<br />');
+		text += ('3) <span class="bold">Attempt to leave</span> the forest.<br />');
 		Engine.display(text);
 		new Button.Button({
 			id: 'AttackButton',
@@ -970,17 +970,17 @@ var Game = {
 	end: function() {
 		Game.player.towerLocation = 0;
 		var text = '';
-		text += ('<b>YOU WIN!</b><br />');
+		text += ('<span class="bold">YOU WIN!</span><br />');
 		text += ('For now....<br />');
 		text += ('I will be adding more as I come up with more.<br />');
 		text += ('The game will continue and now you may know that there is a cheat function.<br />');
 		text += ('Cheats must be enabled for you to cheat.<br />');
-		text += ('<b>Cheats</b>: Turns on/off cheats<br />');
-		text += ('<b>God Sword</b>: Enables the God Sword<br />');
-		text += ('<b>God Armour</b>: Enables the God Armour<br />');
-		text += ('<b>God</b>: Enables the God Sword and God Armour<br />');
-		text += ('<b>Give Fish</b>: Gives you 100,000 Fish<br />');
-		text += ('<b>Give Silver</b>: Gives you 100,000 Silver<br />');
+		text += ('<span class="bold">Cheats</span>: Turns on/off cheats<br />');
+		text += ('<span class="bold">God Sword</span>: Enables the God Sword<br />');
+		text += ('<span class="bold">God Armour</span>: Enables the God Armour<br />');
+		text += ('<span class="bold">God</span>: Enables the God Sword and God Armour<br />');
+		text += ('<span class="bold">Give Fish</span>: Gives you 100,000 Fish<br />');
+		text += ('<span class="bold">Give Silver</span>: Gives you 100,000 Silver<br />');
 		Engine.display(text);
 		setTimeout(function () {
 			Game.backleigh();
@@ -994,11 +994,11 @@ var Game = {
 		var text = '';
 		text += ('You are in the general store.<br />');
 		text += ('What would you like to do?<br />');
-		text += ('1) <b>Browse Swords</b><br />');
-		text += ('2) <b>Browse Armour</b><br />');
-		text += ('3) <b>Sell wood</b><br />');
-		text += ('4) <b>Sell ores</b><br />');
-		text += ('5) <b>Leave</b> the shop.<br />');
+		text += ('1) <span class="bold">Browse Swords</span><br />');
+		text += ('2) <span class="bold">Browse Armour</span><br />');
+		text += ('3) <span class="bold">Sell wood</span><br />');
+		text += ('4) <span class="bold">Sell ores</span><br />');
+		text += ('5) <span class="bold">Leave</span> the shop.<br />');
 		Engine.display(text);
 		new Button.Button({
 			id: 'SwordButton',
@@ -1044,8 +1044,8 @@ var Game = {
 		var text = '';
 		text += ('You have ' + Game.player.wood + ' wood. The shop keeper will pay you ' + pay + ' silver per wood.<br />');
 		text += ('What would you like to do?<br />');
-		text += ('1) <b>Sell</b> ' + Game.player.wood + ' <b>wood</b> for a total of ' + Game.player.woodIncome + ' silver.<br />');
-		text += ('2) <b>Return</b> to the shop.<br />');
+		text += ('1) <span class="bold">Sell</span> ' + Game.player.wood + ' <span class="bold">wood</span> for a total of ' + Game.player.woodIncome + ' silver.<br />');
+		text += ('2) <span class="bold">Return</span> to the shop.<br />');
 		Engine.display(text);
 		new Button.Button({
 			id: 'WoodButton',
@@ -1103,10 +1103,10 @@ var Game = {
 		text += ('You have ' + Game.player.gold + ' gold. The shop keeper will pay you ' + paygold + ' silver per gold.<br />');
 		text += ('You have ' + Game.player.coal + ' coal. The shop keeper will pay you ' + paycoal + ' silver per coal.<br />');
 		text += ('What would you like to do?<br />');
-		text += ('1) <b>Sell</b> ' + Game.player.iron + ' <b>iron</b> for a total of ' + Game.player.ironIncome + ' silver.<br />');
-		text += ('2) <b>Sell</b> ' + Game.player.gold + ' <b>gold</b> for a total of ' + Game.player.goldIncome + ' silver.<br />');
-		text += ('3) <b>Sell</b> ' + Game.player.coal + ' <b>coal</b> for a total of ' + Game.player.coalIncome + ' silver.<br />');
-		text += ('4) <b>Return</b> to the shop.<br />');
+		text += ('1) <span class="bold">Sell</span> ' + Game.player.iron + ' <span class="bold">iron</span> for a total of ' + Game.player.ironIncome + ' silver.<br />');
+		text += ('2) <span class="bold">Sell</span> ' + Game.player.gold + ' <span class="bold">gold</span> for a total of ' + Game.player.goldIncome + ' silver.<br />');
+		text += ('3) <span class="bold">Sell</span> ' + Game.player.coal + ' <span class="bold">coal</span> for a total of ' + Game.player.coalIncome + ' silver.<br />');
+		text += ('4) <span class="bold">Return</span> to the shop.<br />');
 		Engine.display(text);
 		new Button.Button({
 			id: 'IronButton',
@@ -1190,13 +1190,13 @@ var Game = {
 		var text = '';
 		text += ('The shop keeper shows you to the sword area.<br />');
 		text += ('What would you like to buy?<br />');
-		text += ('1) <b>Bronze Sword</b>: 500 silver<br />');
-		text += ('2) <b>Gold Sword</b>: 2,000 silver<br />');
-		text += ('3) <b>Iron Sword</b>: 8,000 silver<br />');
-		text += ('4) <b>Steel Sword</b>: 25,000 silver<br />');
-		text += ('5) <b>Titanium Sword</b>: 50,000 silver<br />');
-		text += ('6) <b>Tungsten Sword</b>: 100,000 silver<br />');
-		text += ('7) <b>Return</b> to the main area of the shop.<br />');
+		text += ('1) <span class="bold">Bronze Sword</span>: 500 silver<br />');
+		text += ('2) <span class="bold">Gold Sword</span>: 2,000 silver<br />');
+		text += ('3) <span class="bold">Iron Sword</span>: 8,000 silver<br />');
+		text += ('4) <span class="bold">Steel Sword</span>: 25,000 silver<br />');
+		text += ('5) <span class="bold">Titanium Sword</span>: 50,000 silver<br />');
+		text += ('6) <span class="bold">Tungsten Sword</span>: 100,000 silver<br />');
+		text += ('7) <span class="bold">Return</span> to the main area of the shop.<br />');
 		Engine.display(text);
 		Game.swordName();
 		new Button.Button({
@@ -1264,8 +1264,8 @@ var Game = {
 				text += ('The Bronze Sword costs 500 silver and requires attack level 1.<br />');
 				text += ('You have ' + Game.player.silver + ' silver and your attack level is ' + Game.player.attack + '.<br />');
 				text += ('What would you like to do?<br />');
-				text += ('1) <b>Buy</b> the Bronze Sword.<br />');
-				text += ('2) <b>Browse Swords</b><br />');
+				text += ('1) <span class="bold">Buy</span> the Bronze Sword.<br />');
+				text += ('2) <span class="bold">Browse Swords</span><br />');
 				Engine.display(text);
 				new Button.Button({
 					id: 'BuyButton',
@@ -1324,8 +1324,8 @@ var Game = {
 				text += ('The Gold Sword costs 2,000 silver and requires attack level 5.<br />');
 				text += ('You have ' + Game.player.silver + ' silver and your attack level is ' + Game.player.attack + '.<br />');
 				text += ('What would you like to do?<br />');
-				text += ('1) <b>Buy</b> the Gold Sword.<br />');
-				text += ('2) <b>Browse Swords</b>');
+				text += ('1) <span class="bold">Buy</span> the Gold Sword.<br />');
+				text += ('2) <span class="bold">Browse Swords</span>');
 				Engine.display(text);
 				new Button.Button({
 					id: 'BuyButton',
@@ -1383,8 +1383,8 @@ var Game = {
 				text += ('The Iron Sword costs 8,000 silver and requires attack level 10.<br />');
 				text += ('You have ' + Game.player.silver + ' silver and your attack level is ' + Game.player.attack + '.<br />');
 				text += ('What would you like to do?<br />');
-				text += ('1) <b>Buy</b> the Iron Sword.<br />');
-				text += ('2) <b>Browse Swords</b>');
+				text += ('1) <span class="bold">Buy</span> the Iron Sword.<br />');
+				text += ('2) <span class="bold">Browse Swords</span>');
 				Engine.display(text);
 				new Button.Button({
 					id: 'BuyButton',
@@ -1443,8 +1443,8 @@ var Game = {
 				text += ('The Steel Sword costs 25,000 silver and requires attack level 20.<br />');
 				text += ('You have ' + Game.player.silver + ' silver and your attack level is ' + Game.player.attack + '.<br />');
 				text += ('What would you like to do?<br />');
-				text += ('1) <b>Buy</b> the Steel Sword.<br />');
-				text += ('2) <b>Browse Swords</b>');
+				text += ('1) <span class="bold">Buy</span> the Steel Sword.<br />');
+				text += ('2) <span class="bold">Browse Swords</span>');
 				Engine.display(text);
 				new Button.Button({
 					id: 'BuyButton',
@@ -1500,8 +1500,8 @@ var Game = {
 				text += ('The Titanium Sword costs 50,000 silver and requires attack level 30.<br />');
 				text += ('You have ' + Game.player.silver + ' silver and your attack level is ' + Game.player.attack + '.<br />');
 				text += ('What would you like to do?<br />');
-				text += ('1) <b>Buy</b> the Titanium Sword.<br />');
-				text += ('2) <b>Browse Swords</b>');
+				text += ('1) <span class="bold">Buy</span> the Titanium Sword.<br />');
+				text += ('2) <span class="bold">Browse Swords</span>');
 				Engine.display(text);
 				new Button.Button({
 					id: 'BuyButton',
@@ -1560,8 +1560,8 @@ var Game = {
 				text += ('The Tungsten Sword costs 100,000 silver and requires attack level 40.<br />');
 				text += ('You have ' + Game.player.silver + ' silver and your attack level is ' + Game.player.attack + '.<br />');
 				text += ('What would you like to do?<br />');
-				text += ('1) <b>Buy</b> the Tungsten Sword.<br />');
-				text += ('2) <b>Browse Swords</b>');
+				text += ('1) <span class="bold">Buy</span> the Tungsten Sword.<br />');
+				text += ('2) <span class="bold">Browse Swords</span>');
 				Engine.display(text);
 				new Button.Button({
 					id: 'BuyButton',
@@ -1624,13 +1624,13 @@ var Game = {
 		var text = '';
 		text += ('The shop keeper shows you to the armour area.<br />');
 		text += ('What would you like to buy?<br />');
-		text += ('1) <b>Bronze Armour</b>: 500 silver<br />');
-		text += ('2) <b>Gold Armour</b>: 2,000 silver<br />');
-		text += ('3) <b>Iron Armour</b>: 8,000 silver<br />');
-		text += ('4) <b>Steel Armour</b>: 25,000 silver<br />');
-		text += ('5) <b>Titanium Armour</b>: 50,000 silver<br />');
-		text += ('6) <b>Tungsten Armour</b>: 100,000 silver<br />');
-		text += ('7) <b>Return</b> to the main area of the shop.<br />');
+		text += ('1) <span class="bold">Bronze Armour</span>: 500 silver<br />');
+		text += ('2) <span class="bold">Gold Armour</span>: 2,000 silver<br />');
+		text += ('3) <span class="bold">Iron Armour</span>: 8,000 silver<br />');
+		text += ('4) <span class="bold">Steel Armour</span>: 25,000 silver<br />');
+		text += ('5) <span class="bold">Titanium Armour</span>: 50,000 silver<br />');
+		text += ('6) <span class="bold">Tungsten Armour</span>: 100,000 silver<br />');
+		text += ('7) <span class="bold">Return</span> to the main area of the shop.<br />');
 		Engine.display(text);
 		new Button.Button({
 			id: 'BronzeArmourButton',
@@ -1697,8 +1697,8 @@ var Game = {
 				text += ('The Bronze Armour costs 500 silver and requires defense level 1.<br />');
 				text += ('You have ' + Game.player.silver + ' silver and your defense level is ' + Game.player.defense + '.<br />');
 				text += ('What would you like to do?<br />');
-				text += ('1) <b>Buy</b> Bronze Armour.<br />');
-				text += ('2) <b>Browse Armour</b><br />');
+				text += ('1) <span class="bold">Buy</span> Bronze Armour.<br />');
+				text += ('2) <span class="bold">Browse Armour</span><br />');
 				Engine.display(text);
 				new Button.Button({
 					id: 'BuyButton',
@@ -1759,8 +1759,8 @@ var Game = {
 				text += ('The Gold Armour costs 2,000 silver and requires defense level 5.<br />');
 				text += ('You have ' + Game.player.silver + ' silver and your defense level is ' + Game.player.defense + '.<br />');
 				text += ('What would you like to do?<br />');
-				text += ('1) <b>Buy</b> Gold Armour.<br />');
-				text += ('2) <b>Browse Armour</b><br />');
+				text += ('1) <span class="bold">Buy</span> Gold Armour.<br />');
+				text += ('2) <span class="bold">Browse Armour</span><br />');
 				Engine.display(text);
 				new Button.Button({
 					id: 'BuyButton',
@@ -1821,8 +1821,8 @@ var Game = {
 				text += ('The Iron Armour costs 8,000 silver and requires defense level 10.<br />');
 				text += ('You have ' + Game.player.silver + ' silver and your defense level is ' + Game.player.defense + '.<br />');
 				text += ('What would you like to do?<br />');
-				text += ('1) <b>Buy</b> Iron Armour.<br />');
-				text += ('2) <b>Browse Armour</b><br />');
+				text += ('1) <span class="bold">Buy</span> Iron Armour.<br />');
+				text += ('2) <span class="bold">Browse Armour</span><br />');
 				Engine.display(text);
 				new Button.Button({
 					id: 'BuyButton',
@@ -1883,8 +1883,8 @@ var Game = {
 				text += ('The Steel Armour costs 25,000 silver and requires defense level 20.<br />');
 				text += ('You have ' + Game.player.silver + ' silver and your defense level is ' + Game.player.defense + '.<br />');
 				text += ('What would you like to do?<br />');
-				text += ('1) <b>Buy</b> Steel Armour.<br />');
-				text += ('2) <b>Browse Armour</b><br />');
+				text += ('1) <span class="bold">Buy</span> Steel Armour.<br />');
+				text += ('2) <span class="bold">Browse Armour</span><br />');
 				Engine.display(text);
 				new Button.Button({
 					id: 'BuyButton',
@@ -1945,8 +1945,8 @@ var Game = {
 				text += ('The Titanium Armour costs 50,000 silver and requires defense level 30.<br />');
 				text += ('You have ' + Game.player.silver + ' silver and your defense level is ' + Game.player.defense + '.<br />');
 				text += ('What would you like to do?<br />');
-				text += ('1) <b>Buy</b> Titanium Armour.<br />');
-				text += ('2) <b>Browse Armour</b><br />');
+				text += ('1) <span class="bold">Buy</span> Titanium Armour.<br />');
+				text += ('2) <span class="bold">Browse Armour</span><br />');
 				Engine.display(text);
 				new Button.Button({
 					id: 'BuyButton',
@@ -2007,8 +2007,8 @@ var Game = {
 				text += ('The Tungsten Armour costs 100,000 silver and requires defense level 40.<br />');
 				text += ('You have ' + Game.player.silver + ' silver and your defense level is ' + Game.player.defense + '.<br />');
 				text += ('What would you like to do?<br />');
-				text += ('1) <b>Buy</b> Tungsten Armour.<br />');
-				text += ('2) <b>Browse Armour</b><br />');
+				text += ('1) <span class="bold">Buy</span> Tungsten Armour.<br />');
+				text += ('2) <span class="bold">Browse Armour</span><br />');
 				Engine.display(text);
 				new Button.Button({
 					id: 'BuyButton',
@@ -2106,9 +2106,9 @@ var Game = {
 			text += ('You have received ' + r + ' iron.<br />');
 			text += ('You have ' + Game.player.iron + ' iron.<br />');
 			if (Game.player.miningxp >= Game.player.mining*21) {
-				text += ('<br /><b>Congratulations, you have advanced a Mining level!</b><br />');
+				text += ('<br /><span class="bold">Congratulations, you have advanced a Mining level!</span><br />');
 				Game.player.mining++;
-				text += ('<b>Mining level:</b> ' + Game.player.mining + '<br />');
+				text += ('<span class="bold">Mining level:</span> ' + Game.player.mining + '<br />');
 				Game.player.miningxp -= Game.player.mining*21;
 				if (Game.player.miningxp < 0) {
 					Game.player.miningxp = 0;
@@ -2149,9 +2149,9 @@ var Game = {
 				text += ('You have received ' + r + ' Coal.<br />');
 				text += ('You have ' + Game.player.coal + ' Coal.<br />');
 				if (Game.player.miningxp >= Game.player.mining*21) {
-					text += ('<br /><b>Congratulations, you have advanced a Mining level!</b><br />');
+					text += ('<br /><span class="bold">Congratulations, you have advanced a Mining level!</span><br />');
 					Game.player.mining++;
-					text += ('<b>Mining level:</b> ' + Game.player.mining + '<br />');
+					text += ('<span class="bold">Mining level:</span> ' + Game.player.mining + '<br />');
 					Game.player.miningxp -= Game.player.mining*21;
 					if (Game.player.miningxp < 0) {
 						Game.player.miningxp = 0;
@@ -2197,9 +2197,9 @@ var Game = {
 				text += ('You have received ' + r + ' gold.<br />');
 				text += ('You have ' + Game.player.gold + ' gold.<br />');
 				if (Game.player.miningxp >= Game.player.mining*21) {
-					text += ('<br /><b>Congratulations, you have advanced a Mining level!</b><br />');
+					text += ('<br /><span class="bold">Congratulations, you have advanced a Mining level!</span><br />');
 					Game.player.mining++;
-					text += ('<b>Mining level:</b> ' + Game.player.mining) + '<br />';
+					text += ('<span class="bold">Mining level:</span> ' + Game.player.mining) + '<br />';
 					Game.player.miningxp -= Game.player.mining*21;
 					if (Game.player.miningxp < 0) {
 						Game.player.miningxp = 0;
@@ -2257,9 +2257,9 @@ var Game = {
 			text += ('You have received ' + r + ' wood.<br />');
 			text += ('You have ' + Game.player.wood + ' wood.<br />');
 			if (Game.player.woodcuttingxp >= Game.player.woodcutting*21) {
-				text += ('<br /><b>Congratulations, you have advanced a Woodcutting level!</b><br />');
+				text += ('<br /><span class="bold">Congratulations, you have advanced a Woodcutting level!</span><br />');
 				Game.player.woodcutting++;
-				text += ('<b>Woodcutting level:</b> ' + Game.player.woodcutting + '<br />');
+				text += ('<span class="bold">Woodcutting level:</span> ' + Game.player.woodcutting + '<br />');
 				Game.player.woodcuttingxp -= Game.player.woodcutting*21;
 				if (Game.player.woodcuttingxp < 0) {
 					Game.player.woodcuttingxp = 0;
@@ -2315,9 +2315,9 @@ var Game = {
 				text += ('You have ' + Game.player.fish + ' fish.<br />');
 				text += ('You have ' + Game.player.bait + ' piece(s) of bait.<br />');
 				if (Game.player.fishingxp >= Game.player.fishing*21) {
-					text += ('<br /><b>Congratulations, you have advanced a Fishing level!</b><br />');
+					text += ('<br /><span class="bold">Congratulations, you have advanced a Fishing level!</span><br />');
 					Game.player.fishing++;
-					text += ('<b>Fishing level:</b> ' + Game.player.fishing + '<br />');
+					text += ('<span class="bold">Fishing level:</span> ' + Game.player.fishing + '<br />');
 					Game.player.fishingxp -= Game.player.fishing*21;
 					if (Game.player.fishingxp < 0) {
 						Game.player.fishingxp = 0;
@@ -2402,15 +2402,15 @@ var Game = {
 	
 	help: function() {
 		var text = '';
-		text += ('To play type the <b>Bold text</b> into the text box.<br />');
-		text += ('EX: <em>1) <b>Swing</b> your Iron Sword.</em><br />');
+		text += ('To play type the <span class="bold">Bold text</span> into the text box.<br />');
+		text += ('EX: <em>1) <span class="bold">Swing</span> your Iron Sword.</em><br />');
 		text += ('Or you can now click most commands!<br />');
 		text += ('All command words have a space inbetween them.<br />');
 		text += ('The game pauses at times for you to read the screen if there is no commands to enter.<br />');
-		text += ('To see your player stats at any time type <b>stats</b><br />');
+		text += ('To see your player stats at any time type <span class="bold">stats</span><br />');
 		text += ('Or click the button on the right!<br />');
 		text += ('The game will begin shortly!<br />');
-		text += ('Type <b>start</b> to begin playing the game or <b>click below</b>!<br />');
+		text += ('Type <span class="bold">start</span> to begin playing the game or <span class="bold">click below</span>!<br />');
 		Engine.display(text);
 		new Button.Button({
 			id: 'StartButton',
