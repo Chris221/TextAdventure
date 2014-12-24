@@ -40,6 +40,7 @@ var Game = {
 		swordname: '',
 	 	armourname: '',
 		name: '',
+		width: '125px',
 	},
 	
 	start: function() {
@@ -59,7 +60,43 @@ var Game = {
 		text += ('5) <b>Chop wood</b> in the lumber yard.<br />');
 		text += ('6) <b>Enter the mine</b>.<br />');
 		text += ('7) <b>Enter the shop</b>.<br />');
-		display(text);
+		Engine.display(text);
+		new Button.Button({
+			id: 'northButton',
+			text: _('Go North'),
+			click: Game.elden,
+			width: Game.player.width,
+		}).appendTo('span#output');
+		new Button.Button({
+			id: 'westButton',
+			text: _('Go East'),
+			click: Game.grimtolBridge,
+			width: Game.player.width,
+		}).appendTo('span#output');
+		new Button.Button({
+			id: 'westButton',
+			text: _('Enter the cave'),
+			click: Game.backleighCaveEntrance,
+			width: Game.player.width,
+		}).appendTo('span#output');
+		new Button.Button({
+			id: 'westButton',
+			text: _('Chop wood'),
+			click: Game.backleighLumber,
+			width: Game.player.width,
+		}).appendTo('span#output');
+		new Button.Button({
+			id: 'westButton',
+			text: _('Enter the mine'),
+			click: Game.backleighMine,
+			width: Game.player.width,
+		}).appendTo('span#output');
+		new Button.Button({
+			id: 'westButton',
+			text: _('Enter the shop'),
+			click: Game.shop,
+			width: Game.player.width,
+		}).appendTo('span#output');
 	},
 	
 	backleigh: function() {
@@ -77,7 +114,43 @@ var Game = {
 		text += ('5) <b>Chop wood</b> in the lumber yard.<br />');
 		text += ('6) <b>Enter the mine</b>.<br />');
 		text += ('7) <b>Enter the shop</b>.<br />');
-		display(text);
+		Engine.display(text);
+		new Button.Button({
+			id: 'northButton',
+			text: _('Go North'),
+			click: Game.elden,
+			width: Game.player.width,
+		}).appendTo('span#output');
+		new Button.Button({
+			id: 'westButton',
+			text: _('Go East'),
+			click: Game.grimtolBridge,
+			width: Game.player.width,
+		}).appendTo('span#output');
+		new Button.Button({
+			id: 'westButton',
+			text: _('Enter the cave'),
+			click: Game.backleighCaveEntrance,
+			width: Game.player.width,
+		}).appendTo('span#output');
+		new Button.Button({
+			id: 'westButton',
+			text: _('Chop wood'),
+			click: Game.backleighLumber,
+			width: Game.player.width,
+		}).appendTo('span#output');
+		new Button.Button({
+			id: 'westButton',
+			text: _('Enter the mine'),
+			click: Game.backleighMine,
+			width: Game.player.width,
+		}).appendTo('span#output');
+		new Button.Button({
+			id: 'westButton',
+			text: _('Enter the shop'),
+			click: Game.shop,
+			width: Game.player.width,
+		}).appendTo('span#output');
 	},
 	
 	backleighCaveEntrance: function() {
@@ -88,8 +161,20 @@ var Game = {
 		text += ('The sign reads: <br /><b>\"ONLY ENTER IF YOU DARE!\" <br />\"THE CAVE IS FILLED WITH MONSTERS!\"</b><br />');
 		text += ('What would you like to do?<br />');
 		text += ('1) <b>Enter the cave</b>.<br />');
-		text += ('3) <b>Return</b> to Backleigh Castle.<br />');
-		display(text);
+		text += ('2) <b>Return</b> to Backleigh Castle.<br />');
+		Engine.display(text);
+		new Button.Button({
+			id: 'westButton',
+			text: _('Enter the cave'),
+			click: Game.backleighCaveEnter,
+			width: Game.player.width,
+		}).appendTo('span#output');
+		new Button.Button({
+			id: 'westButton',
+			text: _('return'),
+			click: Game.caveLeave,
+			width: Game.player.width,
+		}).appendTo('span#output');
 	},
 	  
 	cave: function() {
@@ -135,7 +220,25 @@ var Game = {
 		text += ('1) <b>Attack</b> the ' + Game.player.name + '.<br />');
 		text += ('2) <b>Run</b> from the ' + Game.player.name + '.<br />');
 		text += ('3) <b>Leave</b> the cave.<br />');
-		display(text);
+		Engine.display(text);
+		new Button.Button({
+			id: 'westButton',
+			text: _('Attack'),
+			click: Combat.attack,
+			width: Game.player.width,
+		}).appendTo('span#output');
+		new Button.Button({
+			id: 'westButton',
+			text: _('Run'),
+			click: Game.runCave,
+			width: Game.player.width,
+		}).appendTo('span#output');
+		new Button.Button({
+			id: 'westButton',
+			text: _('Leave'),
+			click: Game.caveLeave,
+			width: Game.player.width,
+		}).appendTo('span#output');
 	},
 	
 	backleighCaveContinue: function() {
@@ -149,13 +252,31 @@ var Game = {
 		text += ('1) <b>Attack</b> the ' + Game.player.name + '.<br />');
 		text += ('2) <b>Run</b> from the ' + Game.player.name + '.<br />');
 		text += ('3) <b>Leave</b> the cave.<br />');
-		display(text);
+		Engine.display(text);
+		new Button.Button({
+			id: 'westButton',
+			text: _('Attack'),
+			click: Combat.attack,
+			width: Game.player.width,
+		}).appendTo('span#output');
+		new Button.Button({
+			id: 'westButton',
+			text: _('Run'),
+			click: Game.runCave,
+			width: Game.player.width,
+		}).appendTo('span#output');
+		new Button.Button({
+			id: 'westButton',
+			text: _('Leave'),
+			click: Game.caveLeave,
+			width: Game.player.width,
+		}).appendTo('span#output');
 	},
 	
 	 runCave: function() {
 		var text = '';
 		text += ('You have escaped from the ' + Game.player.name + '.<br />');
-		display(text);
+		Engine.display(text);
 		setTimeout(function () {
 			Game.backleighCaveContinue();
 		}, 3000);
@@ -165,7 +286,7 @@ var Game = {
 		var text = '';
 		text += ('Now that you have slain the ' + Game.player.name + '.<br />');
 		text += ('You continue to explore the cave.<br />');
-		display(text);
+		Engine.display(text);
 		setTimeout(function () {
 			Game.backleighCaveContinue();
 		}, 3000);
@@ -175,7 +296,7 @@ var Game = {
 		var text = '';
 		text += ('You leave the cave.<br />');
 		text += ('You head back to Backleigh Castle.<br />');
-		display(text);
+		Engine.display(text);
 		setTimeout(function () {
 			Game.backleigh();
 		}, 3000);
@@ -188,7 +309,19 @@ var Game = {
 		text += ('What would you like to do?<br />');
 		text += ('1) <b>Chop wood</b><br />');
 		text += ('2) <b>Return</b> to Backleigh Castle.<br />');
-		display(text);
+		Engine.display(text);
+		new Button.Button({
+			id: 'westButton',
+			text: _('Chop wood'),
+			click: Game.lumber,
+			width: Game.player.width,
+		}).appendTo('span#output');
+		new Button.Button({
+			id: 'westButton',
+			text: _('Return'),
+			click: Game.backleigh,
+			width: Game.player.width,
+		}).appendTo('span#output');
 	},
 	
 	backleighMine: function() {
@@ -200,7 +333,31 @@ var Game = {
 		text += ('2) <b>Mine Coal</b><br />');
 		text += ('3) <b>Mine Gold</b><br />');
 		text += ('4) <b>Return</b> to Backleigh.<br />');
-		display(text);
+		Engine.display(text);
+		new Button.Button({
+			id: 'westButton',
+			text: _('Mine Iron'),
+			click: Game.iron,
+			width: Game.player.width,
+		}).appendTo('span#output');
+		new Button.Button({
+			id: 'westButton',
+			text: _('Mine Coal'),
+			click: Game.coal,
+			width: Game.player.width,
+		}).appendTo('span#output');
+		new Button.Button({
+			id: 'westButton',
+			text: _('Mine Gold'),
+			click: Game.gold,
+			width: Game.player.width,
+		}).appendTo('span#output');
+		new Button.Button({
+			id: 'westButton',
+			text: _('Return'),
+			click: Game.backleigh,
+			width: Game.player.width,
+		}).appendTo('span#output');
 	},
 	
 	draydon: function() {
@@ -214,7 +371,25 @@ var Game = {
 		text += ('1) <b>Go East</b> to Backleigh Castle.<br />');
 		text += ('2) <b>Enter the Draydon port</b>.<br />');
 		text += ('3) <b>Enter the shop</b>.<br />');
-		display(text);
+		Engine.display(text);
+		new Button.Button({
+			id: 'northButton',
+			text: _('Go East'),
+			click: Game.backleigh,
+			width: Game.player.width,
+		}).appendTo('span#output');
+		new Button.Button({
+			id: 'westButton',
+			text: _('Enter the Draydon port'),
+			click: Game.draydonPort,
+			width: Game.player.width,
+		}).appendTo('span#output');
+		new Button.Button({
+			id: 'westButton',
+			text: _('Enter the shop'),
+			click: Game.shop,
+			width: Game.player.width,
+		}).appendTo('span#output');
 	},
 	
 	draydonPort: function() {
@@ -225,7 +400,25 @@ var Game = {
 		text += ('1) <b>Buy</b> bait.<br />');
 		text += ('2) <b>Fish</b><br />');
 		text += ('3) <b>Return</b> to Draydon Keep.<br />');
-		display(text);
+		Engine.display(text);
+		new Button.Button({
+			id: 'northButton',
+			text: _('Buy bait'),
+			click: Game.baitStore,
+			width: Game.player.width,
+		}).appendTo('span#output');
+		new Button.Button({
+			id: 'westButton',
+			text: _('Fish'),
+			click: Game.fish,
+			width: Game.player.width,
+		}).appendTo('span#output');
+		new Button.Button({
+			id: 'westButton',
+			text: _('return'),
+			click: Game.draydon,
+			width: Game.player.width,
+		}).appendTo('span#output');
 	},
 	
 	baitStore: function() {
@@ -237,7 +430,36 @@ var Game = {
 		text += ('What would you like to do?<br />');
 		text += ('1) <b>Buy</b> 20 bait.<br />');
 		text += ('2) <b>Return</b> to the rest of the Port.<br />');
-		display(text);
+		Engine.display(text);
+		new Button.Button({
+			id: 'westButton',
+			text: _('Buy bait'),
+			click: Game.baitBuy,
+			width: Game.player.width,
+		}).appendTo('span#output');
+		new Button.Button({
+			id: 'westButton',
+			text: _('return'),
+			click: Game.draydonPort,
+			width: Game.player.width,
+		}).appendTo('span#output');
+	},
+	
+	baitBuy: function() {
+		var text = '';
+		if (Game.player.silver >= 50) {
+			Game.player.silver -= 50;
+			Game.player.bait += 20;
+			text += ('You have ' + Game.player.silver + ' silver.<br />');
+			text += ('You have ' + Game.player.bait + ' pieces of bait.<br />');
+		} else {
+			text += ('Bait costs 50 silver.<br />');
+			text += ('You have ' + Game.player.silver + ' silver.<br />');
+		}
+		Engine.display(text);
+		setTimeout(function () {
+			Game.draydonPort();
+		}, 3000);
 	},
 	
 	elden: function() {
@@ -253,7 +475,37 @@ var Game = {
 		text += ('3) <b>Chop wood</b> in the lumber yard.<br />');
 		text += ('4) <b>Enter the mine</b>.<br />');
 		text += ('5) <b>Enter the shop</b>.<br />');
-		display(text);
+		Engine.display(text);
+		new Button.Button({
+			id: 'westButton',
+			text: _('Go East'),
+			click: Game.kirkoswald,
+			width: Game.player.width,
+		}).appendTo('span#output');
+		new Button.Button({
+			id: 'westButton',
+			text: _('Go South'),
+			click: Game.backleigh,
+			width: Game.player.width,
+		}).appendTo('span#output');
+		new Button.Button({
+			id: 'westButton',
+			text: _('Chop wood'),
+			click: Game.eldenLumber,
+			width: Game.player.width,
+		}).appendTo('span#output');
+		new Button.Button({
+			id: 'westButton',
+			text: _('Enter the mine'),
+			click: Game.eldenMine,
+			width: Game.player.width,
+		}).appendTo('span#output');
+		new Button.Button({
+			id: 'westButton',
+			text: _('Enter the shop'),
+			click: Game.shop,
+			width: Game.player.width,
+		}).appendTo('span#output');
 	},
 	
 	eldenLumber: function() {
@@ -263,7 +515,19 @@ var Game = {
 		text += ('What would you like to do?<br />');
 		text += ('1) <b>Chop wood</b><br />');
 		text += ('2) <b>Return</b> to Elden.<br />');
-		display(text);
+		Engine.display(text);
+		new Button.Button({
+			id: 'westButton',
+			text: _('Chop wood'),
+			click: Game.lumber,
+			width: Game.player.width,
+		}).appendTo('span#output');
+		new Button.Button({
+			id: 'westButton',
+			text: _('Return'),
+			click: Game.elden,
+			width: Game.player.width,
+		}).appendTo('span#output');
 	},
 
 	eldenMine: function() {
@@ -275,7 +539,31 @@ var Game = {
 		text += ('2) <b>Mine Coal</b><br />');
 		text += ('3) <b>Mine Gold</b><br />');
 		text += ('4) <b>Return</b> to Elden.<br />');
-		display(text);
+		Engine.display(text);
+		new Button.Button({
+			id: 'westButton',
+			text: _('Mine Iron'),
+			click: Game.iron,
+			width: Game.player.width,
+		}).appendTo('span#output');
+		new Button.Button({
+			id: 'westButton',
+			text: _('Mine Coal'),
+			click: Game.coal,
+			width: Game.player.width,
+		}).appendTo('span#output');
+		new Button.Button({
+			id: 'westButton',
+			text: _('Mine Gold'),
+			click: Game.gold,
+			width: Game.player.width,
+		}).appendTo('span#output');
+		new Button.Button({
+			id: 'westButton',
+			text: _('Return'),
+			click: Game.elden,
+			width: Game.player.width,
+		}).appendTo('span#output');
 	},
 
 	grimtol: function() {
@@ -290,7 +578,31 @@ var Game = {
 		text += ('2) <b>Go West</b> to Backleigh Castle.<br />');
 		text += ('3) <b>Enter the mine</b>.<br />');
 		text += ('4) <b>Enter the shop</b>.<br />');
-		display(text);
+		Engine.display(text);
+		new Button.Button({
+			id: 'westButton',
+			text: _('Go North'),
+			click: Game.kirkoswald,
+			width: Game.player.width,
+		}).appendTo('span#output');
+		new Button.Button({
+			id: 'westButton',
+			text: _('Go West'),
+			click: Game.backleigh,
+			width: Game.player.width,
+		}).appendTo('span#output');
+		new Button.Button({
+			id: 'westButton',
+			text: _('Enter the mine'),
+			click: Game.grimtolMine,
+			width: Game.player.width,
+		}).appendTo('span#output');
+		new Button.Button({
+			id: 'westButton',
+			text: _('Enter the shop'),
+			click: Game.shop,
+			width: Game.player.width,
+		}).appendTo('span#output');
 	},
 
 	grimtolBridge: function() {
@@ -300,7 +612,7 @@ var Game = {
 		text += ('The bridge is armed with guards from Grimtol.<br /><br />');
 		if (Game.player.location === 5) {
 			text += ('The guards let you pass by for free.<br />');
-			display(text);
+			Engine.display(text);
 			setTimeout(function () {
 				Game.backleigh();
 			}, 3000);
@@ -308,19 +620,42 @@ var Game = {
 			text += ('The guards will let you pass by for 50 silver.<br />');
 			text += ('You have ' + Game.player.silver + ' Silver.<br /><br />');
 			if (Game.player.silver >= 50) {
-				Game.player.globalLocation = 3;
+				Game.player.globalLocation = 2;
 				text += ('What would you like to do?<br />');
 				text += ('1) <b>Pay</b> the guards 50 silver and pass.<br />');
 				text += ('2) <b>Return</b> to Backleigh Castle.<br />');
-				display(text);
+				Engine.display(text);
+				new Button.Button({
+					id: 'westButton',
+					text: _('Pay guards'),
+					click: Game.grimtolBridgePay,
+					width: Game.player.width,
+				}).appendTo('span#output');
+				new Button.Button({
+					id: 'westButton',
+					text: _('Return'),
+					click: Game.backleigh,
+					width: Game.player.width,
+				}).appendTo('span#output');
 			} else {
 				text += ('You don\'t have enough Silver and head back to Backleigh Castle.<br />');
-				display(text);
+				Engine.display(text);
 				setTimeout(function () {
 					Game.backleigh();
 				}, 3000);
 			}
 		}
+	},
+	grimtolBridgePay: function() {
+		var text = '';
+		text += ('You pay the guards 50 silver.<br />');
+		text += ('They let you pass.<br />');
+		Game.player.silver -= 50;
+		text += ('You now have ' + Game.player.silver + ' Silver.<br />');
+		Engine.display(text);
+		setTimeout(function () {
+			Game.grimtol();
+		}, 3000);
 	},
 
 	grimtolMine: function() {
@@ -332,7 +667,31 @@ var Game = {
 		text += ('2) <b>Mine Coal</b><br />');
 		text += ('3) <b>Mine Gold</b><br />');
 		text += ('4) <b>Return</b> to Grimtol.<br />');
-		display(text);
+		Engine.display(text);
+		new Button.Button({
+			id: 'westButton',
+			text: _('Mine Iron'),
+			click: Game.iron,
+			width: Game.player.width,
+		}).appendTo('span#output');
+		new Button.Button({
+			id: 'westButton',
+			text: _('Mine Coal'),
+			click: Game.coal,
+			width: Game.player.width,
+		}).appendTo('span#output');
+		new Button.Button({
+			id: 'westButton',
+			text: _('Mine Gold'),
+			click: Game.gold,
+			width: Game.player.width,
+		}).appendTo('span#output');
+		new Button.Button({
+			id: 'westButton',
+			text: _('Return'),
+			click: Game.elden,
+			width: Game.player.width,
+		}).appendTo('span#output');
 	},
 	
 	kirkoswald: function() {
@@ -348,7 +707,37 @@ var Game = {
 		text += ('3) <b>Explore</b> the Magical Forest.<br />');
 		text += ('4) <b>Enter the Magician Tower</b>.<br />');
 		text += ('5) <b>Enter the shop</b>.<br />');
-		display(text);
+		Engine.display(text);
+		new Button.Button({
+			id: 'westButton',
+			text: _('Go West'),
+			click: Game.elden,
+			width: Game.player.width,
+		}).appendTo('span#output');
+		new Button.Button({
+			id: 'westButton',
+			text: _('Go South'),
+			click: Game.grimtol,
+			width: Game.player.width,
+		}).appendTo('span#output');
+		new Button.Button({
+			id: 'westButton',
+			text: _('Explore'),
+			click: Game.magicalForestEntrance,
+			width: Game.player.width,
+		}).appendTo('span#output');
+		new Button.Button({
+			id: 'westButton',
+			text: _('Enter the Magician Tower'),
+			click: Game.magicianTowerEntrance,
+			width: Game.player.width,
+		}).appendTo('span#output');
+		new Button.Button({
+			id: 'westButton',
+			text: _('Enter the shop'),
+			click: Game.shop,
+			width: Game.player.width,
+		}).appendTo('span#output');
 	},
 
 	magicalForestEntrance: function() {
@@ -362,7 +751,25 @@ var Game = {
 		text += ('1) <b>Explore</b> the Magical Forest.<br />');
 		text += ('2) <b>Enter the Magician Tower</b>.<br />');
 		text += ('3) <b>Return</b> to Kirkoswald Fortress.<br />');
-		display(text);
+		Engine.display(text);
+		new Button.Button({
+			id: 'westButton',
+			text: _('Explore'),
+			click: Game.magicalForest,
+			width: Game.player.width,
+		}).appendTo('span#output');
+		new Button.Button({
+			id: 'westButton',
+			text: _('Enter the Magician Tower'),
+			click: Game.magicianTowerEntrance,
+			width: Game.player.width,
+		}).appendTo('span#output');
+		new Button.Button({
+			id: 'westButton',
+			text: _('Return'),
+			click: Game.kirkoswald,
+			width: Game.player.width,
+		}).appendTo('span#output');
 	},
 
 	magicalForest: function() {
@@ -375,7 +782,25 @@ var Game = {
 		text += ('1) Try to <b>find your way</b>.<br />');
 		text += ('2) <b>Search</b> for these monsters you hear.<br />');
 		text += ('3) <b>Attempt to leave</b> the forest.<br />');
-		display(text);
+		Engine.display(text);
+		new Button.Button({
+			id: 'westButton',
+			text: _('Find your way'),
+			click: Engine.findway,
+			width: Game.player.width,
+		}).appendTo('span#output');
+		new Button.Button({
+			id: 'westButton',
+			text: _('Search'),
+			click: Engine.searchfor,
+			width: Game.player.width,
+		}).appendTo('span#output');
+		new Button.Button({
+			id: 'westButton',
+			text: _('Attempt to leave'),
+			click: Engine.attempttoleave,
+			width: Game.player.width,
+		}).appendTo('span#output');
 	},
 	  
 	findWayForest: function(a) {
@@ -436,7 +861,7 @@ var Game = {
 		var text = '';
 		text += ('You have found your out of the Magical Forest.<br />');
 		text += ('You decide to head back to Kirkoswald Fortress.<br />');
-		display(text);
+		Engine.display(text);
 		setTimeout(function () {
 			Game.kirkoswald();
 		}, 3000);
@@ -450,14 +875,32 @@ var Game = {
 		text += ('1) <b>Attack</b> the ' + Game.player.name + '.<br />');
 		text += ('2) <b>Run</b> from the ' + Game.player.name + '.<br />');
 		text += ('3) <b>Attempt to leave</b> the forest.<br />');
-		display(text);
+		Engine.display(text);
+		new Button.Button({
+			id: 'westButton',
+			text: _('Attack'),
+			click: Combat.attack,
+			width: Game.player.width,
+		}).appendTo('span#output');
+		new Button.Button({
+			id: 'westButton',
+			text: _('Run'),
+			click: Game.runForest,
+			width: Game.player.width,
+		}).appendTo('span#output');
+		new Button.Button({
+			id: 'westButton',
+			text: _('Attempt to leave'),
+			click: Engine.attempttoleave,
+			width: Game.player.width,
+		}).appendTo('span#output');
 	},
 	  
 	runForest: function() {
 		var text = '';
 		text += ('You have escaped from the ' + Game.player.name + '.<br />');
 		text += ('You continue to walk around the Magical Forest.<br />');
-		display(text);
+		Engine.display(text);
 		setTimeout(function () {
 			Game.magicalForest();
 		}, 3000);
@@ -467,7 +910,7 @@ var Game = {
 		var text = '';
 		text += ('Now that you have slain the ' + Game.player.name + '.<br />');
 		text += ('You continue to walk around the Magical Forest.<br />');
-		display(text);
+		Engine.display(text);
 		setTimeout(function () {
 			Game.magicalForest();
 		}, 3000);
@@ -484,7 +927,7 @@ var Game = {
 			text += ('\'...The key.......Magical Forest.....Dragon....\'');
 			text += ('but then he notices you are listening and walks way.<br />');
 			text += ('You decide you head into the Magical Forest.<br />');
-			display(text);
+			Engine.display(text);
 			setTimeout(function () {
 				Game.magicalForestEntrance();
 			}, 5000);
@@ -500,7 +943,7 @@ var Game = {
 		text += ('The door slams behind you, locking itself, <br />the noise made by the slam alerts the guard.<br />');
 		text += ('The guard says \'How did you get the key to enter the tower?\'<br />');
 		text += ('The tower seems to be filled with magical items.<br />');
-		display(text);
+		Engine.display(text);
 		setTimeout(function () {
 			Combat.guard();
 		}, 5000);
@@ -520,7 +963,7 @@ var Game = {
 		text += ('<b>God</b>: Enables the God Sword and God Armour<br />');
 		text += ('<b>Give Fish</b>: Gives you 100,000 Fish<br />');
 		text += ('<b>Give Silver</b>: Gives you 100,000 Silver<br />');
-		display(text);
+		Engine.display(text);
 		setTimeout(function () {
 			Game.backleigh();
 		}, 10000);
@@ -538,7 +981,37 @@ var Game = {
 		text += ('3) <b>Sell wood</b><br />');
 		text += ('4) <b>Sell ores</b><br />');
 		text += ('5) <b>Leave</b> the shop.<br />');
-		display(text);
+		Engine.display(text);
+		new Button.Button({
+			id: 'westButton',
+			text: _('Browse Swords'),
+			click: Game.swordShop,
+			width: Game.player.width,
+		}).appendTo('span#output');
+		new Button.Button({
+			id: 'westButton',
+			text: _('Browse Armour'),
+			click: Game.armourShop,
+			width: Game.player.width,
+		}).appendTo('span#output');
+		new Button.Button({
+			id: 'westButton',
+			text: _('Sell wood'),
+			click: Game.sellwood,
+			width: Game.player.width,
+		}).appendTo('span#output');
+		new Button.Button({
+			id: 'westButton',
+			text: _('Sell ores'),
+			click: Game.sellore,
+			width: Game.player.width,
+		}).appendTo('span#output');
+		new Button.Button({
+			id: 'westButton',
+			text: _('Leave'),
+			click: Game.backToCity,
+			width: Game.player.width,
+		}).appendTo('span#output');
 	},
 
 	sellwood: function() {
@@ -555,7 +1028,19 @@ var Game = {
 		text += ('What would you like to do?<br />');
 		text += ('1) <b>Sell</b> ' + Game.player.wood + ' <b>wood</b> for a total of ' + Game.player.woodIncome + ' silver.<br />');
 		text += ('2) <b>Return</b> to the shop.<br />');
-		display(text);
+		Engine.display(text);
+		new Button.Button({
+			id: 'westButton',
+			text: _('Sell ' + Game.player.wood + ' wood'),
+			click: Game.sellwoodcomplete,
+			width: Game.player.width,
+		}).appendTo('span#output');
+		new Button.Button({
+			id: 'westButton',
+			text: _('Return'),
+			click: Game.shop,
+			width: Game.player.width,
+		}).appendTo('span#output');
 	},
 	
 	sellwoodcomplete: function() {
@@ -568,7 +1053,7 @@ var Game = {
 			text += ('You have ' + Game.player.silver + ' silver.<br />');
 			Game.player.wood = 0;
 		}
-		display(text);
+		Engine.display(text);
 		setTimeout(function () {
 			Game.shop();
 		}, 3000);
@@ -604,20 +1089,44 @@ var Game = {
 		text += ('2) <b>Sell</b> ' + Game.player.gold + ' <b>gold</b> for a total of ' + Game.player.goldIncome + ' silver.<br />');
 		text += ('3) <b>Sell</b> ' + Game.player.coal + ' <b>coal</b> for a total of ' + Game.player.coalIncome + ' silver.<br />');
 		text += ('4) <b>Return</b> to the shop.<br />');
-		display(text);
+		Engine.display(text);
+		new Button.Button({
+			id: 'westButton',
+			text: _('Sell ' + Game.player.iron + ' iron'),
+			click: Game.selliron,
+			width: Game.player.width,
+		}).appendTo('span#output');
+		new Button.Button({
+			id: 'westButton',
+			text: _('Sell ' + Game.player.gold + ' gold'),
+			click: Game.sellgold,
+			width: Game.player.width,
+		}).appendTo('span#output');
+		new Button.Button({
+			id: 'westButton',
+			text: _('Sell ' + Game.player.coal + ' coal'),
+			click: Game.sellcoal,
+			width: Game.player.width,
+		}).appendTo('span#output');
+		new Button.Button({
+			id: 'westButton',
+			text: _('Return'),
+			click: Game.shop,
+			width: Game.player.width,
+		}).appendTo('span#output');
 	},
 	
 	selliron: function() {
 		var text = '';
 		if (Game.player.iron === 0) {
 			text += ('You do not have any iron to sell.<br />');
-			display(text);
+			Engine.display(text);
 		} else {
 			Game.player.silver += Game.player.ironIncome;
 			text += ('You sold ' + Game.player.iron + ' iron for ' + Game.player.ironIncome + ' silver.<br />');
 			text += ('You have ' + Game.player.silver + ' silver.<br />');
 			Game.player.iron = 0;
-			display(text);
+			Engine.display(text);
 		}
 		setTimeout(function () {
 			Game.shop();
@@ -628,13 +1137,13 @@ var Game = {
 		var text = '';
 		if (Game.player.gold === 0) {
 			text += ('You do not have any gold to sell.<br />');
-			display(text);
+			Engine.display(text);
 		} else {
 			Game.player.silver += Game.player.goldIncome;
 			text += ('You sold ' + Game.player.gold + ' gold for ' + Game.player.goldIncome + ' silver.<br />');
 			text += ('You have ' + Game.player.silver + ' silver.<br />');
 			Game.player.gold = 0;
-			display(text);
+			Engine.display(text);
 		}
 		setTimeout(function () {
 			Game.shop();
@@ -645,13 +1154,13 @@ var Game = {
 		var text = '';
 		if (Game.player.iron === 0) {
 			text += ('You do not have any coal to sell.<br />');
-			display(text);
+			Engine.display(text);
 		} else {
 			Game.player.silver += Game.player.coalIncome;
 			text += ('You sold ' + Game.player.coal + ' coal for ' + Game.player.coalIncome + ' silver.<br />');
 			text += ('You have ' + Game.player.silver + ' silver.<br />');
 			Game.player.coal = 0;
-			display(text);
+			Engine.display(text);
 		}
 		setTimeout(function () {
 			Game.shop();
@@ -670,8 +1179,50 @@ var Game = {
 		text += ('5) <b>Titanium Sword</b>: 50,000 silver<br />');
 		text += ('6) <b>Tungsten Sword</b>: 100,000 silver<br />');
 		text += ('7) <b>Return</b> to the main area of the shop.<br />');
-		display(text);
+		Engine.display(text);
 		Game.swordName();
+		new Button.Button({
+			id: 'westButton',
+			text: _('Bronze Sword'),
+			click: Game.bronzeSword,
+			width: Game.player.width,
+		}).appendTo('span#output');
+		new Button.Button({
+			id: 'westButton',
+			text: _('Gold Sword'),
+			click: Game.goldSword,
+			width: Game.player.width,
+		}).appendTo('span#output');
+		new Button.Button({
+			id: 'westButton',
+			text: _('Iron Sword'),
+			click: Game.ironSword,
+			width: Game.player.width,
+		}).appendTo('span#output');
+		new Button.Button({
+			id: 'westButton',
+			text: _('Steel Sword'),
+			click: Game.steelSword,
+			width: Game.player.width,
+		}).appendTo('span#output');
+		new Button.Button({
+			id: 'westButton',
+			text: _('Titanium Sword'),
+			click: Game.titaniumSword,
+			width: Game.player.width,
+		}).appendTo('span#output');
+		new Button.Button({
+			id: 'westButton',
+			text: _('Tungsten Sword'),
+			click: Game.tungstenSword,
+			width: Game.player.width,
+		}).appendTo('span#output');
+		new Button.Button({
+			id: 'westButton',
+			text: _('Return'),
+			click: Game.shop,
+			width: Game.player.width,
+		}).appendTo('span#output');
 	},
 	
 	bronzeSword: function() {
@@ -680,13 +1231,13 @@ var Game = {
 		if (Game.player.sword > 1) {
 			text += ('You have a sword of higher value.<br />');
 			text += ('You have a(n) ' + Game.player.swordname + '.<br />');
-			display(text);
+			Engine.display(text);
 			setTimeout(function () {
 				Game.swordShop();
 			}, 3000);
 		} else if (Game.player.sword === 1) {
 			text += ('You already have a Bronze Sword.<br />');
-			display(text);
+			Engine.display(text);
 			setTimeout(function () {
 				Game.swordShop();
 			}, 3000);
@@ -697,12 +1248,24 @@ var Game = {
 				text += ('What would you like to do?<br />');
 				text += ('1) <b>Buy</b> the Bronze Sword.<br />');
 				text += ('2) <b>Browse Swords</b><br />');
-				display(text);
+				Engine.display(text);
+				new Button.Button({
+					id: 'BuyButton',
+					text: _('Buy the Bronze Sword'),
+					click: Game.bronzeSwordBuy,
+					width: Game.player.width,
+				}).appendTo('span#output');
+				new Button.Button({
+					id: 'BrowseButton',
+					text: _('Browse Swords'),
+					click: Game.swordShop,
+					width: Game.player.width,
+				}).appendTo('span#output');
 			} else {
 				text += ('You do not meet the requirements to buy this sword.<br />');
 				text += ('The Bronze Sword costs 500 silver and requires attack level 1.<br />');
 				text += ('You have ' + Game.player.silver + ' silver and your attack level is ' + Game.player.attack + '.<br />');
-				display(text);
+				Engine.display(text);
 				setTimeout(function () {
 					Game.swordShop();
 				}, 3000);
@@ -716,7 +1279,7 @@ var Game = {
 		text += ('You purchased a Bronze Sword.<br />');
 		Game.player.sword = 1;
 		text += ('You now have ' + Game.player.silver + ' Silver.<br />');
-		display(text);
+		Engine.display(text);
 		setTimeout(function () {
 			Game.swordShop();
 		}, 3000);
@@ -728,13 +1291,13 @@ var Game = {
 		if (Game.player.sword > 2) {
 			text += ('You have a sword of higher value.<br />');
 			text += ('You have a(n) ' + Game.player.swordname + '.<br />');
-			display(text);
+			Engine.display(text);
 			setTimeout(function () {
 				Game.swordShop();
 			}, 3000);
 		} else if (Game.player.sword === 2) {
 			text += ('You already have a Gold Sword.<br />');
-			display(text);
+			Engine.display(text);
 			setTimeout(function () {
 				Game.swordShop();
 			}, 3000);
@@ -745,12 +1308,24 @@ var Game = {
 				text += ('What would you like to do?<br />');
 				text += ('1) <b>Buy</b> the Gold Sword.<br />');
 				text += ('2) <b>Browse Swords</b>');
-				display(text);
+				Engine.display(text);
+				new Button.Button({
+					id: 'BuyButton',
+					text: _('Buy the Gold Sword'),
+					click: Game.goldSwordBuy,
+					width: Game.player.width,
+				}).appendTo('span#output');
+				new Button.Button({
+					id: 'BrowseButton',
+					text: _('Browse Swords'),
+					click: Game.swordShop,
+					width: Game.player.width,
+				}).appendTo('span#output');
 			} else {
 				text += ('You do not meet the requirements to buy this sword.<br />');
 				text += ('The Gold Sword costs 2,000 silver and requires attack level 5.<br />');
 				text += ('You have ' + Game.player.silver + ' silver and your attack level is ' + Game.player.attack + '.<br />');
-				display(text);
+				Engine.display(text);
 				setTimeout(function () {
 					Game.swordShop();
 				}, 3000);
@@ -764,7 +1339,7 @@ var Game = {
 		text += ('You purchased a Gold Sword.<br />');
 		Game.player.sword = 2;
 		text += ('You now have ' + Game.player.silver + ' Silver.<br />');
-		display(text);
+		Engine.display(text);
 		setTimeout(function () {
 			Game.swordShop();
 		}, 3000);
@@ -781,7 +1356,7 @@ var Game = {
 			}, 3000);
 		} else if (Game.player.sword === 3) {
 			text += ('You already have an Iron Sword.<br />');
-			display(text);
+			Engine.display(text);
 			setTimeout(function () {
 				Game.swordShop();
 			}, 3000);
@@ -792,12 +1367,24 @@ var Game = {
 				text += ('What would you like to do?<br />');
 				text += ('1) <b>Buy</b> the Iron Sword.<br />');
 				text += ('2) <b>Browse Swords</b>');
-				display(text);
+				Engine.display(text);
+				new Button.Button({
+					id: 'BuyButton',
+					text: _('Buy the Iron Sword'),
+					click: Game.ironSwordBuy,
+					width: Game.player.width,
+				}).appendTo('span#output');
+				new Button.Button({
+					id: 'BrowseButton',
+					text: _('Browse Swords'),
+					click: Game.swordShop,
+					width: Game.player.width,
+				}).appendTo('span#output');
 			} else {
 				text += ('You do not meet the requirements to buy this sword.<br />');
 				text += ('The Iron Sword costs 8,000 silver and requires attack level 10.<br />');
 				text += ('You have ' + Game.player.silver + ' silver and your attack level is ' + Game.player.attack + '.<br />');
-				display(text);
+				Engine.display(text);
 				setTimeout(function () {
 					Game.swordShop();
 				}, 3000);
@@ -811,7 +1398,7 @@ var Game = {
 		text += ('You purchased an Iron Sword.<br />');
 		Game.player.sword = 3;
 		text += ('You now have ' + Game.player.silver + ' Silver.<br />');
-		display(text);
+		Engine.display(text);
 		setTimeout(function () {
 			Game.swordShop();
 		}, 3000);
@@ -823,13 +1410,13 @@ var Game = {
 		if (Game.player.sword > 4) {
 			text += ('You have a sword of higher value.<br />');
 			text += ('You have a ' + Game.player.swordname + '.<br />');
-			display(text);
+			Engine.display(text);
 			setTimeout(function () {
 				Game.swordShop();
 			}, 3000);
 		} else if (Game.player.sword === 4) {
 			text += ('You already have a Steel Sword.<br />');
-			display(text);
+			Engine.display(text);
 			setTimeout(function () {
 				Game.swordShop();
 			}, 3000);
@@ -840,7 +1427,19 @@ var Game = {
 				text += ('What would you like to do?<br />');
 				text += ('1) <b>Buy</b> the Steel Sword.<br />');
 				text += ('2) <b>Browse Swords</b>');
-				display(text);
+				Engine.display(text);
+				new Button.Button({
+					id: 'BuyButton',
+					text: _('Buy the Steel Sword'),
+					click: Game.steelSwordBuy,
+					width: Game.player.width,
+				}).appendTo('span#output');
+				new Button.Button({
+					id: 'BrowseButton',
+					text: _('Browse Swords'),
+					click: Game.swordShop,
+					width: Game.player.width,
+				}).appendTo('span#output');
 			} else {
 				text += ('You do not meet the requirements to buy this sword.<br />');
 				text += ('The Steel Sword costs 25,000 silver and requires attack level 20.<br />');
@@ -856,7 +1455,7 @@ var Game = {
 		text += ('You purchased a Steel Sword.<br />');
 		Game.player.sword = 4;
 		text += ('You now have ' + Game.player.silver + ' Silver.<br />');
-		display(text);
+		Engine.display(text);
 		setTimeout(function () {
 			Game.swordShop();
 		}, 3000);
@@ -868,13 +1467,13 @@ var Game = {
 		if (Game.player.sword > 5) {
 			text += ('You have a sword of higher value.<br />');
 			text += ('You have a ' + Game.player.swordname + '.<br />');
-			display(text);
+			Engine.display(text);
 			setTimeout(function () {
 				Game.swordShop();
 			}, 3000);
 		} else if (Game.player.sword === 5) {
 			text += ('You already have a Titanium Sword.<br />');
-			display(text);
+			Engine.display(text);
 			setTimeout(function () {
 				Game.swordShop();
 			}, 3000);
@@ -885,12 +1484,24 @@ var Game = {
 				text += ('What would you like to do?<br />');
 				text += ('1) <b>Buy</b> the Titanium Sword.<br />');
 				text += ('2) <b>Browse Swords</b>');
-				display(text);
+				Engine.display(text);
+				new Button.Button({
+					id: 'BuyButton',
+					text: _('Buy the Titanium Sword'),
+					click: Game.titaniumSwordBuy,
+					width: Game.player.width,
+				}).appendTo('span#output');
+				new Button.Button({
+					id: 'BrowseButton',
+					text: _('Browse Swords'),
+					click: Game.swordShop,
+					width: Game.player.width,
+				}).appendTo('span#output');
 			} else {
 				text += ('You do not meet the requirements to buy this sword.<br />');
 				text += ('The Titanium Sword costs 50,000 silver and requires attack level 30.<br />');
 				text += ('You have ' + Game.player.silver + ' silver and your attack level is ' + Game.player.attack + '.<br />');
-				display(text);
+				Engine.display(text);
 				setTimeout(function () {
 					Game.swordShop();
 				}, 3000);
@@ -904,7 +1515,7 @@ var Game = {
 		text += ('You purchased a Titanium Sword.<br />');
 		Game.player.sword = 5;
 		text += ('You now have ' + Game.player.silver + ' Silver.<br />');
-		display(text);
+		Engine.display(text);
 		setTimeout(function () {
 			Game.swordShop();
 		}, 3000);
@@ -916,13 +1527,13 @@ var Game = {
 		if (Game.player.sword > 6) {
 			text += ('You have a sword of higher value.<br />');
 			text += ('You have a ' + Game.player.swordname + '.<br />');
-			display(text);
+			Engine.display(text);
 			setTimeout(function () {
 				Game.swordShop();
 			}, 3000);
 		} else if (Game.player.sword === 6) {
 			text += ('You already have a Tungsten Sword.<br />');
-			display(text);
+			Engine.display(text);
 			setTimeout(function () {
 				Game.swordShop();
 			}, 3000);
@@ -933,12 +1544,24 @@ var Game = {
 				text += ('What would you like to do?<br />');
 				text += ('1) <b>Buy</b> the Tungsten Sword.<br />');
 				text += ('2) <b>Browse Swords</b>');
-				display(text);
+				Engine.display(text);
+				new Button.Button({
+					id: 'BuyButton',
+					text: _('Buy the Tungsten Sword'),
+					click: Game.tungstenSwordBuy,
+					width: Game.player.width,
+				}).appendTo('span#output');
+				new Button.Button({
+					id: 'BrowseButton',
+					text: _('Browse Swords'),
+					click: Game.swordShop,
+					width: Game.player.width,
+				}).appendTo('span#output');
 			} else {
 				text += ('You do not meet the requirements to buy this sword.<br />');
 				text += ('The Tungsten Sword costs 100,000 silver and requires attack level 40.<br />');
 				text += ('You have ' + Game.player.silver + ' silver and your attack level is ' + Game.player.attack + '.<br />');
-				display(text);
+				Engine.display(text);
 				setTimeout(function () {
 					Game.swordShop();
 				}, 3000);
@@ -952,7 +1575,7 @@ var Game = {
 		text += ('You purchased a Tungsten Sword.<br />');
 		Game.player.sword = 6;
 		text += ('You now have ' + Game.player.silver + ' Silver.<br />');
-		display(text);
+		Engine.display(text);
 		setTimeout(function () {
 			Game.swordShop();
 		}, 3000);
@@ -990,7 +1613,49 @@ var Game = {
 		text += ('5) <b>Titanium Armour</b>: 50,000 silver<br />');
 		text += ('6) <b>Tungsten Armour</b>: 100,000 silver<br />');
 		text += ('7) <b>Return</b> to the main area of the shop.<br />');
-		display(text);
+		Engine.display(text);
+		new Button.Button({
+			id: 'westButton',
+			text: _('Bronze Armour'),
+			click: Game.bronzeArmour,
+			width: Game.player.width,
+		}).appendTo('span#output');
+		new Button.Button({
+			id: 'westButton',
+			text: _('Gold Armour'),
+			click: Game.goldArmour,
+			width: Game.player.width,
+		}).appendTo('span#output');
+		new Button.Button({
+			id: 'westButton',
+			text: _('Iron Armour'),
+			click: Game.ironArmour,
+			width: Game.player.width,
+		}).appendTo('span#output');
+		new Button.Button({
+			id: 'westButton',
+			text: _('Steel Armour'),
+			click: Game.steelArmour,
+			width: Game.player.width,
+		}).appendTo('span#output');
+		new Button.Button({
+			id: 'westButton',
+			text: _('Titanium Armour'),
+			click: Game.titaniumArmour,
+			width: Game.player.width,
+		}).appendTo('span#output');
+		new Button.Button({
+			id: 'westButton',
+			text: _('Tungsten Armour'),
+			click: Game.tungstenArmour,
+			width: Game.player.width,
+		}).appendTo('span#output');
+		new Button.Button({
+			id: 'westButton',
+			text: _('Return'),
+			click: Game.shop,
+			width: Game.player.width,
+		}).appendTo('span#output');
 	},
 	
 	bronzeArmour: function() {
@@ -999,13 +1664,13 @@ var Game = {
 		if (Game.player.armour > 1) {
 			text += ('You have armour of higher value.<br />');
 			text += ('You have ' + Game.player.armourname + '.<br />');
-			display(text);
+			Engine.display(text);
 			setTimeout(function () {
 				Game.armourShop();
 			}, 3000);
 		} else if (Game.player.armour === 1) {
 			text += ('You already have Bronze Armour.<br />');
-			display(text);
+			Engine.display(text);
 			setTimeout(function () {
 				Game.armourShop();
 			}, 3000);
@@ -1016,12 +1681,24 @@ var Game = {
 				text += ('What would you like to do?<br />');
 				text += ('1) <b>Buy</b> Bronze Armour.<br />');
 				text += ('2) <b>Browse Armour</b><br />');
-				display(text);
+				Engine.display(text);
+				new Button.Button({
+					id: 'BuyButton',
+					text: _('Buy the Bronze Armour'),
+					click: Game.bronzeArmourBuy,
+					width: Game.player.width,
+				}).appendTo('span#output');
+				new Button.Button({
+					id: 'BrowseButton',
+					text: _('Browse Armour'),
+					click: Game.armourShop,
+					width: Game.player.width,
+				}).appendTo('span#output');
 			} else {
 				text += ('You do not meet the requirements to buy this armour.<br />');
 				text += ('The Bronze Armour costs 500 silver and requires defense level 1.<br />');
 				text += ('You have ' + Game.player.silver + ' silver and your defense level is ' + Game.player.defense + '.<br />');
-				display(text);
+				Engine.display(text);
 				setTimeout(function () {
 					Game.armourShop();
 				}, 3000);
@@ -1037,7 +1714,7 @@ var Game = {
 		Game.player.health = 20;
 		Game.player.healthstatic = 20;
 		text += ('You now have ' + Game.player.silver + ' Silver.<br />');
-		display(text);
+		Engine.display(text);
 		setTimeout(function () {
 			Game.armourShop();
 		}, 3000);
@@ -1049,13 +1726,13 @@ var Game = {
 		if (Game.player.armour > 2) {
 			text += ('You have armour of higher value.<br />');
 			text += ('You have ' + Game.player.armourname + '.<br />');
-			display(text);
+			Engine.display(text);
 			setTimeout(function () {
 				Game.armourShop();
 			}, 3000);
 		} else if (Game.player.armour === 2) {
 			text += ('You already have Gold Armour.<br />');
-			display(text);
+			Engine.display(text);
 			setTimeout(function () {
 				Game.armourShop();
 			}, 3000);
@@ -1066,12 +1743,24 @@ var Game = {
 				text += ('What would you like to do?<br />');
 				text += ('1) <b>Buy</b> Gold Armour.<br />');
 				text += ('2) <b>Browse Armour</b><br />');
-				display(text);
+				Engine.display(text);
+				new Button.Button({
+					id: 'BuyButton',
+					text: _('Buy the Gold Armour'),
+					click: Game.goldArmourBuy,
+					width: Game.player.width,
+				}).appendTo('span#output');
+				new Button.Button({
+					id: 'BrowseButton',
+					text: _('Browse Armour'),
+					click: Game.armourShop,
+					width: Game.player.width,
+				}).appendTo('span#output');
 			} else {
 				text += ('You do not meet the requirements to buy this armour.<br />');
 				text += ('The Gold Armour costs 2,000 silver and requires defense level 5.<br />');
 				text += ('You have ' + Game.player.silver + ' silver and your defense level is ' + Game.player.defense + '.<br />');
-				display(text);
+				Engine.display(text);
 				setTimeout(function () {
 					Game.armourShop();
 				}, 3000);
@@ -1087,7 +1776,7 @@ var Game = {
 		Game.player.health = 30;
 		Game.player.healthstatic = 30;
 		text += ('You now have ' + Game.player.silver + ' Silver.<br />');
-		display(text);
+		Engine.display(text);
 		setTimeout(function () {
 			Game.armourShop();
 		}, 3000);
@@ -1099,13 +1788,13 @@ var Game = {
 		if (Game.player.armour > 3) {
 			text += ('You have armour of higher value.<br />');
 			text += ('You have ' + Game.player.armourname + '.<br />');
-			display(text);
+			Engine.display(text);
 			setTimeout(function () {
 				Game.armourShop();
 			}, 3000);
 		} else if (Game.player.armour === 3) {
 			text += ('You already have Iron Armour.<br />');
-			display(text);
+			Engine.display(text);
 			setTimeout(function () {
 				Game.armourShop();
 			}, 3000);
@@ -1116,12 +1805,24 @@ var Game = {
 				text += ('What would you like to do?<br />');
 				text += ('1) <b>Buy</b> Iron Armour.<br />');
 				text += ('2) <b>Browse Armour</b><br />');
-				display(text);
+				Engine.display(text);
+				new Button.Button({
+					id: 'BuyButton',
+					text: _('Buy the Iron Armour'),
+					click: Game.ironArmourBuy,
+					width: Game.player.width,
+				}).appendTo('span#output');
+				new Button.Button({
+					id: 'BrowseButton',
+					text: _('Browse Armour'),
+					click: Game.armourShop,
+					width: Game.player.width,
+				}).appendTo('span#output');
 			} else {
 				text += ('You do not meet the requirements to buy this armour.<br />');
 				text += ('The Iron Armour costs 8,000 silver and requires defense level 10.<br />');
 				text += ('You have ' + Game.player.silver + ' silver and your defense level is ' + Game.player.defense + '.<br />');
-				display(text);
+				Engine.display(text);
 				setTimeout(function () {
 					Game.armourShop();
 				}, 3000);
@@ -1137,7 +1838,7 @@ var Game = {
 		Game.player.health = 40;
 		Game.player.healthstatic = 40;
 		text += ('You now have ' + Game.player.silver + ' Silver.<br />');
-		display(text);
+		Engine.display(text);
 		setTimeout(function () {
 			Game.armourShop();
 		}, 3000);
@@ -1149,13 +1850,13 @@ var Game = {
 		if (Game.player.armour > 4) {
 			text += ('You have armour of higher value.<br />');
 			text += ('You have ' + Game.player.armourname + '.<br />');
-			display(text);
+			Engine.display(text);
 			setTimeout(function () {
 				Game.armourShop();
 			}, 3000);
 		} else if (Game.player.armour === 4) {
 			text += ('You already have Steel Armour.<br />');
-			display(text);
+			Engine.display(text);
 			setTimeout(function () {
 				Game.armourShop();
 			}, 3000);
@@ -1166,12 +1867,24 @@ var Game = {
 				text += ('What would you like to do?<br />');
 				text += ('1) <b>Buy</b> Steel Armour.<br />');
 				text += ('2) <b>Browse Armour</b><br />');
-				display(text);
+				Engine.display(text);
+				new Button.Button({
+					id: 'BuyButton',
+					text: _('Buy the Steel Armour'),
+					click: Game.steelArmourBuy,
+					width: Game.player.width,
+				}).appendTo('span#output');
+				new Button.Button({
+					id: 'BrowseButton',
+					text: _('Browse Armour'),
+					click: Game.armourShop,
+					width: Game.player.width,
+				}).appendTo('span#output');
 			} else {
 				text += ('You do not meet the requirements to buy this armour.<br />');
 				text += ('The Steel Armour costs 25,000 silver and requires defense level 20.<br />');
 				text += ('You have ' + Game.player.silver + ' silver and your defense level is ' + Game.player.defense + '.<br />');
-				display(text);
+				Engine.display(text);
 				setTimeout(function () {
 					Game.armourShop();
 				}, 3000);
@@ -1187,7 +1900,7 @@ var Game = {
 		Game.player.health = 50;
 		Game.player.healthstatic = 50;
 		text += ('You now have ' + Game.player.silver + ' Silver.<br />');
-		display(text);
+		Engine.display(text);
 		setTimeout(function () {
 			Game.armourShop();
 		}, 3000);
@@ -1199,13 +1912,13 @@ var Game = {
 		if (Game.player.armour > 5) {
 			text += ('You have armour of higher value.<br />');
 			text += ('You have ' + Game.player.armourname + '.<br />');
-			display(text);
+			Engine.display(text);
 			setTimeout(function () {
 				Game.armourShop();
 			}, 3000);					
 		} else if (Game.player.armour === 5) {
 			text += ('You already have Titanium Armour.<br />');
-			display(text);
+			Engine.display(text);
 			setTimeout(function () {
 				Game.armourShop();
 			}, 3000);
@@ -1216,12 +1929,24 @@ var Game = {
 				text += ('What would you like to do?<br />');
 				text += ('1) <b>Buy</b> Titanium Armour.<br />');
 				text += ('2) <b>Browse Armour</b><br />');
-				display(text);
+				Engine.display(text);
+				new Button.Button({
+					id: 'BuyButton',
+					text: _('Buy the Titanium Armour'),
+					click: Game.titaniumArmourBuy,
+					width: Game.player.width,
+				}).appendTo('span#output');
+				new Button.Button({
+					id: 'BrowseButton',
+					text: _('Browse Armour'),
+					click: Game.armourShop,
+					width: Game.player.width,
+				}).appendTo('span#output');
 			} else {
 				text += ('You do not meet the requirements to buy this armour.<br />');
 				text += ('The Titanium Armour costs 50,000 silver and requires defense level 30.<br />');
 				text += ('You have ' + Game.player.silver + ' silver and your defense level is ' + Game.player.defense + '.<br />');
-				display(text);
+				Engine.display(text);
 				setTimeout(function () {
 					Game.armourShop();
 				}, 3000);
@@ -1237,7 +1962,7 @@ var Game = {
 		Game.player.health = 60;
 		Game.player.healthstatic = 60;
 		text += ('You now have ' + Game.player.silver + ' Silver.<br />');
-		display(text);
+		Engine.display(text);
 		setTimeout(function () {
 			Game.armourShop();
 		}, 3000);
@@ -1249,13 +1974,13 @@ var Game = {
 			if (Game.player.armour > 6) {
 			text += ('You have armour of higher value.<br />');
 			text += ('You have ' + Game.player.armourname + '.<br />');
-			display(text);
+			Engine.display(text);
 			setTimeout(function () {
 				Game.armourShop();
 			}, 3000);
 		} else if (Game.player.armour === 6){
 			text += ('You already have Tungsten Armour.<br />');
-			display(text);
+			Engine.display(text);
 			setTimeout(function () {
 				Game.armourShop();
 			}, 3000);
@@ -1266,12 +1991,24 @@ var Game = {
 				text += ('What would you like to do?<br />');
 				text += ('1) <b>Buy</b> Tungsten Armour.<br />');
 				text += ('2) <b>Browse Armour</b><br />');
-				display(text);
+				Engine.display(text);
+				new Button.Button({
+					id: 'BuyButton',
+					text: _('Buy the Tungsten Armour'),
+					click: Game.tungstenArmourBuy,
+					width: Game.player.width,
+				}).appendTo('span#output');
+				new Button.Button({
+					id: 'BrowseButton',
+					text: _('Browse Armour'),
+					click: Game.armourShop,
+					width: Game.player.width,
+				}).appendTo('span#output');
 			} else {
 				text += ('You do not meet the requirements to buy this armour.<br />');
 				text += ('The Tungsten Armour costs 100,000 silver and requires defense level 40.<br />');
 				text += ('You have ' + Game.player.silver + ' silver and your defense level is ' + Game.player.defense + '.<br />');
-				display(text);
+				Engine.display(text);
 				setTimeout(function () {
 					Game.armourShop();
 				}, 3000);
@@ -1287,7 +2024,7 @@ var Game = {
 		Game.player.health = 70;
 		Game.player.healthstatic = 70;
 		text += ('You now have ' + Game.player.silver + ' Silver.<br />');
-		display(text);
+		Engine.display(text);
 		setTimeout(function () {
 			Game.armourShop();
 		}, 3000);
@@ -1316,7 +2053,7 @@ var Game = {
 	backToCity: function() {
 		var text = '';
 		text += ('You leave the shop.<br />');
-		display(text);
+		Engine.display(text);
 		setTimeout(function () {
 			if (Game.player.location === 1) {
 				Game.backleigh();
@@ -1334,12 +2071,12 @@ var Game = {
 	
 	iron: function() {
 		var text = '';
-		display('Mining.');
+		Engine.display('Mining.');
 		setTimeout(function () {
-			display('Mining..');
+			Engine.display('Mining..');
 		}, 1000);
 		setTimeout(function () {
-			display('Mining...');
+			Engine.display('Mining...');
 		}, 2000);
 		setTimeout(function () {
 			var r = 1;
@@ -1359,7 +2096,7 @@ var Game = {
 					Game.player.miningxp = 0;
 				}
 			}
-			display(text);
+			Engine.display(text);
 			setTimeout(function () {
 				if (Game.player.location === 5) {
 					Game.grimtolMine();
@@ -1377,12 +2114,12 @@ var Game = {
 		var x = 3000;
 		if (Game.player.mining >= 25) {
 			x = 6000;
-			display('Mining.');
+			Engine.display('Mining.');
 			setTimeout(function () {
-				display('Mining..');
+				Engine.display('Mining..');
 			}, 1000);
 			setTimeout(function () {
-				display('Mining...');
+				Engine.display('Mining...');
 			}, 2000);
 			setTimeout(function () {
 				r = 1;
@@ -1402,12 +2139,12 @@ var Game = {
 						Game.player.miningxp = 0;
 					}
 				}
-				display(text);
+				Engine.display(text);
 			}, 3000);
 		} else {
 			text += ('To mine coal you need a mining level of 25.<br />');
 			text += ('Your mining level is ' + Game.player.mining + '.<br />');
-			display(text);
+			Engine.display(text);
 		}
 		setTimeout(function () {
 			if (Game.player.location === 5) {
@@ -1425,12 +2162,12 @@ var Game = {
 		var x = 3000;
 		if (Game.player.mining >= 50) {
 			x = 6000;
-			display('Mining.');
+			Engine.display('Mining.');
 			setTimeout(function () {
-				display('Mining..');
+				Engine.display('Mining..');
 			}, 1000);
 			setTimeout(function () {
-				display('Mining...');
+				Engine.display('Mining...');
 			}, 2000);
 			setTimeout(function () {
 				r = 1;
@@ -1450,12 +2187,12 @@ var Game = {
 						Game.player.miningxp = 0;
 					}
 				}
-				display(text);
+				Engine.display(text);
 			}, 3000);
 		} else {
 			text += ('To mine gold you need a mining level of 50.<br />');
 			text += ('Your mining level is ' + Game.player.mining + '.<br />');	
-			display(text);
+			Engine.display(text);
 		}
 		setTimeout(function () {
 			if (Game.player.location === 5) {
@@ -1470,12 +2207,12 @@ var Game = {
   
 	lumber: function() {
 		var text = '';
-		display('Chopping.');
+		Engine.display('Chopping.');
 		setTimeout(function () {
-			display('Chopping..');
+			Engine.display('Chopping..');
 		}, 1000);
 		setTimeout(function () {
-			display('Chopping...');
+			Engine.display('Chopping...');
 		}, 2000);
 		setTimeout(function () {
 			var b = 6;
@@ -1510,7 +2247,7 @@ var Game = {
 					Game.player.woodcuttingxp = 0;
 				}
 			}
-			display(text);
+			Engine.display(text);
 			setTimeout(function () {
 				if (Game.player.location === 1 && Game.player.globalLocation === 2) {
 					Game.backleighLumber();
@@ -1524,12 +2261,12 @@ var Game = {
 	fish: function() {
 		var text = '';
 		if (Game.player.bait > 0) {
-			display('Fishing.');
+			Engine.display('Fishing.');
 			setTimeout(function () {
-				display('Fishing..');
+				Engine.display('Fishing..');
 			}, 1000);
 			setTimeout(function () {
-				display('Fishing...');
+				Engine.display('Fishing...');
 			}, 2000);
 			setTimeout(function () {
 				var b = 3;
@@ -1568,7 +2305,7 @@ var Game = {
 						Game.player.fishingxp = 0;
 					}
 				}
-				display(text);
+				Engine.display(text);
 				setTimeout(function () {
 					if (Game.player.location === 2 && Game.player.globalLocation === 2) {
 						Game.draydonPort();
@@ -1579,7 +2316,7 @@ var Game = {
 			text += ('You have 0 pieces of bait.<br />');
 			text += ('You need at least 1 piece of bait to fish.<br />');
 			text += ('You buy bait at the Draydon Port.<br />');
-			display(text);
+			Engine.display(text);
 			setTimeout(function () {
 				if (Game.player.location === 2 && Game.player.globalLocation === 2) {
 					Game.draydonPort();
@@ -1613,11 +2350,11 @@ var Game = {
 			}
 			text += ('You now have ' + Game.player.health + ' health.<br />');
 			text += ('You have ' + Game.player.fish + ' fish.<br />');
-			display(text);
+			Engine.display(text);
 		} else {
 			text += ('You don\'t have any fish.<br />');
 			text += ('You have ' + Game.player.health + ' health.<br />');
-			display(text);
+			Engine.display(text);
 		}
 		setTimeout(function () {
 			Combat.monsterSwing();
@@ -1634,7 +2371,7 @@ var Game = {
 		Game.player.silver -= Game.player.silver*.2;
 		text += ('You have ' + Game.player.silver + ' silver.<br />');
 		text += ('At least you\'re alive.<br />');
-		display(text);
+		Engine.display(text);
 		Game.player.health = Game.player.healthstatic;
 		setTimeout(function () {
 			Game.start();
@@ -1649,12 +2386,26 @@ var Game = {
 		var text = '';
 		text += ('To play type the <b>Bold text</b> into the text box.<br />');
 		text += ('EX: <em>1) <b>Swing</b> your Iron Sword.</em><br />');
+		text += ('Or you can now click most commands!<br />');
 		text += ('All command words have a space inbetween them.<br />');
 		text += ('The game pauses at times for you to read the screen if there is no commands to enter.<br />');
 		text += ('To see your player stats at any time type <b>stats</b><br />');
+		text += ('Or click the button on the right!<br />');
 		text += ('The game will begin shortly!<br />');
-		text += ('Type <b>start</b> to begin playing the game.<br />');
-		display(text);
+		text += ('Type <b>start</b> to begin playing the game or <b>click below</b>!<br />');
+		Engine.display(text);
+		new Button.Button({
+			id: 'StartButton',
+			text: _('Start!'),
+			click: Game.start,
+			width: Game.player.width,
+		}).appendTo('span#output');
+		new Button.Button({
+			id: 'StatsButton',
+			text: _('Your Stats'),
+			click: Engine.stats,
+			width: Game.player.width,
+		}).appendTo('span#rightColButton');
 	},
 
 };
