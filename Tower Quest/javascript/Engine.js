@@ -9,6 +9,7 @@ var Engine = {
 		inputBox: false,
 		stats: false,
 		cheats: false,
+		base: "1, 0, 1, 0, 10, 10, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 200, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, -1, false, true, Fists, none, ",
 		cName: '_gameSave',
 		cDomain: 'chrissiena.com',
 	},
@@ -288,7 +289,7 @@ var Engine = {
 				new Button.Button({
 					id: 'ResetButton',
 					text: _('RESET!!!'),
-					click: Engine.resetGame,
+					click: Save.resetGame,
 					width: Game.player.width,
 				}).appendTo('span#rightColButton');
 				Engine.Engine.cheats = true;
@@ -359,7 +360,7 @@ var Engine = {
 				new Button.Button({
 					id: 'ResetButton',
 					text: _('RESET!!!'),
-					click: Engine.resetGame,
+					click: Save.resetGame,
 					width: Game.player.width,
 				}).appendTo('span#rightColButton');
 				Engine.Engine.cheats = true;
@@ -1054,54 +1055,6 @@ var Engine = {
 	return string;
 	},
 	
-	encode: function() {
-		var encodedString = Base64.encode(Engine.gameString());
-		return encodedString;
-	},
-	
-	decode: function(encodedString) {
-		var decodedString = Base64.decode(encodedString);
-		return decodedString;
-	},
-	
-	saveGame: function() {
-		var domainString = Engine.Engine.cDomain ? ("; domain=" + Engine.Engine.cDomain) : '';
-		document.cookie = Engine.Engine.cName + "=" + Engine.encode() +
-			"; max-age=" + 60 * 60 * 24 * 60 /* Number of days */ +
-			"; path=/" + domainString;
-		var save = $('<span>')
-			.addClass('save')
-			.text('Game Saved')
-		save.appendTo('div.topNav');
-		$("span.save").fadeOut(1000, function() {});
-		function timeStamp() {
-			var now = new Date();
-			var date = [ now.getMonth() + 1, now.getDate(), now.getFullYear() ];
-			var time = [ now.getHours(), now.getMinutes(), now.getSeconds() ];
-			var suffix = ( time[0] < 12 ) ? "AM" : "PM";
-			time[0] = ( time[0] < 12 ) ? time[0] : time[0] - 12;
-			time[0] = time[0] || 12;
-			for ( var i = 1; i < 3; i++ ) {
-				if ( time[i] < 10 ) {
-					time[i] = "0" + time[i];
-				}
-			}
-			return date.join("/") + " " + time.join(":") + " " + suffix;
-		}
-		console.log('Game saved at ' + timeStamp());
-	},
-	
-	loadGame: function() {
-		var name = Engine.Engine.cName + "=";
-		var cookie = document.cookie.split(';');
-		for (var i=0; i<cookie.length; i++) {
-			var cookieTrimmed = cookie[i].trim();
-			if (cookieTrimmed.indexOf(name)==0) {
-				Engine.convertString(Engine.decode(cookieTrimmed.substring(name.length,cookieTrimmed.length)));
-			}
-		}
-	},
-	
 	convertString: function(decodedString) {
 		var player = decodedString.split(', ');
 		Game.player.attack = parseInt(player[0]);
@@ -1153,23 +1106,6 @@ var Engine = {
 	 	Game.player.armourname = player[38];
 		Game.player.name = player[39];
 		Engine.cheatLoad();
-		var save = $('<span>')
-			.addClass('save')
-			.text('Game Loaded')
-		save.appendTo('div.topNav');
-		$("span.save").fadeOut(1000, function() {});
 	},
 	
-	autoSave: function() {
-		setInterval(Engine.saveGame, 1000 * 60 * 5 /* Saves every 5 minutes */);
-	},
-	
-	resetGame: function() {
-		var base = "1, 0, 1, 0, 10, 10, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 200, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, -1, false, true, Fists, none, ";
-		Engine.display('<span class="center bold">GAME WAS RESET!</span>');
-		Engine.convertString(base);
-		setTimeout(function () {
-			Game.start();
-		}, 3000);
-	}
 };

@@ -50,7 +50,7 @@ var Game = {
 	},
 	
 	start: function() {
-		Engine.saveGame();
+		Save.saveGame();
 		Game.player.towerLocation = 0;
 		Game.player.shopLocation = -1;
 		Game.player.globalLocation = 0;
@@ -106,7 +106,7 @@ var Game = {
 	},
 	
 	backleigh: function() {
-		Engine.saveGame();
+		Save.saveGame();
 		Game.player.towerLocation = 0;
 		Game.player.shopLocation = -1;
 		Game.player.globalLocation = 0;
@@ -352,7 +352,7 @@ var Game = {
 	},
 	
 	draydon: function() {
-		Engine.saveGame();
+		Save.saveGame();
 		Game.player.towerLocation = 0;
 		Game.player.shopLocation = -1;
 		Game.player.globalLocation = 0;
@@ -447,7 +447,7 @@ var Game = {
 	},
 	
 	elden: function() {
-		Engine.saveGame();
+		Save.saveGame();
 		Game.player.towerLocation = 0;
 		Game.player.shopLocation = -1;
 		Game.player.globalLocation = 0;
@@ -541,7 +541,7 @@ var Game = {
 	},
 
 	grimtol: function() {
-		Engine.saveGame();
+		Save.saveGame();
 		Game.player.towerLocation = 0;
 		Game.player.shopLocation = -1;
 		Game.player.globalLocation = 0;
@@ -660,7 +660,7 @@ var Game = {
 	},
 	
 	kirkoswald: function() {
-		Engine.saveGame();
+		Save.saveGame();
 		Game.player.towerLocation = 0;
 		Game.player.shopLocation = -1;
 		Game.player.globalLocation = 0;
@@ -2332,8 +2332,8 @@ var Game = {
 			click: Engine.stats,
 			width: Game.player.width,
 		}).appendTo('span#rightColButton');
-		Engine.autoSave();
-		Engine.loadGame();
+		Save.autoSave();
+		Save.loadGame();
 	},
 
 };
