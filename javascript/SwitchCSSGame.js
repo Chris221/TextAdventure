@@ -79,9 +79,15 @@ function startUp() {
 	var c=getCookie(cName);
 	if (c!="") {
 		if (checkCssFile == c) {
+<<<<<<< HEAD:javascript/SwitchCSSGame.js
 			changeCSSall('CSS/Style.css', 1, 'CSS/Phone.css', 3, 'CSS/Tablet.css', 4, 'CSS/Game.css', 5);
 		} else {
 			changeCSSall('CSS/DarkStyle.css', 1, 'CSS/DarkPhone.css', 3, 'CSS/DarkTablet.css', 4, 'CSS/DarkGame.css', 5);
+=======
+			changeCSSall('../CSS/Style.css', 1, '../CSS/Phone.css', 3, '../CSS/Tablet.css', 4, '../CSS/Game.css', 5);
+		} else {
+			changeCSSall('../CSS/DarkStyle.css', 1, '../CSS/DarkPhone.css', 3, '../CSS/DarkTablet.css', 4, '../CSS/DarkGame.css', 5);
+>>>>>>> FETCH_HEAD:javascript/SwitchCSSGame.js
 		}
 	} 
 };

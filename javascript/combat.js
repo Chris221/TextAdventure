@@ -369,6 +369,7 @@ var Combat = {
 		text += ('You have ' + Game.player.health + ' health.<br />');
 		text += ('What would you like to do?<br />');
 		Engine.display(text);
+<<<<<<< HEAD
 		new Button.Button({
 			id: 'SwingButton',
 			text: _('Swing your ' + Game.player.swordname),
@@ -381,9 +382,23 @@ var Combat = {
 			click: Game.eat,
 			width: Game.player.width,
 		}).appendTo('span#output');
+=======
+>>>>>>> FETCH_HEAD
 		if (Game.player.health <= 0) {
 			Game.dead();
 		}
+		new Button.Button({
+			id: 'SwingButton',
+			text: _('Swing your ' + Game.player.swordname),
+			click: Combat.monster2,
+			width: Game.player.width,
+		}).appendTo('span#output');
+		new Button.Button({
+			id: 'EatButton',
+			text: _('Eat a fish. You have ' + Game.player.fish),
+			click: Game.eat,
+			width: Game.player.width,
+		}).appendTo('span#output');
 	},
 	
 	monster2: function() {
@@ -392,7 +407,11 @@ var Combat = {
 		if (damage > 0) {
 			text += ('You hit the ' + Combat.enemy.monster + ' for ' + damage + '.<br />');
 			Combat.enemy.mHealth -= damage;
+<<<<<<< HEAD
 			Game.player.attackxp += damage*3;
+=======
+			Game.player.attackxp += damage;
+>>>>>>> FETCH_HEAD
 			for ( ; Game.player.attackxp >= Game.player.attack*21; ) {
 				text += ('<br /><span class="bold">Congratulations, you have advanced an Attack level!</span><br />');
 				Game.player.attackxp -= Game.player.attack*21;
@@ -420,7 +439,11 @@ var Combat = {
 			if (r > Combat.enemy.out) {
 				text += ('The ' + Combat.enemy.monster + ' hits you for ' + Combat.enemy.mDamage + ' damage!<br />');
 				Game.player.health -= Combat.enemy.mDamage;
+<<<<<<< HEAD
 				Game.player.defensexp += Combat.enemy.mDamage*3;
+=======
+				Game.player.defensexp += Combat.enemy.mDamage;
+>>>>>>> FETCH_HEAD
 				for ( ;Game.player.defensexp >= Game.player.defense*21; ) {
 					text += ('<br /><span class="bold">Congratulations, you have advanced a Defense level!</span><br />');
 					Game.player.defensexp -= Game.player.defense*21;
@@ -456,6 +479,7 @@ var Combat = {
 			Game.player.key = 1;
 		}
 		Engine.display(text);
+<<<<<<< HEAD
 		new Button.Button({
 			id: 'ContinueButton',
 			text: _('Continue on your journey'),
@@ -468,6 +492,11 @@ var Combat = {
 			click: Game.eat,
 			width: Game.player.width,
 		}).appendTo('span#output');
+=======
+		setTimeout(function () {
+			Combat.comabatEnd();
+		}, 3000);
+>>>>>>> FETCH_HEAD
 	},
 
 	BASEMONSTER: function() {

@@ -29,6 +29,7 @@ span.stats {
 
 span.bold {
 	font-weight: bold;
+<<<<<<< HEAD
 }
 
 span.center {
@@ -40,4 +41,6 @@ span.save {
 	float: right;
 	line-height: 38px;
 	padding-right: 5px;
+=======
+>>>>>>> FETCH_HEAD
 }
