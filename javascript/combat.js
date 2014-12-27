@@ -1,3 +1,9 @@
+/**
+*
+*  Combat file for Tower Quest
+*  http://ChrisSiena.com/
+*
+**/
 var Combat = {
 	enemy: {
 		mHealth: 0,
@@ -70,7 +76,7 @@ var Combat = {
 	},
 	
 	guard: function() {
-		display('The guard proceeds to ready his sword!');
+		Engine.display('The guard proceeds to ready his sword!');
 		mH = 30;
 		mD = 5;
 		mS = 150;
@@ -84,7 +90,7 @@ var Combat = {
 	},
 	
 	soldier: function() {
-		display('The soldier proceeds to ready his short sword!');
+		Engine.display('The soldier proceeds to ready his short sword!');
 		mH = 20;
 		mD = 3;
 		mS = 100;
@@ -98,7 +104,7 @@ var Combat = {
 	},
 
 	dragon: function() {
-		display('The dragon proceeds to watch you closely!');
+		Engine.display('The dragon proceeds to watch you closely!');
 		mH = 100;
 		mD = 10;
 		mS = 1000;
@@ -112,7 +118,7 @@ var Combat = {
 	},
 	
 	demon: function() {
-		display('The demon stares varo your soul!');
+		Engine.display('The demon stares varo your soul!');
 		mH = 20;
 		mD = 3;
 		mS = 100;
@@ -126,7 +132,7 @@ var Combat = {
 	},
 	
 	babyDragon: function() {
-		display('The baby dragon looks at you with curiosity!');
+		Engine.display('The baby dragon looks at you with curiosity!');
 		mH = 30;
 		mD = 4;
 		mS = 100;
@@ -140,7 +146,7 @@ var Combat = {
 	},
 
 	goblin: function() {
-		display('The goblin looks at you, holding a stick!');
+		Engine.display('The goblin looks at you, holding a stick!');
 		mH = 5;
 		mD = 1;
 		mS = 10;
@@ -158,7 +164,7 @@ var Combat = {
 		text += ('A goblin jumps out of no where!<br />');
 		text += ('The goblin smacks you with it\'s stick!<br />');
 		text += ('The goblin hits you for 1 damage!<br />');
-		display(text);
+		Engine.display(text);
 		health--;
 		mH = 5;
 		mD = 1;
@@ -173,7 +179,7 @@ var Combat = {
 	},
 
 	bear: function() {
-		display('The bear charges at you!');
+		Engine.display('The bear charges at you!');
 		mH = 15;
 		mD = 4;
 		mS = 20;
@@ -187,7 +193,7 @@ var Combat = {
 	},
 
 	ghoul: function() {
-		display('The ghoul slowly walks toward you!');
+		Engine.display('The ghoul slowly walks toward you!');
 		mH = 10;
 		mD = 3;
 		mS = 20;
@@ -201,7 +207,7 @@ var Combat = {
 	},
 	
 	zombie: function() {
-		display('The zombie sprvars toward you!');
+		Engine.display('The zombie stumbles toward you!');
 		mH = 12;
 		mD = 4;
 		mS = 20;
@@ -215,7 +221,7 @@ var Combat = {
 	},
 	
 	troll: function() {
-		display('The troll stands their with its club on its shoulder!');
+		Engine.display('The troll stands their with its club on its shoulder!');
 		mH = 25;
 		mD = 5;
 		mS = 50;
@@ -229,7 +235,7 @@ var Combat = {
 	},
 	
 	giant: function() {
-		display('The giant is holding a tree trunk!');
+		Engine.display('The giant is holding a tree trunk!');
 		mH = 30;
 		mD = 6;
 		mS = 50;
@@ -243,7 +249,7 @@ var Combat = {
 	},
 	
 	skeleton: function() {
-		display('The skeleton makes its way toward you with a broken sword!');
+		Engine.display('The skeleton makes its way toward you with a broken sword!');
 		mH = 15;
 		mD = 3;
 		mS = 25;
@@ -257,7 +263,7 @@ var Combat = {
 	},
 	
 	spider: function() {
-		display('The spider looks poisonous!');
+		Engine.display('The spider looks poisonous!');
 		mH = 9;
 		mD = 4;
 		mS = 15;
@@ -271,7 +277,7 @@ var Combat = {
 	},
 	
 	fireWizard: function() {
-		display('The wizard gets ready to fight!');
+		Engine.display('The wizard gets ready to fight!');
 		mH = 25;
 		mD = 5;
 		mS = 100;
@@ -285,7 +291,7 @@ var Combat = {
 	},
 	
 	frostWizard: function() {
-		display('The wizard gets ready to fight!');
+		Engine.display('The wizard gets ready to fight!');
 		mH = 25;
 		mD = 5;
 		mS = 100;
@@ -299,7 +305,7 @@ var Combat = {
 	},
 	
 	lightWizard: function() {
-		display('The wizard gets ready to fight!');
+		Engine.display('The wizard gets ready to fight!');
 		mH = 25;
 		mD = 5;
 		mS = 100;
@@ -313,7 +319,7 @@ var Combat = {
 	},
 	
 	psychicWizard: function() {
-		display('The wizard gets ready to fight!');
+		Engine.display('The wizard gets ready to fight!');
 		mH = 25;
 		mD = 5;
 		mS = 100;
@@ -342,9 +348,19 @@ var Combat = {
 		text += ('The ' + Combat.enemy.monster + ' has ' + Combat.enemy.mHealth + ' health.<br />');
 		text += ('You have ' + Game.player.health + ' health.<br />');
 		text += ('What would you like to do?<br />');
-		text += ('1) <b>Swing</b> your ' + Game.player.swordname + '.<br />');
-		text += ('2) <b>Eat</b> a fish. You have ' + Game.player.fish + ' fish.<br />');
-		display(text);
+		Engine.display(text);
+		new Button.Button({
+			id: 'SwingButton',
+			text: _('Swing your ' + Game.player.swordname),
+			click: Combat.monster2,
+			width: Game.player.width,
+		}).appendTo('span#output');
+		new Button.Button({
+			id: 'EatButton',
+			text: _('Eat a fish. You have ' + Game.player.fish),
+			click: Game.eat,
+			width: Game.player.width,
+		}).appendTo('span#output');
 	},
 	
 	monsterContinue: function() {
@@ -352,9 +368,19 @@ var Combat = {
 		text += ('The ' + Combat.enemy.monster + ' has ' + Combat.enemy.mHealth + ' health.<br />');
 		text += ('You have ' + Game.player.health + ' health.<br />');
 		text += ('What would you like to do?<br />');
-		text += ('1) <b>Swing</b> your ' + Game.player.swordname + '.<br />');
-		text += ('2) <b>Eat</b> a fish. You have ' + Game.player.fish + ' fish.<br />');
-		display(text);
+		Engine.display(text);
+		new Button.Button({
+			id: 'SwingButton',
+			text: _('Swing your ' + Game.player.swordname),
+			click: Combat.monster2,
+			width: Game.player.width,
+		}).appendTo('span#output');
+		new Button.Button({
+			id: 'EatButton',
+			text: _('Eat a fish. You have ' + Game.player.fish + ' Fish'),
+			click: Game.eat,
+			width: Game.player.width,
+		}).appendTo('span#output');
 		if (Game.player.health <= 0) {
 			Game.dead();
 		}
@@ -366,12 +392,12 @@ var Combat = {
 		if (damage > 0) {
 			text += ('You hit the ' + Combat.enemy.monster + ' for ' + damage + '.<br />');
 			Combat.enemy.mHealth -= damage;
-			Game.player.attackxp += damage;
-			if (Game.player.attackxp >= Game.player.attack*21) {
-				text += ('<br /><b>Congratulations, you have advanced an Attack level!</b><br />');
-				Game.player.attack++;
-				text += ('<b>Attack level:</b> ' + Game.player.attack) + '<br />';
+			Game.player.attackxp += damage*3;
+			for ( ; Game.player.attackxp >= Game.player.attack*21; ) {
+				text += ('<br /><span class="bold">Congratulations, you have advanced an Attack level!</span><br />');
 				Game.player.attackxp -= Game.player.attack*21;
+				Game.player.attack++;
+				text += ('<span class="bold">Attack level:</span> ' + Game.player.attack) + '<br />';
 				if (Game.player.attackxp < 0) {
 					Game.player.attackxp = 0;
 				}
@@ -379,7 +405,7 @@ var Combat = {
 		} else {
 			text += ('Your swing misses!<br />');
 		}
-		display(text);
+		Engine.display(text);
 		setTimeout(function () {
 			Combat.monsterSwing();
 		}, 2000);
@@ -394,12 +420,12 @@ var Combat = {
 			if (r > Combat.enemy.out) {
 				text += ('The ' + Combat.enemy.monster + ' hits you for ' + Combat.enemy.mDamage + ' damage!<br />');
 				Game.player.health -= Combat.enemy.mDamage;
-				Game.player.defensexp += Combat.enemy.mDamage;
-				if (Game.player.defensexp >= Game.player.defense*21) {
-					text += ('<br /><b>Congratulations, you have advanced a Defense level!</b><br />');
-					Game.player.defense++;
-					text += ('<b>Defense level:</b> ' + Game.player.defense) + '<br />';
+				Game.player.defensexp += Combat.enemy.mDamage*3;
+				for ( ;Game.player.defensexp >= Game.player.defense*21; ) {
+					text += ('<br /><span class="bold">Congratulations, you have advanced a Defense level!</span><br />');
 					Game.player.defensexp -= Game.player.defense*21;
+					Game.player.defense++;
+					text += ('<span class="bold">Defense level:</span> ' + Game.player.defense) + '<br />';
 					if (Game.player.defensexp < 0) {
 						Game.player.defensexp = 0;
 					}
@@ -407,7 +433,7 @@ var Combat = {
 			} else {
 				text += ('The ' + Combat.enemy.monster + ' misses.<br />');
 			}
-			display(text);
+			Engine.display(text);
 			setTimeout(function () {
 				Combat.monsterContinue();
 			}, 2000);
@@ -429,14 +455,23 @@ var Combat = {
 			text += ('Maybe it fits the Magician Tower.<br />');
 			Game.player.key = 1;
 		}
-		display(text);
-		setTimeout(function () {
-			Combat.comabatEnd();
-		}, 3000);
+		Engine.display(text);
+		new Button.Button({
+			id: 'ContinueButton',
+			text: _('Continue on your journey'),
+			click: Combat.comabatEnd,
+			width: Game.player.width,
+		}).appendTo('span#output');
+		new Button.Button({
+			id: 'EatButton',
+			text: _('Eat a fish before continuing. You have ' + Game.player.fish + ' Fish'),
+			click: Game.eat,
+			width: Game.player.width,
+		}).appendTo('span#output');
 	},
 
 	BASEMONSTER: function() {
-		display('WHAT DO THEY DO TO READY?<br />');
+		Engine.display('WHAT DO THEY DO TO READY?<br />');
 		mH = 0;
 		mD = 0;
 		mS = 0;
@@ -467,7 +502,7 @@ var Combat = {
 	
 	comabatEnd: function() {
 		if (Game.player.towerLocation === 1) {
-			Game.player.end();
+			Game.end();
 		} else if (Game.player.location === 4 && Game.player.globalLocation === 4 && Game.player.towerLocation === 0) {
 			Game.magicalForestReturn();
 		} else if (Game.player.location === 1 && Game.player.globalLocation === 4 && Game.player.towerLocation === 0) {
