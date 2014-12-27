@@ -46,11 +46,7 @@ var Game = {
 		swordname: '',
 	 	armourname: '',
 		name: '',
-<<<<<<< HEAD
 		width: '150px',
-=======
-		width: '125px',
->>>>>>> FETCH_HEAD
 	},
 	
 	start: function() {
@@ -392,15 +388,9 @@ var Game = {
 		text += ('What would you like to do?<br />');
 		Engine.display(text);
 		new Button.Button({
-<<<<<<< HEAD
 			id: 'NetButton',
 			text: _('Buy nets'),
 			click: Game.netStore,
-=======
-			id: 'BaitButton',
-			text: _('Buy bait'),
-			click: Game.baitStore,
->>>>>>> FETCH_HEAD
 			width: Game.player.width,
 		}).appendTo('span#output');
 		new Button.Button({
@@ -426,15 +416,9 @@ var Game = {
 		text += ('What would you like to do?<br />');
 		Engine.display(text);
 		new Button.Button({
-<<<<<<< HEAD
 			id: 'NetButton',
 			text: _('Buy 20 nets'),
 			click: Game.netBuy,
-=======
-			id: 'BaitButton',
-			text: _('Buy 20 bait'),
-			click: Game.baitBuy,
->>>>>>> FETCH_HEAD
 			width: Game.player.width,
 		}).appendTo('span#output');
 		new Button.Button({
@@ -445,7 +429,6 @@ var Game = {
 		}).appendTo('span#output');
 	},
 	
-<<<<<<< HEAD
 	netBuy: function() {
 		var text = '';
 		if (Game.player.silver >= 50) {
@@ -455,17 +438,6 @@ var Game = {
 			text += ('You have ' + Game.player.net + ' one use nets.<br />');
 		} else {
 			text += ('20 nets costs 50 silver.<br />');
-=======
-	baitBuy: function() {
-		var text = '';
-		if (Game.player.silver >= 50) {
-			Game.player.silver -= 50;
-			Game.player.bait += 20;
-			text += ('You have ' + Game.player.silver + ' silver.<br />');
-			text += ('You have ' + Game.player.bait + ' pieces of bait.<br />');
-		} else {
-			text += ('Bait costs 50 silver.<br />');
->>>>>>> FETCH_HEAD
 			text += ('You have ' + Game.player.silver + ' silver.<br />');
 		}
 		Engine.display(text);
@@ -2028,11 +2000,6 @@ var Game = {
 			text += ('You have ' + Game.player.iron + ' iron.<br />');
 			if (Game.player.miningxp >= Game.player.mining*21) {
 				text += ('<br /><span class="bold">Congratulations, you have advanced a Mining level!</span><br />');
-<<<<<<< HEAD
-=======
-				Game.player.mining++;
-				text += ('<span class="bold">Mining level:</span> ' + Game.player.mining + '<br />');
->>>>>>> FETCH_HEAD
 				Game.player.miningxp -= Game.player.mining*21;
 				Game.player.mining++;
 				text += ('<span class="bold">Mining level:</span> ' + Game.player.mining + '<br />');
@@ -2082,11 +2049,6 @@ var Game = {
 				text += ('You have ' + Game.player.coal + ' Coal.<br />');
 				if (Game.player.miningxp >= Game.player.mining*21) {
 					text += ('<br /><span class="bold">Congratulations, you have advanced a Mining level!</span><br />');
-<<<<<<< HEAD
-=======
-					Game.player.mining++;
-					text += ('<span class="bold">Mining level</span>: ' + Game.player.mining + '<br />');
->>>>>>> FETCH_HEAD
 					Game.player.miningxp -= Game.player.mining*21;
 					Game.player.mining++;
 					text += ('<span class="bold">Mining level</span>: ' + Game.player.mining + '<br />');
@@ -2139,11 +2101,6 @@ var Game = {
 				text += ('You have ' + Game.player.gold + ' gold.<br />');
 				if (Game.player.miningxp >= Game.player.mining*21) {
 					text += ('<br /><span class="bold">Congratulations, you have advanced a Mining level!</span><br />');
-<<<<<<< HEAD
-=======
-					Game.player.mining++;
-					text += ('<span class="bold">Mining level</span>: ' + Game.player.mining) + '<br />';
->>>>>>> FETCH_HEAD
 					Game.player.miningxp -= Game.player.mining*21;
 					Game.player.mining++;
 					text += ('<span class="bold">Mining level</span>: ' + Game.player.mining) + '<br />';
@@ -2200,11 +2157,6 @@ var Game = {
 			text += ('You have ' + Game.player.wood + ' wood.<br />');
 			if (Game.player.woodcuttingxp >= Game.player.woodcutting*21) {
 				text += ('<br /><span class="bold">Congratulations, you have advanced a Woodcutting level!</span><br />');
-<<<<<<< HEAD
-=======
-				Game.player.woodcutting++;
-				text += ('<span class="bold">Woodcutting level:</span> ' + Game.player.woodcutting + '<br />');
->>>>>>> FETCH_HEAD
 				Game.player.woodcuttingxp -= Game.player.woodcutting*21;
 				Game.player.woodcutting++;
 				text += ('<span class="bold">Woodcutting level:</span> ' + Game.player.woodcutting + '<br />');
@@ -2225,7 +2177,6 @@ var Game = {
 	
 	fish: function() {
 		var text = '';
-<<<<<<< HEAD
 		if (Game.player.net > 0) {
 			Engine.display('Casting A Net.');
 			setTimeout(function () {
@@ -2233,15 +2184,6 @@ var Game = {
 			}, 1000);
 			setTimeout(function () {
 				Engine.display('Casting A Net...');
-=======
-		if (Game.player.bait > 0) {
-			Engine.display('Fishing.');
-			setTimeout(function () {
-				Engine.display('Fishing..');
-			}, 1000);
-			setTimeout(function () {
-				Engine.display('Fishing...');
->>>>>>> FETCH_HEAD
 			}, 2000);
 			setTimeout(function () {
 				var b = 3;
@@ -2280,11 +2222,6 @@ var Game = {
 				text += ('You have ' + Game.player.net + ' one use nets left.<br />');
 				if (Game.player.fishingxp >= Game.player.fishing*21) {
 					text += ('<br /><span class="bold">Congratulations, you have advanced a Fishing level!</span><br />');
-<<<<<<< HEAD
-=======
-					Game.player.fishing++;
-					text += ('<span class="bold">Fishing level:</span> ' + Game.player.fishing + '<br />');
->>>>>>> FETCH_HEAD
 					Game.player.fishingxp -= Game.player.fishing*21;
 					Game.player.fishing++;
 					text += ('<span class="bold">Fishing level:</span> ' + Game.player.fishing + '<br />');
@@ -2300,15 +2237,9 @@ var Game = {
 				}, 3000);
 			}, 3000);
 		} else {
-<<<<<<< HEAD
 			text += ('You have 0 nets.<br />');
 			text += ('You need at least 1 one net.<br />');
 			text += ('You can buy nets at the Draydon Port.<br />');
-=======
-			text += ('You have 0 pieces of bait.<br />');
-			text += ('You need at least 1 piece of bait to fish.<br />');
-			text += ('You buy bait at the Draydon Port.<br />');
->>>>>>> FETCH_HEAD
 			Engine.display(text);
 			setTimeout(function () {
 				if (Game.player.location === 2 && Game.player.globalLocation === 2) {
@@ -2401,11 +2332,8 @@ var Game = {
 			click: Engine.stats,
 			width: Game.player.width,
 		}).appendTo('span#rightColButton');
-<<<<<<< HEAD
 		Engine.autoSave();
 		Engine.loadGame();
-=======
->>>>>>> FETCH_HEAD
 	},
 
 };

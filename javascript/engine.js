@@ -9,11 +9,8 @@ var Engine = {
 		inputBox: false,
 		stats: false,
 		cheats: false,
-<<<<<<< HEAD
 		cName: '_gameSave',
 		cDomain: 'chrissiena.com',
-=======
->>>>>>> FETCH_HEAD
 	},
 	
 	interpret: function(input) {
@@ -42,12 +39,8 @@ var Engine = {
 		nullOutput.innerHTML = '';
 		var rightOutput = document.getElementById('right_output');
 		rightOutput.innerHTML = '';
-<<<<<<< HEAD
 		Engine.Engine.stats = false;
 		Engine.hideInput();
-=======
-		$("input").hide();
->>>>>>> FETCH_HEAD
 	},
 	
 	run: function() {
@@ -63,10 +56,7 @@ var Engine = {
 		var nullOutput = document.getElementById('null_output');
 		nullOutput.innerHTML = '';
 		nullOutput.innerHTML = 'That command is not a valid command at this location.';
-<<<<<<< HEAD
 		Engine.Engine.stats = false;
-=======
->>>>>>> FETCH_HEAD
 	},
 	
 	rightdisplay: function(text) {
@@ -252,11 +242,7 @@ var Engine = {
 	
 	cheat: function() {
 		Engine.Engine.stats = false;
-<<<<<<< HEAD
 		Engine.hideInput();
-=======
-		Engine.showInput();
->>>>>>> FETCH_HEAD
 		var text = '';
 		if (Game.player.cheat === false) {
 			Game.player.cheat = true;
@@ -299,15 +285,12 @@ var Engine = {
 					click: Engine.cheat,
 					width: Game.player.width,
 				}).appendTo('span#rightColButton');
-<<<<<<< HEAD
 				new Button.Button({
 					id: 'ResetButton',
 					text: _('RESET!!!'),
 					click: Engine.resetGame,
 					width: Game.player.width,
 				}).appendTo('span#rightColButton');
-=======
->>>>>>> FETCH_HEAD
 				Engine.Engine.cheats = true;
 			} else {
 				$("div#SliverButton").show();
@@ -316,7 +299,6 @@ var Engine = {
 				$("div#GodArmourButton").show();
 				$("div#GodButton").show();
 				$("div#CheatButton").show();
-<<<<<<< HEAD
 				$("div#ResetButton").show();
 			}
 		} else {
@@ -530,146 +512,6 @@ var Engine = {
 		} else {
 			Engine.notValid();
 		}
-=======
-			}
-		} else {
-			Game.player.cheat = false;
-			text = '<span class="bold">Cheats:</span> <span class="stats bold">OFF</span><br />';
-			$("div#SliverButton").hide();
-			$("div#FishButton").hide();
-			$("div#GodSwordButton").hide();
-			$("div#GodArmourButton").hide();
-			$("div#GodButton").hide();
-			$("div#CheatButton").hide();
-		}
-		Engine.rightdisplay(text);
-	},
-	
-	giveSilver: function() {
-		Engine.Engine.stats = false;
-		Engine.showInput();
-		if (Game.player.cheat === true) {
-			Game.player.silver += 100000;
-			Engine.rightdisplay('<span class="stats bold">+100,000 Silver</span><br />');
-		} else {
-			Engine.notValid();
-		}
-	},
-	
-	giveFish: function() {
-		Engine.Engine.stats = false;
-		Engine.showInput();
-		if (Game.player.cheat === true) {
-			Game.player.fish += 100000;
-			Engine.rightdisplay('<span class="stats bold">+100,000 Fish</span><br />');
-		} else {
-			Engine.notValid();
-		}
-	},
-	
-	godSword: function() {
-		Engine.Engine.stats = false;
-		Engine.showInput();
-		if (Game.player.cheat === true) {
-			if (Game.player.sword === 100) {
-				Game.player.sword = Game.player.swordcheat;
-				var text = '';
-				text += ('You unequipped the <span class="stats bold">' + Game.player.swordname + '</span>.<br />');
-				Game.swordName();
-				text += ('You equipped the <span class="stats bold">' + Game.player.swordname + '</span> from before.<br />');
-				Engine.rightdisplay(text);
-			} else {
-				Game.player.swordcheat = Game.player.sword;
-				Game.player.sword = 100;
-				var text = '';
-				text += ('You unequipped the <span class="stats bold">' + Game.player.swordname + '</span>.<br />');
-				Game.swordName();
-				text += ('You equipped the <span class="stats bold">' + Game.player.swordname + '</span>.<br />');
-				Engine.rightdisplay(text);
-			}
-		} else {
-			Engine.notValid();
-		}
-	},
-	
-	godArmour: function() {
-		Engine.Engine.stats = false;
-		Engine.showInput();
-		if (Game.player.cheat === true) {
-			if (Game.player.armour === 100) {
-				Game.player.armour = Game.player.armourcheat;
-				Game.player.healthstatic = Game.player.healthstaticcheat;
-				Game.player.health = Game.player.healthstatic;
-				var text = '';
-				text += ('You unequipped the <span class="stats bold">' + Game.player.armourname + '</span>.<br />');
-				Game.armourName();
-				text += ('You equipped the <span class="stats bold">' + Game.player.armourname + '</span> from before.<br />');
-				Engine.rightdisplay(text);
-			} else {
-				Game.player.armourcheat = Game.player.armour;
-				Game.player.armour = 100;
-				Game.player.health = 100000;
-				Game.player.healthstaticcheat = Game.player.healthstatic;
-				Game.player.healthstatic = 100000;
-				var text = '';
-				text += ('You unequipped the <span class="stats bold">' + Game.player.armourname + '</span>.<br />');
-				Game.armourName();
-				text += ('You equipped the <span class="stats bold">' + Game.player.armourname + '</span>.<br />');
-				Engine.rightdisplay(text);
-			}
-		} else {
-			Engine.notValid();
-		}
-	},
-	
-	god: function() {
-		Engine.Engine.stats = false;
-		Engine.showInput();
-		if (Game.player.cheat === true) {
-			if (Game.player.sword === 100 && Game.player.armour === 100) {
-				Game.player.sword = Game.player.swordcheat;
-				Game.player.armour = Game.player.armourcheat;
-				Game.player.healthstatic = Game.player.healthstaticcheat;
-				Game.player.health = Game.player.healthstatic;
-				var text = '';
-				text += ('You unequipped the <span class="stats bold">' + Game.player.swordname + '</span>.<br />');
-				Game.swordName();
-				text += ('You equipped the <span class="stats bold">' + Game.player.swordname + '</span> from before.<br />');
-				text += ('You unequipped the <span class="stats bold">' + Game.player.armourname + '</span>.<br />');
-				Game.armourName();
-				text += ('You equipped the <span class="stats bold">' + Game.player.armourname + '</span> from before.<br />');
-				Engine.rightdisplay(text);
-			} else {
-				Game.player.swordcheat = Game.player.sword;
-				Game.player.sword = 100;
-				Game.player.armourcheat = Game.player.armour;
-				Game.player.armour = 100;
-				Game.player.healthstaticcheat = Game.player.healthstatic;
-				Game.player.healthstatic = 100000;
-				Game.player.health = Game.player.healthstatic;
-				var text = '';
-				text += ('You unequipped the <span class="stats bold">' + Game.player.swordname + '</span>.<br />');
-				Game.swordName();
-				text += ('You equipped the <span class="stats bold">' + Game.player.swordname + '</span>.<br />');
-				text += ('You unequipped the <span class="stats bold">' + Game.player.armourname + '</span>.<br />');
-				Game.armourName();
-				text += ('You equipped the <span class="stats bold">' + Game.player.armourname + '</span>.<br />');
-				Engine.rightdisplay(text);
-			}
-		} else {
-			Engine.notValid();
-		}
-	},
-	
-	north: function() {
-		if (Game.player.location === 1) {
-			Game.elden();
-		} else if (Game.player.location === 5) {
-			Game.kirkoswald();
-		} else {
-			Engine.notValid();
-		}
->>>>>>> FETCH_HEAD
 	},
 	
 	south: function() {
@@ -822,15 +664,9 @@ var Engine = {
 	
 	buy: function() {
 		if (Game.player.location === 2 && Game.player.globalLocation === 2) {
-<<<<<<< HEAD
 			Game.netStore();
 		} else if (Game.player.location === 2 && Game.player.globalLocation === 3) {
 			Game.netBuy();
-=======
-			Game.baitStore();
-		} else if (Game.player.location === 2 && Game.player.globalLocation === 3) {
-			Game.baitBuy();
->>>>>>> FETCH_HEAD
 		} else if (Game.player.shopLocation === 1 && Game.player.globalLocation === 1) {
 			Game.bronzeSwordBuy();
 		} else if (Game.player.shopLocation === 1 && Game.player.globalLocation === 2) {
@@ -1157,14 +993,11 @@ var Engine = {
 		}
 	},
 	
-<<<<<<< HEAD
 	hideInput: function() {
 		Engine.Engine.inputBox = false;
 		$("input").hide();
 	},
 	
-=======
->>>>>>> FETCH_HEAD
 	stats: function() {
 		var text = '';
 		if (!Engine.Engine.stats) {
@@ -1196,11 +1029,7 @@ var Engine = {
 			text += ('Mining: <span class="stats">' + Game.player.mining + '</span><br />');
 			text += ('Mining: <span class="stats">' + miningP + '%</span><br />');
 			text += ('Fish: <span class="stats">' + Game.player.fish + '</span><br />');
-<<<<<<< HEAD
 			text += ('Nets: <span class="stats">' + Game.player.net + '</span><br />');
-=======
-			text += ('Bait: <span class="stats">' + Game.player.bait + '</span><br />');
->>>>>>> FETCH_HEAD
 			text += ('Fishing: <span class="stats">' + Game.player.fishing + '</span><br />');
 			text += ('Fishing: <span class="stats">' + fishingP + '%</span><br />');
 			text += ('Woodcutting: <span class="stats">' + Game.player.woodcutting + '</span><br />');
@@ -1219,7 +1048,6 @@ var Engine = {
 		Engine.rightdisplay(text);
 		Engine.showInput();
 	},
-<<<<<<< HEAD
 	
 	gameString: function() {
 		var string = (Game.player.attack + ', ' + Game.player.attackxp + ', ' + Game.player.defense + ', ' + Game.player.defensexp + ', ' + Game.player.health + ', ' + Game.player.healthstatic + ', ' + Game.player.healthstaticcheat + ', ' + Game.player.mining + ', ' + Game.player.miningxp + ', ' + Game.player.fish + ', ' + Game.player.fishing + ', ' + Game.player.fishingxp + ', ' + Game.player.net + ', ' + Game.player.woodcutting + ', ' + Game.player.woodcuttingxp + ', ' + Game.player.iron + ', ' + Game.player.gold + ', ' + Game.player.coal + ', ' + Game.player.wood + ', ' + Game.player.sword + ', ' + Game.player.armour + ', ' + Game.player.swordcheat + ', ' + Game.player.armourcheat + ', ' + Game.player.silver + ', ' + Game.player.key + ', ' + Game.player.kills + ', ' + Game.player.deaths + ', ' + Game.player.woodIncome + ', ' + Game.player.ironIncome + ', ' + Game.player.goldIncome + ', ' + Game.player.coalIncome + ', ' + Game.player.location + ', ' + Game.player.globalLocation + ', ' + Game.player.towerLocation + ', ' + Game.player.shopLocation + ', ' + Game.player.cheat + ', ' + Game.player.start + ', ' + Game.player.swordname + ', ' + Game.player.armourname + ', ' + Game.player.name);
@@ -1344,6 +1172,4 @@ var Engine = {
 			Game.start();
 		}, 3000);
 	}
-=======
->>>>>>> FETCH_HEAD
 };
