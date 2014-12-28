@@ -48,40 +48,30 @@
         <script src="javascript/Combat.js"></script>
         <script src="javascript/Engine.js"></script>
         <script src="javascript/Save.js"></script>
-        <script>
-            $( window ).load(function() {
-				Game.help();
-			})
-        </script>
     </head>
     <body class="body">
-        <div class="topNav">
-            <!--<div class="topNavLinks"></div>-->
-            <span class="Social">
-                <a class="wsite-social-item wsite-social-mail" href="mailto:Chris@ChrisSiena.com" target="_blank"></a>
-                <a href="#" onclick="changeCSSall('CSS/Style.css', 1, 'CSS/Phone.css', 3, 'CSS/Tablet.css', 4, 'CSS/Game.css', 5);" class="hideLight">
-                    <img src="theme/bulb.png" class="light">
-                </a>
-                <a href="#" onclick="changeCSSall('CSS/DarkStyle.css', 1, 'CSS/DarkPhone.css', 3, 'CSS/DarkTablet.css', 4, 'CSS/DarkGame.css', 5);" class="hideDark">
-                    <img src="theme/bulb.png" class="light">
-                </a>
-            </span>
-        </div>
         <div class="page">
-            <div class="placeHolder"></div>
             <div class="container">
                 <div class="leftCol">
+                	<div class="topNav">
+                        <span class="Social">
+                            <a class="wsite-social-item wsite-social-mail" href="mailto:Chris@ChrisSiena.com" target="_blank"></a>
+                            <a href="#" onclick="changeCSSall('CSS/Style.css', 1, 'CSS/Phone.css', 3, 'CSS/Tablet.css', 4, 'CSS/Game.css', 5);" class="hideLight">
+                                <img src="theme/bulb.png" class="light">
+                            </a>
+                            <a href="#" onclick="changeCSSall('CSS/DarkStyle.css', 1, 'CSS/DarkPhone.css', 3, 'CSS/DarkTablet.css', 4, 'CSS/DarkGame.css', 5);" class="hideDark">
+                                <img src="theme/bulb.png" class="light">
+                            </a>
+                        </span>
+                    </div>
                     <br />
                 </div>
                 <div class="rightCol">
                     <h2><br /></h2>
-                    <span id="rightColButton">
-                    </span>
+                    <span id="rightColButton"></span>
                     <br />
-                    <span id="null_output" class="null">
-                    </span>
-                    <span id="right_output" style="color: #CC66FF">
-                    </span>
+                    <span id="null_output" class="null"></span>
+                    <span id="right_output" style="color: #CC66FF"></span>
                 </div>
                 <div class="contextArea">
                     <h2>Tower Quest</h2>
@@ -91,9 +81,7 @@
                                 <input type="text" placeholder="Enter a Command..." onchange="Engine.run()" style="display: none;"/>
                             </center>
                         </span>
-                        <br />
-                        <span id="output">
-                        </span>
+                        <span id="output"></span>
                     </div>
                 </div>
             </div>

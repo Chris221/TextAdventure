@@ -2311,6 +2311,7 @@ var Game = {
 	},
 	
 	help: function() {
+		Engine.init();
 		var text = '';
 		Game.armourName();
 		Game.swordName();
