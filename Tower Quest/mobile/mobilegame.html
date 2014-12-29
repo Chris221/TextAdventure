@@ -7,14 +7,14 @@
         <!-- BrowserIcon -->
         <link rel="icon" type="image/ico" href="/images/Galaxy.jpg" />
         <!-- Computer -->
-        <link type="text/css" rel="stylesheet" href="CSS/Style.css" media="only screen and (min-width:769px)" />
+        <link type="text/css" rel="stylesheet" href="CSS/DarkStyle.css" media="only screen and (min-width:769px)" />
         <link type="text/css" rel="stylesheet" href="CSS/Social.css" />
         <!-- Phone -->
-        <link href="CSS/Phone.css" rel="stylesheet" type="text/css" media="only screen and (max-width:480px)" />
+        <link href="CSS/DarkPhone.css" rel="stylesheet" type="text/css" media="only screen and (max-width:480px)" />
         <!-- Tablet -->
-        <link href="CSS/Tablet.css" rel="stylesheet" type="text/css" media="only screen and (min-width:481px) and (max-width:768px)" />
+        <link href="CSS/DarkTablet.css" rel="stylesheet" type="text/css" media="only screen and (min-width:481px) and (max-width:768px)" />
         <!-- Game Style -->
-        <link href="CSS/Game.css" rel="stylesheet" type="text/css" />
+        <link href="CSS/DarkGame.css" rel="stylesheet" type="text/css" />
         <!-- Apple Icons -->
         <link rel="apple-touch-icon" href="apple-icons/touch-icon-iphone.png" /> 
         <link rel="apple-touch-icon" sizes="76x76" href="apple-icons/touch-icon-ipad.png" /> 
@@ -28,7 +28,7 @@
         <!-- Turn off the Lights -->
         <script src="javascript/SwitchCSSGame.js"></script>
         <!-- CSS changer -->
-        <script>startUp();</script>
+        <script>//startUp();</script>
         <!-- Jquery files -->
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
         <script src="https://www.dropbox.com/static/api/dropbox-datastores-1.1-latest.js" type="text/javascript"></script>
@@ -53,28 +53,24 @@
         <div class="page">
             <div class="container">
                 <div class="leftCol">
-                	<div class="topNav">
-                        <span class="Social">
-                            <a class="wsite-social-item wsite-social-mail" href="mailto:Chris@ChrisSiena.com" target="_blank"></a>
-                            <a href="#" onclick="changeCSSall('CSS/Style.css', 1, 'CSS/Phone.css', 3, 'CSS/Tablet.css', 4, 'CSS/Game.css', 5);" class="hideLight">
-                                <img src="theme/bulb.png" class="light">
-                            </a>
-                            <a href="#" onclick="changeCSSall('CSS/DarkStyle.css', 1, 'CSS/DarkPhone.css', 3, 'CSS/DarkTablet.css', 4, 'CSS/DarkGame.css', 5);" class="hideDark">
-                                <img src="theme/bulb.png" class="light">
-                            </a>
-                        </span>
-                    </div>
-                    <br />
+                	<!--<span class="links hideLight">
+                        <a href="#" onclick="changeCSSall('CSS/Style.css', 1, 'CSS/Phone.css', 3, 'CSS/Tablet.css', 4, 'CSS/Game.css', 5);" class="hideLight">Turn on the lights</a>
+					</span>
+                    <span class="links hideDark">
+                        <a href="#" onclick="changeCSSall('CSS/DarkStyle.css', 1, 'CSS/DarkPhone.css', 3, 'CSS/DarkTablet.css', 4, 'CSS/DarkGame.css', 5);" class="hideDark">Turn off the lights</a>
+                    </span>-->
+                    <div class="save2">
+                    	<center id="save"></center>
+                        &nbsp;
+                	</div>
                 </div>
                 <div class="rightCol">
-                    <h2><br /></h2>
                     <span id="rightColButton"></span>
-                    <br />
                     <span id="null_output" class="null"></span>
                     <span id="right_output" style="color: #CC66FF"></span>
                 </div>
                 <div class="contextArea">
-                    <h2>Tower Quest</h2>
+                    <!--<h2>Tower Quest</h2>-->
                     <div class="text">
                         <span>
                             <center>
@@ -86,8 +82,8 @@
                 </div>
             </div>
         </div>
-        <div class="footer">
-            <div class="footerText">Copyright 2013-2014 by ChrisSiena.com. All Rights Reserved.</div>
-        </div>
+        <!--<div class="footer">
+            <div class="footerText">Copyright 2013-2015 by ChrisSiena.com. All Rights Reserved.</div>
+        </div>-->
     </body>
 </html>

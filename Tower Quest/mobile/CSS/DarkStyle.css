@@ -1,6 +1,6 @@
 /**
 *
-*  Dark Phone Style Sheet for the site
+*  Dark Main Style Sheet for the site
 *  http://ChrisSiena.com/
 *
 **/
@@ -23,21 +23,20 @@ body {
 	font-weight: normal;
 }
 .top {
-	margin: auto;	
+	margin: auto;
 }
 .links a:link, .links a:visited, .links a:hover, .links a:active {
 	display: block;
 	font-size: 14px;
 	padding-bottom: 4px;
 	background-color: #000000;
-	color: #AAAAAA;
-	color: #BFBFBF;
+	color: #FFFFFF;
 	text-decoration: none;
 }
 .links a:hover, .links a:active {
 	background-color: #000000;
 	color: #FFFFFF;
-	text-decoration: underline;
+	text-decoration: none;
 }
 .topNav {
 	height: 38px;
@@ -60,7 +59,7 @@ body {
 .top h1 {
 	text-align: center;
 	color: #FFFFFF;
-	font-size: x-large;
+	font-size: 48px;
 	font-variant: small;
 	font-style: italic;
 }
@@ -70,15 +69,15 @@ body {
 }
 .placeHolder {
 	margin: 0 auto;
-	width: 0%;
-	height: 0%;
-	float: none;
-	margin-top: 0px;
-	padding-top: 0px;
-	padding-bottom: 0px;
+	width: 15%;
+	float: left;
+	margin-top: 10px;
+	padding-top: 10px;
+	padding-bottom: 20px;
 }
 .container {
-	margin: 0 0;
+	margin: 0 auto;
+	width: 70%;
 	float: left;
 	margin-top: 10px;
 	padding-top: 10px;
@@ -88,26 +87,26 @@ body {
 	box-shadow: 0px 0px 20px 3px #2C2C2C;
 	border-radius: 4px;
 	background-color: #000000;
-	width: 94.4%;
 }
 .leftCol {
 	float: left;
 	margin: 0;
-	width: 50%;
+	width: 20%;
 }
 .contextArea {
 	float: left;
 	margin: 0;
-	width: 100%;
+	width: 59%;
+	margin-left: 0.5%;
+	margin-right: 0.5%;
 }
 .contextArea #text {
 	padding-right: 10px;
 }
 .rightCol {
-	float: left;
+	float: right;
 	margin: 0;
-	width: 50%;
-	margin-bottom: 10px;
+	width: 20%;
 }
 .leftCol h2 {
 	margin-bottom: 4px;
@@ -199,10 +198,22 @@ hr {
 	margin-top: 5px;
 	margin-bottom: 10px;
 }
+.move {
+	background-color: #FF9955;
+	color: #000000;
+	font-weight: bold;
+	border-color: #3F3F3F;
+	border: 2px solid;
+	border-radius: 5px;
+	padding: 3px;
+	position: absolute;
+	top: 150px;
+	left: 100px;
+}
 .hide {
 	display: none;
 }
-.hidePhone {
+.hideComputer {
 	display: none;
 }
 .hideDark {

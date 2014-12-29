@@ -27,6 +27,10 @@ span.stats {
 	color: white;
 }
 
+span.bold {
+	font-weight: bold;
+}
+
 span.center {
 	text-align: center;
 }
@@ -36,4 +40,15 @@ span.save {
 	float: right;
 	line-height: 38px;
 	padding-right: 5px;
+}
+
+span.save2 {
+	color: white;
+	padding-right: 10px;
+}
+
+div.SocialMobile {
+	height: 38px;
+	width: 38px;
+	background-color: #373737;
 }

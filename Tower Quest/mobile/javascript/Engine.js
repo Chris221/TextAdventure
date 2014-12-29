@@ -12,6 +12,7 @@ var Engine = {
 		base: "1, 0, 1, 0, 10, 10, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 200, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, -1, false, true, Fists, none, ",
 		cName: '_gameSave',
 		cDomain: 'chrissiena.com',
+		defaultEvent: '',
 	},
 	
 	interpret: function(input) {
@@ -42,6 +43,7 @@ var Engine = {
 		rightOutput.innerHTML = '';
 		Engine.Engine.stats = false;
 		Engine.hideInput();
+		Engine.disableScrolling();
 	},
 	
 	run: function() {
@@ -1042,9 +1044,11 @@ var Engine = {
 			text += ('Weapon: <span class="stats">' + Game.player.swordname + '</span><br />');
 			text += ('Armour: <span class="stats">' + Game.player.armourname + '</span><br />');
 			text += ('Silver: <span class="stats">' + Game.player.silver + '</span><br />');
+			Engine.enableScrolling();
 		} else {
 			Engine.Engine.stats = false;
 			text += ('');
+			Engine.disableScrolling();
 		}
 		Engine.rightdisplay(text);
 		Engine.showInput();
@@ -1109,9 +1113,7 @@ var Engine = {
 	},
 	
 	init: function() {
-		if(Engine.detectMobile()) {
-			//window.location = 'mobile/mobilegame.html';
-		}
+		//nothing
 	},
 	
 	detectMobile: function() {
@@ -1122,8 +1124,22 @@ var Engine = {
 		}
 	},
 	
+	enableScrolling: function() {
+		document.ontouchmove = Engine.Engine.defaultEvent;
+	},
+	
+	disableScrolling: function() {
+		document.ontouchmove = function(e){
+			e.preventDefault();
+		}
+	},
+	
 };
 
 $(window).load(function() {
+	Engine.Engine.defaultEvent = document.body.ontouchmove;
+	Engine.disableScrolling();
+	//Engine.init();
 	Game.help();
 })
+

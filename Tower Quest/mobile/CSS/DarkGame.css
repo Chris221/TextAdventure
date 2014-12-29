@@ -1,6 +1,6 @@
 /**
 *
-*  Style Sheet for the Game Tower Quest
+*  Dark Style Sheet for the Game Tower Quest
 *  http://ChrisSiena.com/
 *
 **/
@@ -10,7 +10,7 @@
 div.button {
 	position: relative;
 	text-align: center;
-	border: 1px solid black;
+	border: 1px solid white;
 	width: 100px;
 	margin-top: 5px;
 	padding: 5px 10px;
@@ -24,7 +24,7 @@ div.button {
 }
 
 span.stats {
-	color: black;
+	color: white;
 }
 
 span.bold {
@@ -36,19 +36,13 @@ span.center {
 }
 
 span.save {
-	color: black;
+	color: white;
 	float: right;
 	line-height: 38px;
 	padding-right: 5px;
 }
 
 span.save2 {
-	color: black;
+	color: white;
 	padding-right: 10px;
-}
-
-div.SocialMobile {
-	height: 38px;
-	width: 38px;
-	background-color: #C8C8C8;
 }

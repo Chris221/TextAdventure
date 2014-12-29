@@ -30,14 +30,13 @@ body {
 	font-size: 14px;
 	padding-bottom: 4px;
 	background-color: #000000;
-	color: #AAAAAA;
-	color: #BFBFBF;
+	color: #FFFFFF;
 	text-decoration: none;
 }
 .links a:hover, .links a:active {
 	background-color: #000000;
 	color: #FFFFFF;
-	text-decoration: underline;
+	text-decoration: none;
 }
 .topNav {
 	height: 38px;
@@ -80,11 +79,10 @@ body {
 .container {
 	margin: 0 0;
 	float: left;
-	margin-top: 10px;
 	padding-top: 10px;
 	padding-left: 10px;
 	padding-right: 10px;
-	padding-bottom: 20px;
+	padding-bottom: 15px;
 	box-shadow: 0px 0px 20px 3px #2C2C2C;
 	border-radius: 4px;
 	background-color: #000000;

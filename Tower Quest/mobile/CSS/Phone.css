@@ -1,6 +1,6 @@
 /**
 *
-*  Dark Phone Style Sheet for the site
+*  Phone Style Sheet for the site
 *  http://ChrisSiena.com/
 *
 **/
@@ -8,7 +8,7 @@
 /* CSS Document */
 
 html {
-	background-color: #090B0F;
+	background-color: #F6F4F0;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-ms-background-size: cover;
@@ -17,7 +17,7 @@ html {
 }
 body {
 	font-family: verdana, helvetica, arial, sans-serif;
-	color: #FFFFFF;
+	color: #000000;
 	font-size: 16px;
 	font-variant: small;
 	font-weight: normal;
@@ -29,21 +29,21 @@ body {
 	display: block;
 	font-size: 14px;
 	padding-bottom: 4px;
-	background-color: #000000;
-	color: #AAAAAA;
-	color: #BFBFBF;
+	background-color: #ffffff;
+	color: #555555;
+	color: #404040;
 	text-decoration: none;
 }
 .links a:hover, .links a:active {
-	background-color: #000000;
-	color: #FFFFFF;
-	text-decoration: underline;
+	background-color: #ffffff;
+	color: #000000;
+	text-decoration: none;
 }
 .topNav {
 	height: 38px;
-	background-color: #373737;
+	background-color: #C8C8C8;
 	margin-bottom: 10px;
-	box-shadow: 0px 0px 20px 3px #2C2C2C;
+	box-shadow: 0px 0px 20px 3px #d3d3d3;
 	border-radius: 4px;
 }
 .topNavLinks {
@@ -55,11 +55,11 @@ body {
 	padding-left: 10px;
 	padding-right: 20px;
 	padding-top: 5px;
-	background-color: #2C2C2C;
+	background-color: #d3d3d3;
 }
 .top h1 {
 	text-align: center;
-	color: #FFFFFF;
+	color: #000000;
 	font-size: x-large;
 	font-variant: small;
 	font-style: italic;
@@ -84,10 +84,10 @@ body {
 	padding-top: 10px;
 	padding-left: 10px;
 	padding-right: 10px;
-	padding-bottom: 20px;
-	box-shadow: 0px 0px 20px 3px #2C2C2C;
+	padding-bottom: 15px;
+	box-shadow: 0px 0px 20px 3px #d3d3d3;
 	border-radius: 4px;
-	background-color: #000000;
+	background-color: #ffffff;
 	width: 94.4%;
 }
 .leftCol {
@@ -116,7 +116,7 @@ body {
 	padding-top: 0px;
 	font-size: 16px;
 	font-weight: normal;
-	color: #FF9900;
+	color: #06F
 }
 .rightCol h2 {
 	margin-bottom: 4px;
@@ -125,7 +125,7 @@ body {
 	padding-top: 0px;
 	font-size: 16px;
 	font-weight: normal;
-	color: #FF9900
+	color: #06F
 }
 .b {
 	font-weight: bold;
@@ -138,49 +138,49 @@ body {
 	padding-top: 0px;
 	font-size: 16px;
 	font-weight: normal;
-	color: #FF9900
+	color: #06F
 }
 .null {
-	color: #339900;
+	color: #CC66FF;
 	font-style: italic;
 	text-align: center;
 }
 .link a:link, .link a:visited, .link a:hover, .link a:active {
 	display: block;
 	padding-bottom: 4px;
-	background-color: #000000;
-	color: #FF6600;
+	background-color: #ffffff;
+	color: #09F;
 	text-decoration: none;
 }
 .link a:hover, .link a:active {
-	background-color: #000000;
-	color: #FF6600;
+	background-color: #ffffff;
+	color: #09F;
 	text-decoration: underline;
 }
 .link2 a:link, .link2 a:visited, .link2 a:hover, .link2 a:active {
 	padding-bottom: 4px;
-	background-color: #000000;
-	color: #FF6600;
+	background-color: #ffffff;
+	color: #09F;
 	text-decoration: none;
 }
 .link2 a:hover, .link2 a:active {
-	background-color: #000000;
-	color: #FF6600;
+	background-color: #ffffff;
+	color: #09F;
 	text-decoration: underline;
 }
 .linktab {
 	margin-left: 40px;
 }
 hr {
-	background-color: #2B2B2B;
-	color: #2B2B2B;
+	background-color: #d4d4d4;
+	color: #d4d4d4;
 	height: 1px;
 	border: 0px;
 	clear: both;
 }
 .footer {
 	margin: auto;
-	color: #6F6F6F;
+	color: #909090;
 	font-size: 11px;
 	text-align: center;
 	padding-left: 30px;
@@ -188,10 +188,10 @@ hr {
 }
 .footerText {
 	padding-top: 13px;
-	color: #BFBFBF;
+	color: #404040;
 	text-align: center;
 	clear: both;
-	color: #AAAAAA;
+	color: #555555;
 }
 .image {
 	width: 95%;
@@ -199,12 +199,9 @@ hr {
 	margin-top: 5px;
 	margin-bottom: 10px;
 }
-.hide {
-	display: none;
-}
 .hidePhone {
 	display: none;
 }
-.hideDark {
+.hideLight {
 	display: none;
 }
