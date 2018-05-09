@@ -15,3 +15,5 @@ The game is meant to be an open world with a story line. Once the story is finis
 The main character can’t die permanently, the can only be hurt to the point at which they faint and magically get woken up, healed, in a city.
 
 There are other surprises that the player will experience as they play.
+
+#### [Play](https://chris221.github.io/TextAdventure/Tower%20Quest/game.html)
